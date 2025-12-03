@@ -5,17 +5,21 @@ description: "Control the installation, uninstallation and locking of extensions
 
 Control the installation, uninstallation and locking of extensions.
 
-We strongly recommend that you use the **[`ExtensionSettings`](/reference/policies/extensionsettings)** policy. It has the same functionality and adds more. It does not support native paths, though, so you'll have to use file:/// URLs.
-
-This method will be deprecated in the near future.
-
-- `Install` is a list of URLs or native paths for extensions to be installed.
-- `Uninstall` is a list of extension IDs that should be uninstalled if found.
-- `Locked` is a list of extension IDs that the user cannot disable or uninstall.
+> [!WARNING]
+> This method may be removed in future.
+> We strongly recommend that you use the **[`ExtensionSettings`](/reference/policies/extensionsettings)** policy.
+> It has the same functionality with additional configuration options.
+> It does not support native paths, so you will have to use `file://` URLs.
 
 **Compatibility:** Firefox 60, Firefox ESR 60\
 **CCK2 Equivalent:** `addons`\
 **Preferences Affected:** N/A
+
+## Values
+
+- `Install` is a list of URLs or native paths for extensions to be installed.
+- `Uninstall` is a list of extension IDs that should be uninstalled if found.
+- `Locked` is a list of extension IDs that the user cannot disable or uninstall.
 
 ## Windows (GPO)
 

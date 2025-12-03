@@ -5,24 +5,23 @@ description: "Configure the default homepage and how Firefox starts."
 
 Configure the default homepage and how Firefox starts.
 
-`URL` is the default homepage.
-
-`Locked` prevents the user from changing homepage preferences.
-
-`Additional` allows for more than one homepage.
-
-`StartPage` is how Firefox starts.
-
-| Value              | Description                                                                             |
-| ------------------ | --------------------------------------------------------------------------------------- |
-| `none`             | Start with a blank page (no homepage, no previous session).                             |
-| `homepage`         | Start with the homepage in `URL` policy.                                                |
-| `previous-session` | Restore the previous session (all tabs and windows reopen).                             |
-| `homepage-locked`  | Always force the homepage at startup, users cannot choose session restore. (Firefox 78) |
-
 **Compatibility:** Firefox 60, Firefox ESR 60 (StartPage was added in Firefox 60, Firefox ESR 60.4, homepage-locked added in Firefox 78)\
 **CCK2 Equivalent:** `homePage`,`lockHomePage`\
 **Preferences Affected:** `browser.startup.homepage`, `browser.startup.page`
+
+## Values
+
+The following members are configurable:
+
+- `URL` is the default homepage.
+- `Locked` prevents the user from changing homepage preferences.
+- `Additional` allows for more than one homepage.
+- `StartPage` is how Firefox starts.
+  Expects one of the following values:
+  - `none`: Start with a blank page (no homepage, no previous session).
+  - `homepage`: Start with the homepage in `URL` policy.
+  - `previous-session`: Restore the previous session (all tabs and windows reopen).
+  - `homepage-locked`: Always force the homepage at startup, users cannot choose session restore. (Firefox 78)
 
 ## Windows (GPO)
 

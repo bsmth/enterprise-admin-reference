@@ -5,8 +5,6 @@ description: "Set availability of private browsing mode."
 
 Set availability of private browsing mode.
 
-Possible values are `0` (Private Browsing mode is available), `1` (Private Browsing mode not available), and `2`(Private Browsing mode is forced).
-
 This policy supersedes [`DisablePrivateBrowsing`](/reference/policies/disableprivatebrowsing)
 
 > [!NOTE] This policy missed Firefox ESR 128.2, but it will be in Firefox ESR 128.3.
@@ -14,6 +12,14 @@ This policy supersedes [`DisablePrivateBrowsing`](/reference/policies/disablepri
 **Compatibility:** Firefox 130, Firefox ESR 128.3\
 **CCK2 Equivalent:** N/A\
 **Preferences Affected:** N/A
+
+## Values
+
+`PrivateBrowsingModeAvailability` expects one of the following number values:
+
+- `0`: Private Browsing mode is available
+- `1`: Private Browsing mode not available
+- `2`: Private Browsing mode is forced
 
 ## Windows (GPO)
 

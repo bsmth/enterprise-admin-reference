@@ -3,11 +3,17 @@ title: "SanitizeOnShutdown (Selective)"
 description: "Clear data on shutdown."
 ---
 
-(Selective)
-
 Clear data on shutdown.
 
 > [!NOTE] Starting with Firefox 136, FormData and History have been separated again.
+
+**Compatibility:** Firefox 68, Firefox ESR 68 (Locked added in 74/68.6, History update in Firefox 128)\
+**CCK2 Equivalent:** N/A\
+**Preferences Affected:** `privacy.sanitize.sanitizeOnShutdown`, `privacy.clearOnShutdown.cache`, `privacy.clearOnShutdown.cookies`, `privacy.clearOnShutdown.downloads`, `privacy.clearOnShutdown.formdata`, `privacy.clearOnShutdown.history`, `privacy.clearOnShutdown.sessions`, `privacy.clearOnShutdown.siteSettings`, `privacy.clearOnShutdown.offlineApps`, `privacy.clearOnShutdown_v2.historyFormDataAndDownloads` (Firefox 128), `privacy.clearOnShutdown_v2.cookiesAndStorage` (Firefox 128), `privacy.clearOnShutdown_v2.cache` (Firefox 128), `privacy.clearOnShutdown_v2.siteSettings` (Firefox 128), `privacy.clearOnShutdown_v2.formdata` (Firefox 128)
+
+## Values
+
+`SanitizeOnShutdown` accepts one or more of the following:
 
 - `Cache`
 - `Cookies`
@@ -18,10 +24,6 @@ Clear data on shutdown.
 - `SiteSettings` Site Preferences
 - `OfflineApps` Offline Website Data (_Deprecated - part of Cookies_)
 - `Locked` prevents the user from changing these preferences.
-
-**Compatibility:** Firefox 68, Firefox ESR 68 (Locked added in 74/68.6, History update in Firefox 128)\
-**CCK2 Equivalent:** N/A\
-**Preferences Affected:** `privacy.sanitize.sanitizeOnShutdown`, `privacy.clearOnShutdown.cache`, `privacy.clearOnShutdown.cookies`, `privacy.clearOnShutdown.downloads`, `privacy.clearOnShutdown.formdata`, `privacy.clearOnShutdown.history`, `privacy.clearOnShutdown.sessions`, `privacy.clearOnShutdown.siteSettings`, `privacy.clearOnShutdown.offlineApps`, `privacy.clearOnShutdown_v2.historyFormDataAndDownloads` (Firefox 128), `privacy.clearOnShutdown_v2.cookiesAndStorage` (Firefox 128), `privacy.clearOnShutdown_v2.cache` (Firefox 128), `privacy.clearOnShutdown_v2.siteSettings` (Firefox 128), `privacy.clearOnShutdown_v2.formdata` (Firefox 128)
 
 ## Windows (GPO)
 

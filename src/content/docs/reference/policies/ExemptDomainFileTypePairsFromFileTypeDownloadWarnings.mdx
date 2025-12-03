@@ -4,10 +4,12 @@ description: "Disable warnings based on file extension for specific file types o
 ---
 
 Disable warnings based on file extension for specific file types on domains.
-
 This policy is based on the [Chrome policy](https://chromeenterprise.google/policies/#ExemptDomainFileTypePairsFromFileTypeDownloadWarnings) of the same name.
 
-Important: The documentation for the policy for both Edge and Chrome is incorrect. The `domains` value must be a domain, not a URL pattern. Also, we do not support using `*` to mean all domains.
+> [!WARNING]
+> The documentation for the policy for both Edge and Chrome may be inconsistent.
+> The `domains` value must be a domain, not a URL pattern.
+> Additionally, Firefox does not support using a wildcard (`*`) to mean all domains.
 
 **Compatibility:** Firefox 102\
 **CCK2 Equivalent:** N/A\
@@ -15,9 +17,8 @@ Important: The documentation for the policy for both Edge and Chrome is incorrec
 
 ## Windows (GPO)
 
-Software\Policies\Mozilla\Firefox\ExemptDomainFileTypePairsFromFileTypeDownloadWarnings (REG_MULTI_SZ) =
-
 ```
+Software\Policies\Mozilla\Firefox\ExemptDomainFileTypePairsFromFileTypeDownloadWarnings (REG_MULTI_SZ) =
 [
   {
      "file_extension": "jnlp",

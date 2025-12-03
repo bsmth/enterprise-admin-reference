@@ -7,20 +7,22 @@ Configure default application handlers. This policy is based on the internal for
 
 You can configure handlers based on a mime type (`mimeTypes`), a file's extension (`extensions`), or a protocol (`schemes`).
 
-Within each handler type, you specify the given mimeType/extension/scheme as a key and use the following subkeys to describe how it is handled.
-
-| Name                                                          | Description                                                                                                                                                                            |
-| ------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `action`                                                      | Can be either `saveToDisk`, `useHelperApp`, `useSystemDefault`.                                                                                                                        |
-| `ask`                                                         | If `true`, the user is asked if what they want to do with the file. If `false`, the action is taken without user intervention.                                                         |
-| `handlers`                                                    | An array of handlers with the first one being the default. If you don't want to have a default handler, use an empty object for the first handler. Choose between path or uriTemplate. |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`name`        | The display name of the handler (might not be used).                                                                                                                                   |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`path`        | The native path to the executable to be used.                                                                                                                                          |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`uriTemplate` | A url to a web based application handler. The URL must be https and contain a %s to be used for substitution.                                                                          |
-
 **Compatibility:** Firefox 78, Firefox ESR 78\
 **CCK2 Equivalent:** N/A\
 **Preferences Affected:** N/A
+
+## Values
+
+Within each handler type, you specify the given mimeType/extension/scheme as a key and use the following subkeys to describe how it is handled.
+
+| Name                | Description                                                                                                                                                                            |
+| ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `action`            | Can be either `saveToDisk`, `useHelperApp`, `useSystemDefault`.                                                                                                                        |
+| `ask`               | If `true`, the user is asked if what they want to do with the file. If `false`, the action is taken without user intervention.                                                         |
+| `handlers`          | An array of handlers with the first one being the default. If you don't want to have a default handler, use an empty object for the first handler. Choose between path or uriTemplate. |
+| &nbsp;`name`        | The display name of the handler (might not be used).                                                                                                                                   |
+| &nbsp;`path`        | The native path to the executable to be used.                                                                                                                                          |
+| &nbsp;`uriTemplate` | A url to a web based application handler. The URL must be https and contain a %s to be used for substitution.                                                                          |
 
 ## Windows (GPO)
 

@@ -5,6 +5,12 @@ description: "Set policies related to Multi-Account Containers."
 
 Set policies related to [Multi-Account Containers](https://addons.mozilla.org/firefox/addon/multi-account-containers/).
 
+**Compatibility:** Firefox 113\
+**CCK2 Equivalent:** N/A\
+**Preferences Affected:** N/A
+
+## Values
+
 Currently you can set the initial set of containers.
 For each container, you can specify the name, icon, and color.
 
@@ -14,13 +20,9 @@ For each container, you can specify the name, icon, and color.
 | `icon`  | Can be `fingerprint`, `briefcase`, `dollar`, `cart`, `vacation`, `gift`, `food`, `fruit`, `pet`, `tree`, `chill`, `circle`, `fence` |
 | `color` | Can be `blue`, `turquoise`, `green`, `yellow`, `orange`, `red`, `pink`, `purple`, `toolbar`                                         |
 
-**Compatibility:** Firefox 113\
-**CCK2 Equivalent:** N/A\
-**Preferences Affected:** N/A
-
 ## Windows (GPO)
 
-Software\Policies\Mozilla\Firefox\Containers (REG_MULTI_SZ) =
+`Software\Policies\Mozilla\Firefox\Containers (REG_MULTI_SZ) =`
 
 ```json
 {

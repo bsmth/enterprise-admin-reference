@@ -5,27 +5,21 @@ description: "Prevent Firefox from messaging the user in certain situations."
 
 Prevent Firefox from messaging the user in certain situations.
 
-`WhatsNew` Remove the "What's New" icon and menuitem. (_Deprecated_)
-
-`ExtensionRecommendations` If false, don't recommend extensions while the user is visiting web pages.
-
-`FeatureRecommendations` If false, don't recommend browser features.
-
-`UrlbarInterventions` If false, don't offer Firefox specific suggestions in the URL bar.
-
-`SkipOnboarding` If true, don't show onboarding messages on the new tab page.
-
-`MoreFromMozilla` If false, don't show the "More from Mozilla" section in Preferences. (Firefox 98)
-
-`FirefoxLabs` If false, don't show the "Firefox Labs" section in Preferences. (Firefox 130.0.1)
-
-> [!NOTE] Firefox Labs is now controlled by Nimbus, our testing platform, so disabling telemetry also disables Firefox Labs.
-
-`Locked` prevents the user from changing user messaging preferences.
-
 **Compatibility:** Firefox 75, Firefox ESR 68.7\
 **CCK2 Equivalent:** N/A\
 **Preferences Affected:** `browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons`, `browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features`, `browser.aboutwelcome.enabled`, `browser.preferences.moreFromMozilla`, `browser.preferences.experimental`
+
+## Values
+
+- `WhatsNew`: Remove the "What's New" icon and menuitem. (_Deprecated_)
+- `ExtensionRecommendations`: If `false`, don't recommend extensions while the user is visiting web pages.
+- `FeatureRecommendations`: If `false`, don't recommend browser features.
+- `UrlbarInterventions`: If `false`, don't offer Firefox specific suggestions in the URL bar.
+- `SkipOnboarding`: If `true`, don't show onboarding messages on the new tab page.
+- `MoreFromMozilla`: If `false`, don't show the "More from Mozilla" section in Preferences. (Firefox 98)
+- `FirefoxLabs`: If `false`, don't show the "Firefox Labs" section in Preferences. (Firefox 130.0.1)
+  > [!NOTE] Firefox Labs is controlled by Nimbus, our testing platform, so disabling telemetry also disables Firefox Labs.
+- `Locked`: Prevents the user from changing user messaging preferences.
 
 ## Windows (GPO)
 

@@ -3,22 +3,26 @@ title: "Certificates: Install"
 description: "Install certificates into the Firefox certificate store."
 ---
 
-Install certificates into the Firefox certificate store. If only a filename is specified, Firefox searches for the file in the following locations:
+Install certificates into the Firefox certificate store.
+If only a filename is specified, Firefox searches for the file in the following locations:
 
 - Windows
-  - %USERPROFILE%\AppData\Local\Mozilla\Certificates
-  - %USERPROFILE%\AppData\Roaming\Mozilla\Certificates
+  - `%USERPROFILE%\AppData\Local\Mozilla\Certificates`
+  - `%USERPROFILE%\AppData\Roaming\Mozilla\Certificates`
 - macOS
-  - /Library/Application Support/Mozilla/Certificates
-  - ~/Library/Application Support/Mozilla/Certificates
+  - `/Library/Application Support/Mozilla/Certificates`
+  - `~/Library/Application Support/Mozilla/Certificates`
 - Linux
-  - /usr/lib/mozilla/certificates
-  - /usr/lib64/mozilla/certificates
-  - ~/.mozilla/certificates
+  - `/usr/lib/mozilla/certificates`
+  - `/usr/lib64/mozilla/certificates`
+  - `~/.mozilla/certificates`
 
-Starting with Firefox 65, Firefox 60.5 ESR, a fully qualified path can be used, including UNC paths. You should use the native path style for your operating system. We do not support using %USERPROFILE% or other environment variables on Windows.
+Starting with Firefox 65, Firefox 60.5 ESR, a fully qualified path can be used, including UNC paths.
+You should use the native path style for your operating system.
+We do not support using `%USERPROFILE%` or other environment variables on Windows.
 
-If you are specifying the path in the policies.json file on Windows, you need to escape your backslashes (`\\`) which means that for UNC paths, you need to escape both (`\\\\`). If you use group policy, you only need one backslash.
+If you are specifying the path in the policies.json file on Windows, you need to escape your backslashes (`\\`) which means that for UNC paths, you need to escape both (`\\\\`).
+If you use group policy, you only need one backslash.
 
 Certificates are installed using the trust string `CT,CT,`.
 

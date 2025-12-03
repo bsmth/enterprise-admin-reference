@@ -8,33 +8,24 @@ To specify ports, append them to the hostnames with a colon (:).
 
 Unless you lock this policy, changes the user already has in place will take effect.
 
-`Mode` is the proxy method being used.
-
-`Locked` is whether or not proxy settings can be changed.
-
-`HTTPProxy` is the HTTP proxy server.
-
-`UseHTTPProxyForAllProtocols` is whether or not the HTTP proxy should be used for all other proxies.
-
-`SSLProxy` is the SSL proxy server.
-
-`FTPProxy` is the FTP proxy server.
-
-`SOCKSProxy` is the SOCKS proxy server
-
-`SOCKSVersion` is the SOCKS version (4 or 5)
-
-`Passthrough` is list of hostnames or IP addresses that will not be proxied. Use `<local>` to bypass proxying for all hostnames which do not contain periods.
-
-`AutoConfigURL` is a URL for proxy configuration (only used if Mode is autoConfig).
-
-`AutoLogin` means do not prompt for authentication if password is saved.
-
-`UseProxyForDNS` to use proxy DNS when using SOCKS v5.
-
 **Compatibility:** Firefox 60, Firefox ESR 60\
 **CCK2 Equivalent:** `networkProxy*`\
 **Preferences Affected:** `network.proxy.type`, `network.proxy.autoconfig_url`, `network.proxy.socks_remote_dns`, `signon.autologin.proxy`, `network.proxy.socks_version`, `network.proxy.no_proxies_on`, `network.proxy.share_proxy_settings`, `network.proxy.http`, `network.proxy.http_port`, `network.proxy.ftp`, `network.proxy.ftp_port`, `network.proxy.ssl`, `network.proxy.ssl_port`, `network.proxy.socks`, `network.proxy.socks_port`
+
+## Values
+
+- `Mode` is the proxy method being used.
+- `Locked` is whether or not proxy settings can be changed.
+- `HTTPProxy` is the HTTP proxy server.
+- `UseHTTPProxyForAllProtocols` is whether or not the HTTP proxy should be used for all other proxies.
+- `SSLProxy` is the SSL proxy server.
+- `FTPProxy` is the FTP proxy server.
+- `SOCKSProxy` is the SOCKS proxy server
+- `SOCKSVersion` is the SOCKS version (4 or 5)
+- `Passthrough` is list of hostnames or IP addresses that will not be proxied. Use `<local>` to bypass proxying for all hostnames which do not contain periods.
+- `AutoConfigURL` is a URL for proxy configuration (only used if Mode is autoConfig).
+- `AutoLogin` means do not prompt for authentication if password is saved.
+- `UseProxyForDNS` to use proxy DNS when using SOCKS v5.
 
 ## Windows (GPO)
 
