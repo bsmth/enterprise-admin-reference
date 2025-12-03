@@ -1,0 +1,49 @@
+---
+title: "DisableSystemAddonUpdate"
+description: "Prevent system add-ons from being installed or updated."
+---
+
+Prevent system add-ons from being installed or updated.
+
+**Compatibility:** Firefox 60, Firefox ESR 60\
+**CCK2 Equivalent:** N/A\
+**Preferences Affected:** N/A
+
+## Windows (GPO)
+
+```
+Software\Policies\Mozilla\Firefox\DisableSystemAddonUpdate = 0x1 | 0x0
+```
+
+## Windows (Intune)
+
+OMA-URI:
+
+```url
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox/DisableSystemAddonUpdate
+```
+
+Value (string):
+
+```xml
+<enabled/> or <disabled/>
+```
+
+## macOS
+
+```xml
+<dict>
+  <key>DisableSystemAddonUpdate</key>
+  <true/> | <false/>
+</dict>
+```
+
+## policies.json
+
+```json
+{
+  "policies": {
+    "DisableSystemAddonUpdate": true | false
+  }
+}
+```

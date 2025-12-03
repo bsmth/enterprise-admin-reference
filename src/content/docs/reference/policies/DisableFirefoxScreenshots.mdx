@@ -1,0 +1,49 @@
+---
+title: "DisableFirefoxScreenshots"
+description: "Remove access to Firefox Screenshots."
+---
+
+Remove access to Firefox Screenshots.
+
+**Compatibility:** Firefox 60, Firefox ESR 60\
+**CCK2 Equivalent:** N/A\
+**Preferences Affected:** `extensions.screenshots.disabled`
+
+## Windows (GPO)
+
+```
+Software\Policies\Mozilla\Firefox\DisableFirefoxScreenshots = 0x1 | 0x0
+```
+
+## Windows (Intune)
+
+OMA-URI:
+
+```url
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox/DisableFirefoxScreenshots
+```
+
+Value (string):
+
+```xml
+<enabled/> or <disabled/>
+```
+
+## macOS
+
+```xml
+<dict>
+  <key>DisableFirefoxScreenshots</key>
+  <true/> | <false/>
+</dict>
+```
+
+## policies.json
+
+```json
+{
+  "policies": {
+    "DisableFirefoxScreenshots": true | false
+  }
+}
+```

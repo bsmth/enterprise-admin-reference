@@ -1,0 +1,78 @@
+---
+title: "RequestedLocales"
+description: "Set the the list of requested locales for the application in order of preference."
+---
+
+Set the the list of requested locales for the application in order of preference. It will cause the corresponding language pack to become active.
+
+> [!NOTE] For Firefox 68, this can now be a string so that you can specify an empty value.
+
+**Compatibility:** Firefox 64, Firefox ESR 60.4, Updated in Firefox 68, Firefox ESR 68\
+**CCK2 Equivalent:** N/A\
+**Preferences Affected:** N/A
+
+## Windows (GPO)
+
+```
+Software\Policies\Mozilla\Firefox\RequestedLocales\1 = "de"
+Software\Policies\Mozilla\Firefox\RequestedLocales\2 = "en-US"
+
+or
+
+Software\Policies\Mozilla\Firefox\RequestedLocales = "de,en-US"
+```
+
+## Windows (Intune)
+
+OMA-URI:
+
+```url
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox/RequestedLocalesString
+```
+
+Value (string):
+
+```xml
+<enabled/>
+<data id="Preferences_String" value="de,en-US"/>
+```
+
+## macOS
+
+```xml
+<dict>
+  <key>RequestedLocales</key>
+  <array>
+    <string>de</string>
+    <string>en-US</string>
+  </array>
+</dict>
+
+or
+
+<dict>
+  <key>RequestedLocales</key>
+  <string>de,en-US</string>
+</dict>
+
+```
+
+## policies.json
+
+```json
+{
+  "policies": {
+    "RequestedLocales": ["de", "en-US"]
+  }
+}
+
+or
+
+{
+  "policies": {
+    "RequestedLocales": "de,en-US"
+  }
+}
+```
+
+<a name="SanitizeOnShutdown"></a>

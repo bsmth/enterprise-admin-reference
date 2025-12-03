@@ -1,0 +1,98 @@
+---
+title: "PopupBlocking"
+description: "Configure the default pop-up window policy as well as origins for which pop-up windows are allowed."
+---
+
+Configure the default pop-up window policy as well as origins for which pop-up windows are allowed.
+
+`Allow` is a list of origins where popup-windows are allowed.
+
+`Default` determines whether or not pop-up windows are allowed by default.
+
+`Locked` prevents the user from changing pop-up preferences.
+
+**Compatibility:** Firefox 60, Firefox ESR 60\
+**CCK2 Equivalent:** `permissions.popup`\
+**Preferences Affected:** `dom.disable_open_during_load`
+
+## Windows (GPO)
+
+```
+Software\Policies\Mozilla\Firefox\PopupBlocking\Allow\1 = "https://example.org"
+Software\Policies\Mozilla\Firefox\PopupBlocking\Allow\2 = "https://example.edu"
+Software\Policies\Mozilla\Firefox\PopupBlocking\Default = 0x1 | 0x0
+Software\Policies\Mozilla\Firefox\PopupBlocking\Locked = 0x1 | 0x0
+```
+
+## Windows (Intune)
+
+OMA-URI:
+
+```url
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox~Popups/PopupBlocking_Allow
+```
+
+Value (string):
+
+```xml
+<enabled/>
+<data id="Permissions" value="1&#xF000;https://example.org&#xF000;2&#xF000;https://example.edu"/>
+```
+
+OMA-URI:
+
+```url
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox~Popups/PopupBlocking_Default
+```
+
+Value (string):
+
+```xml
+<enabled/> or <disabled/>
+```
+
+OMA-URI:
+
+```url
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox~Popups/PopupBlocking_Locked
+```
+
+Value (string):
+
+```xml
+<enabled/> or <disabled/>
+```
+
+## macOS
+
+```xml
+<dict>
+  <key>PopupBlocking</key>
+  <dict>
+    <key>Allow</key>
+    <array>
+      <string>http://example.org</string>
+      <string>http://example.edu</string>
+    </array>
+    <key>Default</key>
+    <true/> | <false/>
+    <key>Locked</key>
+    <true/> | <false/>
+  </dict>
+</dict>
+```
+
+## policies.json
+
+```json
+{
+  "policies": {
+    "PopupBlocking": {
+      "Allow": ["http://example.org/",
+                "http://example.edu/"],
+      "Default": true | false,
+      "Locked": true | false
+    }
+  }
+}
+```

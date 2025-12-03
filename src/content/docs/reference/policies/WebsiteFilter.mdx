@@ -1,0 +1,99 @@
+---
+title: "WebsiteFilter"
+description: "Block websites from being visited."
+---
+
+Block websites from being visited. The parameters take an array of Match Patterns, as documented in https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Match_patterns.
+The arrays are limited to 1000 entries each.
+
+If you want to block all URLs, you can use `<all_urls>` or `*://*/*`. You can't have just a `*` on the right side.
+
+For specific protocols, use `https://*/*` or `http://*/*`.
+
+As of Firefox 83 and Firefox ESR 78.5, file URLs are supported.
+
+**Compatibility:** Firefox 60, Firefox ESR 60\
+**CCK2 Equivalent:** N/A\
+**Preferences Affected:** N/A
+
+## Windows (GPO)
+
+```
+Software\Policies\Mozilla\Firefox\WebsiteFilter\Block\1 = "<all_urls>"
+Software\Policies\Mozilla\Firefox\WebsiteFilter\Exceptions\1 = "http://example.org/*"
+```
+
+## Windows (Intune)
+
+OMA-URI:
+
+```url
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox/B_WebsiteFilter_Block
+```
+
+Value (string):
+
+```xml
+<enabled/> <data id="WebsiteFilter" value="1&#xF000;&#60;all_urls&#62;"/>
+```
+
+OMA-URI:
+
+```url
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox/B_WebsiteFilter_Exceptions
+```
+
+Value (string):
+
+```xml
+<enabled/>
+<data id="WebsiteFilter" value="1&#xF000;http://example.org/*"/>
+```
+
+If you are using custom ADMX and ADML administrative templates in Intune, you can use this OMA-URI instead
+to workaround the limit on the length of strings. Put all of your JSON on one line.
+
+OMA-URI:
+
+```url
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox/WebsiteFilterOneLine
+```
+
+Value (string):
+
+```xml
+<enabled/>
+<data id="JSONOneLine" value='{"Block": ["<all_urls>"],"Exceptions": ["http://example.org/*"]}'/>
+```
+
+## macOS
+
+```xml
+<dict>
+  <key>WebsiteFilter</key>
+  <dict>
+    <key>Block</key>
+    <array>
+      <string><all_urls></string>
+    </array>
+    <key>Exceptions</key>
+    <array>
+      <string>http://example.org/*</string>
+    </array>
+  </dict>
+
+</dict>
+```
+
+## policies.json
+
+```json
+{
+  "policies": {
+    "WebsiteFilter": {
+      "Block": ["<all_urls>"],
+      "Exceptions": ["http://example.org/*"]
+    }
+  }
+}
+```

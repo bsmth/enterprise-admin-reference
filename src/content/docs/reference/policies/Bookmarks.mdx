@@ -1,0 +1,122 @@
+---
+title: "Bookmarks"
+description: "Add bookmarks in either the bookmarks toolbar or menu. Use ManagedBookmarks instead."
+---
+
+> [!NOTE]
+> The [`ManagedBookmarks`](/reference/policies/managedbookmarks) policy is the recommended way to add bookmarks.
+> The `Bookmarks` policy will continue to be supported for backwards-compatibility purposes.
+
+Add bookmarks in either the bookmarks toolbar or menu. Only `Title` and `URL` are required. If `Placement` is not specified, the bookmark will be placed on the toolbar. If `Folder` is specified, it is automatically created and bookmarks with the same folder name are grouped together.
+
+If you want to clear all bookmarks set with this policy, you can set the value to an empty array (`[]`). This can be on Windows via the new Bookmarks (JSON) policy available with GPO and Intune.
+
+**Compatibility:** Firefox 60, Firefox ESR 60\
+**CCK2 Equivalent:** `bookmarks.toolbar`,`bookmarks.menu`\
+**Preferences Affected:** N/A
+
+## Windows (GPO)
+
+```
+Software\Policies\Mozilla\Firefox\Bookmarks\1\Title = "Example"
+Software\Policies\Mozilla\Firefox\Bookmarks\1\URL = "https://example.com"
+Software\Policies\Mozilla\Firefox\Bookmarks\1\Favicon = "https://example.com/favicon.ico"
+Software\Policies\Mozilla\Firefox\Bookmarks\1\Placement = "toolbar" | "menu"
+Software\Policies\Mozilla\Firefox\Bookmarks\1\Folder = "FolderName"
+
+Software\Policies\Mozilla\Firefox\Bookmarks (REG_MULTI_SZ) =
+```
+
+[]
+
+```
+
+```
+
+## Windows (Intune)
+
+OMA-URI:
+
+```url
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox~Bookmarks/Bookmark01
+```
+
+Value (string):
+
+```xml
+<enabled/>
+<data id="BookmarkTitle" value="Example"/>
+<data id="BookmarkURL" value="https://example.com"/>
+<data id="BookmarkFavicon" value="https://example.com/favicon.ico"/>
+<data id="BookmarkPlacement" value="toolbar | menu"/>
+<data id="BookmarkFolder" value="FolderName"/>
+```
+
+OMA-URI:
+
+```url
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox/Bookmarks
+```
+
+Value (string):
+
+```xml
+<enabled/>
+<data id="JSON" value='[]'/>
+```
+
+If you are using custom ADMX and ADML administrative templates in Intune, you can use this OMA-URI instead
+to workaround the limit on the length of strings. Put all of your JSON on one line.
+
+OMA-URI:
+
+```url
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox/BookmarksOneLine
+```
+
+Value (string):
+
+```xml
+<enabled/>
+<data id="JSONOneLine" value='[]'/>
+```
+
+## macOS
+
+```xml
+<dict>
+  <key>Bookmarks</key>
+  <array>
+    <dict>
+      <key>Title</key>
+      <string>Example</string>
+      <key>URL</key>
+      <string>https://example.com</string>
+      <key>Favicon</key>
+      <string>https://example.com/favicon.ico</string>
+      <key>Placement</key>
+      <string>toolbar | menu</string>
+      <key>Folder</key>
+      <string>FolderName</string>
+    </dict>
+  </array>
+</dict>
+```
+
+## policies.json
+
+```json
+{
+  "policies": {
+    "Bookmarks": [
+      {
+        "Title": "Example",
+        "URL": "https://example.com",
+        "Favicon": "https://example.com/favicon.ico",
+        "Placement": "toolbar" | "menu",
+        "Folder": "FolderName"
+      }
+    ]
+  }
+}
+```

@@ -1,0 +1,67 @@
+---
+title: "PDFjs"
+description: "Disable or configure PDF.js, the built-in PDF viewer."
+---
+
+Disable or configure PDF.js, the built-in PDF viewer.
+
+If `Enabled` is set to false, the built-in PDF viewer is disabled.
+
+If `EnablePermissions` is set to true, the built-in PDF viewer will honor document permissions like preventing the copying of text.
+
+> [!NOTE]
+> DisableBuiltinPDFViewer has not been deprecated. You can either continue to use it, or switch to using `PDFjs->Enabled` to disable the built-in PDF viewer.
+> This new permission was added because we needed a place for `PDFjs->EnabledPermissions`.
+
+**Compatibility:** Firefox 77, Firefox ESR 68.9\
+**CCK2 Equivalent:** N/A\
+**Preferences Affected:** `pdfjs.disabled`, `pdfjs.enablePermissions`
+
+## Windows (GPO)
+
+```
+Software\Policies\Mozilla\Firefox\PDFjs\Enabled = 0x1 | 0x0
+Software\Policies\Mozilla\Firefox\PDFjs\EnablePermissions = 0x1 | 0x0
+```
+
+## Windows (Intune)
+
+OMA-URI:
+
+```url
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox~PDFjs/PDFjs_Enabled
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox~PDFjs/PDFjs_EnablePermissions
+```
+
+Value (string):
+
+```xml
+<enabled/>or <disabled/>
+```
+
+## macOS
+
+```xml
+<dict>
+  <key>PDFjs</key>
+  <dict>
+    <key>Enabled</key>
+    <true/> | <false/>
+    <key>EnablePermissions</key>
+    <true/> | <false/>
+  </dict>
+</dict>
+```
+
+## policies.json
+
+```json
+{
+  "policies": {
+    "PDFjs": {
+      "Enabled": true | false,
+      "EnablePermissions": true | false
+    }
+  }
+}
+```

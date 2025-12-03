@@ -1,0 +1,49 @@
+---
+title: "PostQuantumKeyAgreementEnabled"
+description: "Enable post-quantum key agreement for TLS."
+---
+
+Enable post-quantum key agreement for TLS.
+
+**Compatibility:** Firefox 127\
+**CCK2 Equivalent:** N/A\
+**Preferences Affected:** `security.tls.enable_kyber`, `network.http.http3.enable_kyber` (Firefox 128)
+
+## Windows (GPO)
+
+```
+Software\Policies\Mozilla\Firefox\PostQuantumKeyAgreementEnabled = 0x1 | 0x0
+```
+
+## Windows (Intune)
+
+OMA-URI:
+
+```url
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox/PostQuantumKeyAgreementEnabled
+```
+
+Value (string):
+
+```xml
+<enabled/> or <disabled/>
+```
+
+## macOS
+
+```xml
+<dict>
+  <key>PostQuantumKeyAgreementEnabled</key>
+  <true/> | <false/>
+</dict>
+```
+
+## policies.json
+
+```json
+{
+  "policies": {
+    "PostQuantumKeyAgreementEnabled": true | false
+  }
+}
+```

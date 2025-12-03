@@ -1,0 +1,177 @@
+---
+title: "Cookies"
+description: "Configure cookie preferences."
+---
+
+import { Icon } from "@astrojs/starlight/components";
+
+Configure cookie preferences.
+
+`Allow` is a list of origins (not domains) where cookies are always allowed. You must include http or https.
+
+`AllowSession` is a list of origins (not domains) where cookies are only allowed for the current session. You must include http or https.
+
+`Block` is a list of origins (not domains) where cookies are always blocked. You must include http or https.
+
+`Behavior` sets the default behavior for cookies based on the values below.
+
+`BehaviorPrivateBrowsing` sets the default behavior for cookies in private browsing based on the values below.
+
+| Value                                | Description                                                                                                                  |
+| ------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------- |
+| accept                               | Accept all cookies                                                                                                           |
+| reject-foreign                       | Reject third party cookies                                                                                                   |
+| reject                               | Reject all cookies                                                                                                           |
+| limit-foreign                        | Reject third party cookies for sites you haven't visited                                                                     |
+| reject-tracker                       | Reject cookies for known trackers (default)                                                                                  |
+| reject-tracker-and-partition-foreign | Reject cookies for known trackers and partition third-party cookies (Total Cookie Protection) (default for private browsing) |
+
+`Locked` prevents the user from changing cookie preferences.
+
+<Icon name="warning" color="red" class="icon-inline" /> `Default`: determines whether cookies are accepted
+at all. (_Deprecated_. Use `Behavior` instead)
+
+`AcceptThirdParty` determines how third-party cookies are handled. (_Deprecated_. Use `Behavior` instead)
+
+`RejectTracker` only rejects cookies for trackers. (_Deprecated_. Use `Behavior` instead)
+
+`ExpireAtSessionEnd` determines when cookies expire. (_Deprecated_. Use [`SanitizeOnShutdown`](/reference/policies/sanitizeonshutdown_selective_) instead)
+
+**Compatibility:** Firefox 60, Firefox ESR 60 (RejectTracker added in Firefox 63, AllowSession added in Firefox 79/78.1, Behavior added in Firefox 95/91.4)\
+**CCK2 Equivalent:** N/A\
+**Preferences Affected:** `network.cookie.cookieBehavior`, `network.cookie.cookieBehavior.pbmode`, `network.cookie.lifetimePolicy`
+
+## Windows (GPO)
+
+```
+Software\Policies\Mozilla\Firefox\Cookies\Allow\1 = "https://example.com"
+Software\Policies\Mozilla\Firefox\Cookies\AllowSession\1 = "https://example.edu"
+Software\Policies\Mozilla\Firefox\Cookies\Block\1 = "https://example.org"
+Software\Policies\Mozilla\Firefox\Cookies\Behavior = "accept" | "reject-foreign" | "reject" | "limit-foreign" | "reject-tracker" | "reject-tracker-and-partition-foreign"
+Software\Policies\Mozilla\Firefox\Cookies\BehaviorPrivateBrowsing = "accept" | "reject-foreign" | "reject" | "limit-foreign" | "reject-tracker" | "reject-tracker-and-partition-foreign"
+Software\Policies\Mozilla\Firefox\Cookies\Locked = 0x1 | 0x0
+```
+
+## Windows (Intune)
+
+OMA-URI:
+
+```url
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox~Cookies/Cookies_Allow
+```
+
+Value (string):
+
+```xml
+<enabled/>
+<data id="Permissions" value="1&#xF000;https://example.com"/>
+```
+
+OMA-URI:
+
+```url
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox~Cookies/Cookies_AllowSession
+```
+
+Value (string):
+
+```xml
+<enabled/>
+<data id="Permissions" value="1&#xF000;https://example.edu"/>
+```
+
+OMA-URI:
+
+```url
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox~Cookies/Cookies_Block
+```
+
+Value (string):
+
+```xml
+<enabled/>
+<data id="Permissions" value="1&#xF000;https://example.org"/>
+```
+
+OMA-URI:
+
+```url
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox~Cookies/Cookies_Locked
+```
+
+Value (string):
+
+```xml
+<enabled/> or <disabled/>
+```
+
+OMA-URI:
+
+```url
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox~Cookies/Cookies_Behavior
+```
+
+Value (string):
+
+```xml
+<enabled/>
+<data id="Cookies_Behavior" value="accept | reject-foreign | reject | limit-foreign | reject-tracker | reject-tracker-and-partition-foreign"/>
+```
+
+OMA-URI:
+
+```url
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox~Cookies/Cookies_BehaviorPrivateBrowsing
+```
+
+Value (string):
+
+```xml
+<enabled/>
+<data id="Cookies_BehaviorPrivateBrowsing" value="accept | reject-foreign | reject | limit-foreign | reject-tracker | reject-tracker-and-partition-foreign"/>
+```
+
+## macOS
+
+```xml
+<dict>
+  <key>Cookies</key>
+  <dict>
+    <key>Allow</key>
+    <array>
+      <string>http://example.com</string>
+    </array>
+    <key>AllowSession</key>
+    <array>
+      <string>http://example.edu</string>
+    </array>
+    <key>Block</key>
+    <array>
+      <string>http://example.org</string>
+    </array>
+    <key>Locked</key>
+    <true/> | <false/>
+    <key>Behavior</key>
+    <string>accept | reject-foreign | reject | limit-foreign | reject-tracker | reject-tracker-and-partition-foreign</string>
+    <key>BehaviorPrivateBrowsing</key>
+    <string>accept | reject-foreign | reject | limit-foreign | reject-tracker | reject-tracker-and-partition-foreign</string>
+  </dict>
+</dict>
+```
+
+## policies.json
+
+```json
+{
+  "policies": {
+    "Cookies": {
+      "Allow": ["http://example.org/"],
+      "AllowSession": ["http://example.edu/"],
+      "Block": ["http://example.edu/"],
+      "Locked": true | false,
+      "Behavior": "accept" | "reject-foreign" | "reject" | "limit-foreign" | "reject-tracker" | "reject-tracker-and-partition-foreign",
+      "BehaviorPrivateBrowsing": "accept" | "reject-foreign" | "reject" | "limit-foreign" | "reject-tracker" | "reject-tracker-and-partition-foreign",
+    }
+  }
+}
+```

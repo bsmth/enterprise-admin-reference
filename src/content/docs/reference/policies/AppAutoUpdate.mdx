@@ -1,0 +1,55 @@
+---
+title: "AppAutoUpdate"
+description: "Enable or disable **automatic** application update."
+---
+
+Enable or disable **automatic** application update.
+
+If set to true, application updates are installed without user approval within Firefox. The operating system might still require approval.
+
+If set to false, application updates are downloaded but the user can choose when to install the update.
+
+If you have disabled updates via `DisableAppUpdate`, this policy has no effect.
+
+**Compatibility:** Firefox 75, Firefox ESR 68.7\
+**CCK2 Equivalent:** N/A\
+**Preferences Affected:** `app.update.auto`
+
+## Windows (GPO)
+
+```
+Software\Policies\Mozilla\Firefox\AppAutoUpdate = 0x1 | 0x0
+```
+
+## Windows (Intune)
+
+OMA-URI:
+
+```url
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox/AppAutoUpdate
+```
+
+Value (string):
+
+```xml
+<enabled/> or <disabled/>
+```
+
+## macOS
+
+```xml
+<dict>
+  <key>AppAutoUpdate</key>
+  <true/> | <false/>
+</dict>
+```
+
+## policies.json
+
+```json
+{
+  "policies": {
+    "AppAutoUpdate": true | false
+  }
+}
+```

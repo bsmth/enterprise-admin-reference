@@ -1,0 +1,49 @@
+---
+title: "DisableFirefoxStudies"
+description: "Disable Firefox studies (Shield)."
+---
+
+Disable Firefox studies (Shield).
+
+**Compatibility:** Firefox 60, Firefox ESR 60\
+**CCK2 Equivalent:** N/A\
+**Preferences Affected:** `browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons`, `browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features`
+
+## Windows (GPO)
+
+```
+Software\Policies\Mozilla\Firefox\DisableFirefoxStudies = 0x1 | 0x0
+```
+
+## Windows (Intune)
+
+OMA-URI:
+
+```url
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox/DisableFirefoxStudies
+```
+
+Value (string):
+
+```xml
+<enabled/> or <disabled/>
+```
+
+## macOS
+
+```xml
+<dict>
+  <key>DisableFirefoxStudies</key>
+  <true/> | <false/>
+</dict>
+```
+
+## policies.json
+
+```json
+{
+  "policies": {
+    "DisableFirefoxStudies": true | false
+  }
+}
+```

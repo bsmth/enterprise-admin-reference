@@ -1,0 +1,63 @@
+---
+title: "EncryptedMediaExtensions"
+description: "Enable or disable Encrypted Media Extensions and optionally lock it."
+---
+
+Enable or disable Encrypted Media Extensions and optionally lock it.
+
+If `Enabled` is set to false, encrypted media extensions (like Widevine) are not downloaded by Firefox unless the user consents to installing them.
+
+If `Locked` is set to true and `Enabled` is set to false, Firefox will not download encrypted media extensions (like Widevine) or ask the user to install them.
+
+**Compatibility:** Firefox 77, Firefox ESR 68.9\
+**CCK2 Equivalent:** N/A\
+**Preferences Affected:** `media.eme.enabled`
+
+## Windows (GPO)
+
+```
+Software\Policies\Mozilla\Firefox\EncryptedMediaExtensions\Enabled = 0x1 | 0x0
+Software\Policies\Mozilla\Firefox\EncryptedMediaExtensions\Locked = 0x1 | 0x0
+```
+
+## Windows (Intune)
+
+OMA-URI:
+
+```url
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox~EncryptedMediaExtensions/EncryptedMediaExtensions_Enabled
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox~EncryptedMediaExtensions/EncryptedMediaExtensions_Locked
+```
+
+Value (string):
+
+```xml
+<enabled/>or <disabled/>
+```
+
+## macOS
+
+```xml
+<dict>
+  <key>EncryptedMediaExtensions</key>
+  <dict>
+    <key>Enabled</key>
+    <true/> | <false/>
+    <key>Locked</key>
+    <true/> | <false/>
+  </dict>
+</dict>
+```
+
+## policies.json
+
+```json
+{
+  "policies": {
+    "EncryptedMediaExtensions": {
+      "Enabled": true | false,
+      "Locked": true | false
+    }
+  }
+}
+```

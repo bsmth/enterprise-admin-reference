@@ -1,0 +1,105 @@
+---
+title: "Extensions"
+description: "Control the installation, uninstallation and locking of extensions."
+---
+
+Control the installation, uninstallation and locking of extensions.
+
+We strongly recommend that you use the **[`ExtensionSettings`](/reference/policies/extensionsettings)** policy. It has the same functionality and adds more. It does not support native paths, though, so you'll have to use file:/// URLs.
+
+This method will be deprecated in the near future.
+
+- `Install` is a list of URLs or native paths for extensions to be installed.
+- `Uninstall` is a list of extension IDs that should be uninstalled if found.
+- `Locked` is a list of extension IDs that the user cannot disable or uninstall.
+
+**Compatibility:** Firefox 60, Firefox ESR 60\
+**CCK2 Equivalent:** `addons`\
+**Preferences Affected:** N/A
+
+## Windows (GPO)
+
+```
+Software\Policies\Mozilla\Firefox\Extensions\Install\1 = "https://addons.mozilla.org/firefox/downloads/somefile.xpi"
+Software\Policies\Mozilla\Firefox\Extensions\Install\2 = "//path/to/xpi"
+Software\Policies\Mozilla\Firefox\Extensions\Uninstall\1 = "bad_addon_id@mozilla.org"
+Software\Policies\Mozilla\Firefox\Extensions\Locked\1 = "addon_id@mozilla.org"
+```
+
+## Windows (Intune)
+
+OMA-URI:
+
+```url
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox~Extensions/Extensions_Install
+```
+
+Value (string):
+
+```xml
+<enabled/>
+<data id="Extensions" value="1&#xF000;https://addons.mozilla.org/firefox/downloads/somefile.xpi&#xF000;2&#xF000;//path/to/xpi"/>
+```
+
+OMA-URI:
+
+```url
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox~Extensions/Extensions_Uninstall
+```
+
+Value (string):
+
+```xml
+<enabled/>
+<data id="Extensions" value="1&#xF000;bad_addon_id@mozilla.org"/>
+```
+
+OMA-URI:
+
+```url
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox~Extensions/Extensions_Locked
+```
+
+Value (string):
+
+```xml
+<enabled/>
+<data id="Extensions" value="1&#xF000;addon_id@mozilla.org"/>
+```
+
+## macOS
+
+```xml
+<dict>
+  <key>Extensions</key>
+  <dict>
+    <key>Install</key>
+    <array>
+      <string>https://addons.mozilla.org/firefox/downloads/somefile.xpi</string>
+      <string>//path/to/xpi</string>
+    </array>
+    <key>Uninstall</key>
+    <array>
+      <string>bad_addon_id@mozilla.org</string>
+    </array>
+    <key>Locked</key>
+    <array>
+      <string>addon_id@mozilla.org</string>
+    </array>
+  </dict>
+</dict>
+```
+
+## policies.json
+
+```json
+{
+  "policies": {
+    "Extensions": {
+      "Install": ["https://addons.mozilla.org/firefox/downloads/somefile.xpi", "//path/to/xpi"],
+      "Uninstall": ["bad_addon_id@mozilla.org"],
+      "Locked": ["addon_id@mozilla.org"]
+    }
+  }
+}
+```

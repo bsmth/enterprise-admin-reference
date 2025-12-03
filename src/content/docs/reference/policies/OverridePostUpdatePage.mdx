@@ -1,0 +1,50 @@
+---
+title: "OverridePostUpdatePage"
+description: "Override the upgrade page."
+---
+
+Override the upgrade page. If the value is an empty string (""), no extra pages are displayed when Firefox is upgraded.
+
+**Compatibility:** Firefox 60, Firefox ESR 60\
+**CCK2 Equivalent:** `upgradePage`,`noUpgradePage`\
+**Preferences Affected:** `startup.homepage_override_url`
+
+## Windows (GPO)
+
+```
+Software\Policies\Mozilla\Firefox\OverridePostUpdatePage = "http://example.org"
+```
+
+## Windows (Intune)
+
+OMA-URI:
+
+```url
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox/OverridePostUpdatePage
+```
+
+Value (string):
+
+```xml
+<enabled/>
+<data id="OverridePage" value="https://example.com"/>
+```
+
+## macOS
+
+```xml
+<dict>
+  <key>OverridePostUpdatePage</key>
+  <string>http://example.org</string>
+</dict>
+```
+
+## policies.json
+
+```json
+{
+  "policies": {
+    "OverridePostUpdatePage": "http://example.org"
+  }
+}
+```

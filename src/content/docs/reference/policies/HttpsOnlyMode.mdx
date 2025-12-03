@@ -1,0 +1,57 @@
+---
+title: "HttpsOnlyMode"
+description: "Configure HTTPS-Only Mode."
+---
+
+Configure HTTPS-Only Mode.
+
+| Value         | Description                                                     |
+| ------------- | --------------------------------------------------------------- |
+| allowed       | HTTPS-Only Mode is off by default, but the user can turn it on. |
+| disallowed    | HTTPS-Only Mode is off and the user can't turn it on.           |
+| enabled       | HTTPS-Only Mode is on by default, but the user can turn it off. |
+| force_enabled | HTTPS-Only Mode is on and the user can't turn it off.           |
+
+**Compatibility:** Firefox 127\
+**CCK2 Equivalent:** N/A\
+**Preferences Affected:** `dom.security.https_only_mode`
+
+## Windows (GPO)
+
+```
+Software\Policies\Mozilla\Firefox\HttpsOnlyMode = "allowed", "disallowed", "enabled", "force_enabled"
+```
+
+## Windows (Intune)
+
+OMA-URI:
+
+```url
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox/HttpsOnlyMode
+```
+
+Value (string):
+
+```xml
+<enabled/>
+<data id="HttpsOnlyMode" value="allowed | disallowed | enabled | force_enabled"/>
+```
+
+## macOS
+
+```xml
+<dict>
+  <key>HttpsOnlyMode</key>
+  <string>allowed | disallowed | enabled | force_enabled</string>
+</dict>
+```
+
+## policies.json
+
+```json
+{
+  "policies": {
+    "HttpsOnlyMode": "allowed" | "disallowed" | "enabled" | "force_enabled"
+  }
+}
+```

@@ -1,0 +1,50 @@
+---
+title: "SSLVersionMax"
+description: "Set and lock the maximum version of TLS."
+---
+
+Set and lock the maximum version of TLS. (Firefox defaults to a maximum of TLS 1.3.)
+
+**Compatibility:** Firefox 66, Firefox ESR 60.6\
+**CCK2 Equivalent:** N/A\
+**Preferences Affected:** `security.tls.version.max`
+
+## Windows (GPO)
+
+```
+Software\Policies\Mozilla\Firefox\SSLVersionMax = "tls1" | "tls1.1" | "tls1.2" | "tls1.3"
+```
+
+## Windows (Intune)
+
+OMA-URI:
+
+```url
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox/SSLVersionMax
+```
+
+Value (string):
+
+```xml
+<enabled/>
+<data id="SSLVersion" value="tls1 | tls1.2 | tls1.3"/>
+```
+
+## macOS
+
+```xml
+<dict>
+  <key>SSLVersionMax</key>
+  <string>tls1 | tls1.1 | tls1.2 | tls1.3</string>
+</dict>
+```
+
+## policies.json
+
+```json
+{
+  "policies": {
+    "SSLVersionMax": "tls1" | "tls1.1" | "tls1.2" | "tls1.3"
+  }
+}
+```

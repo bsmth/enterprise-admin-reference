@@ -1,0 +1,48 @@
+---
+title: "StartDownloadsInTempDirectory"
+description: "Force downloads to start off in a local, temporary location rather than the default download directory."
+---
+
+Force downloads to start off in a local, temporary location rather than the default download directory.
+
+**Compatibility:** Firefox 102\
+**CCK2 Equivalent:** N/A\
+**Preferences Affected:** `browser.download.start_downloads_in_tmp_dir`
+
+## Windows (GPO)
+
+```
+Software\Policies\Mozilla\Firefox\StartDownloadsInTempDirectory = 0x1 | 0x0
+```
+
+## Windows (Intune)
+
+OMA-URI:
+
+```url
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox/StartDownloadsInTempDirectory
+```
+
+Value (string):
+
+```xml
+<enabled/> or <disabled/>
+```
+
+## macOS
+
+```xml
+<dict>
+  <key>StartDownloadsInTempDirectory</key>
+  <true/> | <false/>
+</dict>
+```
+
+## policies.json
+
+```json
+{
+  "policies": {
+    "StartDownloadsInTempDirectory": true | false
+}
+```

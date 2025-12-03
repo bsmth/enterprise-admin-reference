@@ -1,0 +1,117 @@
+---
+title: "Homepage"
+description: "Configure the default homepage and how Firefox starts."
+---
+
+Configure the default homepage and how Firefox starts.
+
+`URL` is the default homepage.
+
+`Locked` prevents the user from changing homepage preferences.
+
+`Additional` allows for more than one homepage.
+
+`StartPage` is how Firefox starts.
+
+| Value              | Description                                                                             |
+| ------------------ | --------------------------------------------------------------------------------------- |
+| `none`             | Start with a blank page (no homepage, no previous session).                             |
+| `homepage`         | Start with the homepage in `URL` policy.                                                |
+| `previous-session` | Restore the previous session (all tabs and windows reopen).                             |
+| `homepage-locked`  | Always force the homepage at startup, users cannot choose session restore. (Firefox 78) |
+
+**Compatibility:** Firefox 60, Firefox ESR 60 (StartPage was added in Firefox 60, Firefox ESR 60.4, homepage-locked added in Firefox 78)\
+**CCK2 Equivalent:** `homePage`,`lockHomePage`\
+**Preferences Affected:** `browser.startup.homepage`, `browser.startup.page`
+
+## Windows (GPO)
+
+```
+Software\Policies\Mozilla\Firefox\Homepage\URL = "https://example.com"
+Software\Policies\Mozilla\Firefox\Homepage\Locked = 0x1 | 0x0
+Software\Policies\Mozilla\Firefox\Homepage\Additional\1 = "https://example.org"
+Software\Policies\Mozilla\Firefox\Homepage\Additional\2 = "https://example.edu"
+Software\Policies\Mozilla\Firefox\Homepage\StartPage = "none" | "homepage" | "previous-session" | "homepage-locked"
+```
+
+## Windows (Intune)
+
+OMA-URI:
+
+```url
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox~Homepage/HomepageURL
+```
+
+Value (string):
+
+```xml
+<enabled/>
+
+<data id="HomepageURL" value="https://example.com"/>
+<data id="HomepageLocked" value="true | false"/>
+```
+
+OMA-URI:
+
+```url
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox~Homepage/HomepageAdditional
+```
+
+Value (string):
+
+```xml
+<enabled/>
+
+<data id="HomepageAdditional" value="1&#xF000;http://example.org&#xF000;2&#xF000;http://example.edu"/>
+```
+
+OMA-URI:
+
+```url
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox~Homepage/HomepageStartPage
+```
+
+Value (string):
+
+```xml
+<enabled/>
+
+<data id="StartPage" value="none | homepage | previous-session"/>
+```
+
+## macOS
+
+```xml
+<dict>
+  <key>Homepage</key>
+  <dict>
+    <key>URL</key>
+    <string>http://example.com</string>
+    <key>Locked</key>
+    <true/> | <false/>
+    <key>Additional</key>
+    <array>
+      <string>http://example.org</string>
+      <string>http://example.edu</string>
+    </array>
+    <key>StartPage</key>
+    <string>none | homepage | previous-session | homepage-locked</string>
+  </dict>
+</dict>
+```
+
+## policies.json
+
+```json
+{
+  "policies": {
+    "Homepage": {
+      "URL": "http://example.com/",
+      "Locked": true | false,
+      "Additional": ["http://example.org/",
+                     "http://example.edu/"],
+      "StartPage": "none" | "homepage" | "previous-session" | "homepage-locked"
+    }
+  }
+}
+```

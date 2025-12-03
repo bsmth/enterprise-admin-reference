@@ -1,0 +1,54 @@
+---
+title: "LocalFileLinks"
+description: "Enable linking to local files by origin."
+---
+
+Enable linking to local files by origin.
+
+**Compatibility:** Firefox 68, Firefox ESR 68\
+**CCK2 Equivalent:** N/A\
+**Preferences Affected:** `capability.policy.localfilelinks.*`
+
+## Windows (GPO)
+
+```
+Software\Policies\Mozilla\Firefox\LocalFileLinks\1 = "https://example.org"
+Software\Policies\Mozilla\Firefox\LocalFileLinks\2 = "https://example.edu"
+```
+
+## Windows (Intune)
+
+OMA-URI:
+
+```url
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox/LocalFileLinks
+```
+
+Value (string):
+
+```xml
+<enabled/>
+<data id="LocalFileLinks" value="1&#xF000;https://example.org&#xF000;2&#xF000;https://example.edu"/>
+```
+
+## macOS
+
+```xml
+<dict>
+  <key>LocalFileLinks</key>
+  <array>
+    <string>http://example.org</string>
+    <string>http://example.edu</string>
+  </array>
+</dict>
+```
+
+## policies.json
+
+```json
+{
+  "policies": {
+    "LocalFileLinks": ["http://example.org/", "http://example.edu/"]
+  }
+}
+```

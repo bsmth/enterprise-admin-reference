@@ -1,0 +1,76 @@
+---
+title: "DisableSecurityBypass"
+description: "Prevent the user from bypassing security in certain cases."
+---
+
+Prevent the user from bypassing security in certain cases.
+
+`InvalidCertificate` prevents adding an exception when an invalid certificate is shown.
+
+`SafeBrowsing` prevents selecting "ignore the risk" and visiting a harmful site anyway.
+
+These policies only affect what happens when an error is shown, they do not affect any settings in preferences.
+
+**Compatibility:** Firefox 60, Firefox ESR 60\
+**CCK2 Equivalent:** N/A\
+**Preferences Affected:** `security.certerror.hideAddException`, `browser.safebrowsing.allowOverride`
+
+## Windows (GPO)
+
+```
+Software\Policies\Mozilla\Firefox\DisableSecurityBypass\InvalidCertificate = 0x1 | 0x0
+Software\Policies\Mozilla\Firefox\DisableSecurityBypass\SafeBrowsing = 0x1 | 0x0
+```
+
+## Windows (Intune)
+
+OMA-URI:
+
+```url
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox/P_DisableSecurityBypass_InvalidCertificate
+```
+
+Value (string):
+
+```xml
+<enabled/> or <disabled/>
+```
+
+OMA-URI:
+
+```url
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox/P_DisableSecurityBypass_SafeBrowsing
+```
+
+Value (string):
+
+```xml
+<enabled/> or <disabled/>
+```
+
+## macOS
+
+```xml
+<dict>
+  <key>DisableSecurityBypass</key>
+  <dict>
+    <key>InvalidCertificate</key>
+    <true/> | <false/>
+    <key>SafeBrowsing</key>
+    <true/> | <false/>
+  </dict>
+</dict>
+```
+
+## policies.json
+
+```json
+{
+  "policies": {
+    "DisableSecurityBypass": {
+      "InvalidCertificate": true | false,
+      "SafeBrowsing": true | false
+    }
+  }
+}
+```

@@ -26,12 +26,7 @@
     "typescript"
   ],
   "ignorePaths": [".gitignore", "CODEOWNERS"],
-  "ignoreRegExpList": [
-    "HexValues",
-    "Base64",
-    "]\\(#[a-z]+(-+[a-z]+)?\\)",
-    "policies/#[a-z]+"
-  ],
+  "ignoreRegExpList": ["HexValues", "Base64", "]\\(#[a-z]+(-+[a-z]+)?\\)", "policies/#[a-z]+"],
   "dictionaryDefinitions": [
     {
       "name": "project words",

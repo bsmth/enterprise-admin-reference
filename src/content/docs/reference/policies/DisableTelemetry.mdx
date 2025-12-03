@@ -1,0 +1,53 @@
+---
+title: "DisableTelemetry"
+description: "Prevent the upload of telemetry data."
+---
+
+Prevent the upload of telemetry data.
+
+As of Firefox 83 and Firefox ESR 78.5, local storage of telemetry data is disabled as well.
+
+Mozilla recommends that you do not disable telemetry. Information collected through telemetry helps us build a better product for businesses like yours.
+
+**Compatibility:** Firefox 60, Firefox ESR 60\
+**CCK2 Equivalent:** `disableTelemetry`\
+**Preferences Affected:** `datareporting.healthreport.uploadEnabled`, `datareporting.policy.dataSubmissionEnabled`, `toolkit.telemetry.archive.enabled`, `datareporting.usage.uploadEnabled`
+
+## Windows (GPO)
+
+```
+Software\Policies\Mozilla\Firefox\DisableTelemetry = 0x1 | 0x0
+```
+
+## Windows (Intune)
+
+OMA-URI:
+
+```url
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox/DisableTelemetry
+```
+
+Value (string):
+
+```xml
+<enabled/> or <disabled/>
+```
+
+## macOS
+
+```xml
+<dict>
+  <key>DisableTelemetry</key>
+  <true/> | <false/>
+</dict>
+```
+
+## policies.json
+
+```json
+{
+  "policies": {
+    "DisableTelemetry": true | false
+  }
+}
+```

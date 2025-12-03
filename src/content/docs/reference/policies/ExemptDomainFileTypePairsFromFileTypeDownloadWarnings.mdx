@@ -1,0 +1,98 @@
+---
+title: "ExemptDomainFileTypePairsFromFileTypeDownloadWarnings"
+description: "Disable warnings based on file extension for specific file types on domains."
+---
+
+Disable warnings based on file extension for specific file types on domains.
+
+This policy is based on the [Chrome policy](https://chromeenterprise.google/policies/#ExemptDomainFileTypePairsFromFileTypeDownloadWarnings) of the same name.
+
+Important: The documentation for the policy for both Edge and Chrome is incorrect. The `domains` value must be a domain, not a URL pattern. Also, we do not support using `*` to mean all domains.
+
+**Compatibility:** Firefox 102\
+**CCK2 Equivalent:** N/A\
+**Preferences Affected:** N/A
+
+## Windows (GPO)
+
+Software\Policies\Mozilla\Firefox\ExemptDomainFileTypePairsFromFileTypeDownloadWarnings (REG_MULTI_SZ) =
+
+```
+[
+  {
+     "file_extension": "jnlp",
+     "domains": ["example.com"]
+  }
+]
+```
+
+## Windows (Intune)
+
+OMA-URI:
+
+```url
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox/ExemptDomainFileTypePairsFromFileTypeDownloadWarnings
+```
+
+Value (string):
+
+```xml
+<enabled/>
+<data id="JSON" value='
+[
+  {
+     "file_extension": "jnlp",
+     "domains": ["example.com"]
+  }
+]
+'/>
+```
+
+If you are using custom ADMX and ADML administrative templates in Intune, you can use this OMA-URI instead
+to workaround the limit on the length of strings. Put all of your JSON on one line.
+
+OMA-URI:
+
+```url
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox/ExemptDomainFileTypePairsFromFileTypeDownloadWarningsOneLine
+```
+
+Value (string):
+
+```xml
+<enabled/>
+<data id="JSONOneLine" value='[]'/>
+```
+
+## macOS
+
+```xml
+<dict>
+  <key>ExemptDomainFileTypePairsFromFileTypeDownloadWarnings</key>
+  <array>
+    <dict>
+      <key>file_extension</key>
+      <string>jnlp</string>
+      <key>domains</key>
+      <array>
+        <string>example.com</string>
+      </array>
+    </dict>
+  </array>
+</dict>
+```
+
+## policies.json
+
+```json
+{
+  "policies": {
+    "ExemptDomainFileTypePairsFromFileTypeDownloadWarnings": [
+      {
+        "file_extension": "jnlp",
+        "domains": ["example.com"]
+      }
+    ]
+  }
+}
+```

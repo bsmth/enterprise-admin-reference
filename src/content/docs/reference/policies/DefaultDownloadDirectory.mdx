@@ -1,0 +1,62 @@
+---
+title: "DefaultDownloadDirectory"
+description: "Set the default download directory."
+---
+
+Set the default download directory.
+
+You can use `${home}` for the native home directory.
+
+**Compatibility:** Firefox 68, Firefox ESR 68\
+**CCK2 Equivalent:** N/A\
+**Preferences Affected:** `browser.download.dir`, `browser.download.folderList`
+
+## Windows (GPO)
+
+```
+Software\Policies\Mozilla\Firefox\DefaultDownloadDirectory = "${home}\Downloads"
+```
+
+## Windows (Intune)
+
+OMA-URI:
+
+```url
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox/DefaultDownloadDirectory
+```
+
+Value (string):
+
+```xml
+<enabled/>
+<data id="Preferences_String" value="${home}\Downloads"/>
+```
+
+## macOS
+
+```xml
+<dict>
+  <key>DefaultDownloadDirectory</key>
+  <string>${home}/Downloads</string>
+</dict>
+```
+
+## policies.json (macOS and Linux)
+
+```json
+{
+  "policies": {
+    "DefaultDownloadDirectory": "${home}/Downloads"
+  }
+}
+```
+
+## policies.json (Windows)
+
+```json
+{
+  "policies": {
+    "DefaultDownloadDirectory": "${home}\\Downloads"
+  }
+}
+```

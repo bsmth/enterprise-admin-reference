@@ -1,0 +1,49 @@
+---
+title: "OfferToSaveLoginsDefault"
+description: "Sets the default value of signon.rememberSignons without locking it."
+---
+
+Sets the default value of signon.rememberSignons without locking it.
+
+**Compatibility:** Firefox 70, Firefox ESR 60.2\
+**CCK2 Equivalent:** `dontRememberPasswords`\
+**Preferences Affected:** `signon.rememberSignons`
+
+## Windows (GPO)
+
+```
+Software\Policies\Mozilla\Firefox\OfferToSaveLoginsDefault = 0x1 | 0x0
+```
+
+## Windows (Intune)
+
+OMA-URI:
+
+```url
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox/OfferToSaveLoginsDefault
+```
+
+Value (string):
+
+```xml
+<enabled/> or <disabled/>
+```
+
+## macOS
+
+```xml
+<dict>
+  <key>OfferToSaveLoginsDefault</key>
+  <true/> | <false/>
+</dict>
+```
+
+## policies.json
+
+```json
+{
+  "policies": {
+    "OfferToSaveLoginsDefault": true | false
+  }
+}
+```

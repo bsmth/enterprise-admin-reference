@@ -1,0 +1,192 @@
+---
+title: "ManagedBookmarks"
+description: "Configures a list of bookmarks managed by an administrator that cannot be changed by the user."
+---
+
+Configures a list of bookmarks managed by an administrator that cannot be changed by the user.
+
+The bookmarks are only added as a button on the personal toolbar. They are not in the bookmarks folder.
+
+The syntax of this policy is exactly the same as the [Chrome ManagedBookmarks policy](https://cloud.google.com/docs/chrome-enterprise/policies/?policy=ManagedBookmarks). The schema is:
+
+```json
+{
+  "items": {
+    "id": "BookmarkType",
+    "properties": {
+      "children": {
+        "items": {
+          "$ref": "BookmarkType"
+        },
+        "type": "array"
+      },
+      "name": {
+        "type": "string"
+      },
+      "toplevel_name": {
+        "type": "string"
+      },
+      "url": {
+        "type": "string"
+      }
+    },
+    "type": "object"
+  },
+  "type": "array"
+}
+```
+
+**Compatibility:** Firefox 83, Firefox ESR 78.5\
+**CCK2 Equivalent:** N/A\
+**Preferences Affected:** N/A
+
+## Windows (GPO)
+
+Software\Policies\Mozilla\Firefox\ManagedBookmarks (REG_MULTI_SZ) =
+
+```
+[
+  {
+    "toplevel_name": "My managed bookmarks folder"
+  },
+  {
+    "url": "example.com",
+    "name": "Example"
+  },
+  {
+    "name": "Mozilla links",
+    "children": [
+      {
+        "url": "https://mozilla.org",
+        "name": "Mozilla.org"
+      },
+      {
+        "url": "https://support.mozilla.org/",
+        "name": "SUMO"
+      }
+    ]
+  }
+]
+```
+
+## Windows (Intune)
+
+OMA-URI:
+
+```url
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox/ManagedBookmarks
+```
+
+Value (string):
+
+```xml
+<enabled/>
+<data id="JSON" value='
+[
+  {
+    "toplevel_name": "My managed bookmarks folder"
+  },
+  {
+    "url": "example.com",
+    "name": "Example"
+  },
+  {
+    "name": "Mozilla links",
+    "children": [
+      {
+        "url": "https://mozilla.org",
+        "name": "Mozilla.org"
+      },
+      {
+        "url": "https://support.mozilla.org/",
+        "name": "SUMO"
+      }
+    ]
+  }
+]'/>
+```
+
+If you are using custom ADMX and ADML administrative templates in Intune, you can use this OMA-URI instead
+to workaround the limit on the length of strings. Put all of your JSON on one line.
+
+OMA-URI:
+
+```url
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox/ManagedBookmarksOneLine
+```
+
+Value (string):
+
+```xml
+<enabled/>
+<data id="JSONOneLine" value='[]'/>
+```
+
+## macOS
+
+```xml
+<dict>
+  <key>ManagedBookmarks</key>
+  <array>
+    <dict>
+      <key>toplevel_name</key>
+      <string>My managed bookmarks folder</string>
+      <dict>
+        <key>url</key>
+        <string>example.com</string>
+        <key>name</key>
+        <string>Example</string>
+      </dict>
+      <dict>
+      <key>name</key>
+      <string>Mozilla links</string>
+      <key>children</key>
+      <array>
+        <dict>
+          <key>url</key>
+          <string>https://mozilla.org</string>
+          <key>name</key>
+          <string>Mozilla</string>
+        </dict>
+        <dict>
+          <key>url</key>
+          <string>https://support.mozilla.org/</string>
+          <key>name</key>
+          <string>SUMO</string>
+        </dict>
+      </array>
+    </dict>
+  </array>
+</dict>
+```
+
+## policies.json
+
+```json
+{
+  "policies": {
+    "ManagedBookmarks": [
+      {
+        "toplevel_name": "My managed bookmarks folder"
+      },
+      {
+        "url": "example.com",
+        "name": "Example"
+      },
+      {
+        "name": "Mozilla links",
+        "children": [
+          {
+            "url": "https://mozilla.org",
+            "name": "Mozilla.org"
+          },
+          {
+            "url": "https://support.mozilla.org/",
+            "name": "SUMO"
+          }
+        ]
+      }
+    ]
+  }
+}
+```

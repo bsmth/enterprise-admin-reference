@@ -1,0 +1,49 @@
+---
+title: "DisableFirefoxAccounts"
+description: "Disable Firefox Accounts integration (Sync)."
+---
+
+Disable Firefox Accounts integration (Sync).
+
+**Compatibility:** Firefox 60, Firefox ESR 60\
+**CCK2 Equivalent:** `disableSync`\
+**Preferences Affected:** `identity.fxaccounts.enabled`
+
+## Windows (GPO)
+
+```
+Software\Policies\Mozilla\Firefox\DisableFirefoxAccounts = 0x1 | 0x0
+```
+
+## Windows (Intune)
+
+OMA-URI:
+
+```url
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox/DisableFirefoxAccounts
+```
+
+Value (string):
+
+```xml
+<enabled/> or <disabled/>
+```
+
+## macOS
+
+```xml
+<dict>
+  <key>DisableFirefoxAccounts</key>
+  <true/> | <false/>
+</dict>
+```
+
+## policies.json
+
+```json
+{
+  "policies": {
+    "DisableFirefoxAccounts": true | false
+  }
+}
+```

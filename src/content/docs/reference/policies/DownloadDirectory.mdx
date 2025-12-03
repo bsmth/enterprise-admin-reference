@@ -1,0 +1,60 @@
+---
+title: "DownloadDirectory"
+description: "Set and lock the download directory."
+---
+
+Set and lock the download directory.
+
+You can use `${home}` for the native home directory.
+
+**Compatibility:** Firefox 68, Firefox ESR 68\
+**CCK2 Equivalent:** N/A\
+**Preferences Affected:** `browser.download.dir`, `browser.download.folderList`, `browser.download.useDownloadDir`
+
+## Windows (GPO)
+
+```
+Software\Policies\Mozilla\Firefox\DownloadDirectory = "${home}\Downloads"
+```
+
+## Windows (Intune)
+
+OMA-URI:
+
+```url
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox/DownloadDirectory
+```
+
+Value (string):
+
+```xml
+<enabled/>
+<data id="Preferences_String" value="${home}\Downloads"/>
+```
+
+## macOS
+
+```xml
+<dict>
+  <key>DownloadDirectory</key>
+  <string>${home}/Downloads</string>
+</dict>
+```
+
+## policies.json (macOS and Linux)
+
+```json
+{
+  "policies": {
+    "DownloadDirectory": "${home}/Downloads"
+}
+```
+
+## policies.json (Windows)
+
+```json
+{
+  "policies": {
+    "DownloadDirectory": "${home}\\Downloads"
+}
+```

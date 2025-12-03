@@ -1,0 +1,49 @@
+---
+title: "DontCheckDefaultBrowser"
+description: "Don't check if Firefox is the default browser at startup."
+---
+
+Don't check if Firefox is the default browser at startup.
+
+**Compatibility:** Firefox 60, Firefox ESR 60\
+**CCK2 Equivalent:** `dontCheckDefaultBrowser`\
+**Preferences Affected:** `browser.shell.checkDefaultBrowser`
+
+## Windows (GPO)
+
+```
+Software\Policies\Mozilla\Firefox\DontCheckDefaultBrowser = 0x1 | 0x0
+```
+
+## Windows (Intune)
+
+OMA-URI:
+
+```url
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox/DontCheckDefaultBrowser
+```
+
+Value (string):
+
+```xml
+<enabled/> or <disabled/>
+```
+
+## macOS
+
+```xml
+<dict>
+  <key>DontCheckDefaultBrowser</key>
+  <true/> | <false/>
+</dict>
+```
+
+## policies.json
+
+```json
+{
+  "policies": {
+    "DontCheckDefaultBrowser": true | false
+  }
+}
+```

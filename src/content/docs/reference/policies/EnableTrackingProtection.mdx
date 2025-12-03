@@ -1,0 +1,187 @@
+---
+title: "EnableTrackingProtection"
+description: "Configure tracking protection."
+---
+
+Configure tracking protection.
+
+If this policy is not configured, tracking protection is not enabled by default in the browser, but it is enabled by default in private browsing and the user can change it.
+
+If `Value` is set to false, tracking protection is disabled and locked in both the regular browser and private browsing.
+
+If `Value` is set to true, tracking protection is enabled by default in both the regular browser and private browsing and the `Locked` value determines whether or not a user can change it.
+
+If `Cryptomining` is set to true, cryptomining scripts on websites are blocked.
+
+If `Fingerprinting` is set to true, fingerprinting scripts on websites are blocked.
+
+If `EmailTracking` is set to true, hidden email tracking pixels and scripts on websites are blocked. (Firefox 112)
+
+If `SuspectedFingerprinting` is set to true, Firefox reduces the amount of information exposed to websites to protect against potential fingerprinting attempts. (Firefox 142, Firefox ESR 140.2)
+
+`Exceptions` are origins for which tracking protection is not enabled.
+
+`Category` can be either `strict` or `standard`. If category is set, it overrides all other settings except `Exceptions` and the user cannot change the category. (Firefox 142, Firefox ESR 140.2)
+
+**Compatibility:** Firefox 60, Firefox ESR 60 (Cryptomining and Fingerprinting added in 70/68.2, Exceptions added in 73/68.5. Category added in Firefox 142/140.2.)\
+**CCK2 Equivalent:** N/A\
+**Preferences Affected:** `privacy.trackingprotection.enabled`, `privacy.trackingprotection.pbmode.enabled`, `privacy.trackingprotection.cryptomining.enabled`, `privacy.trackingprotection.fingerprinting.enabled`
+
+## Windows (GPO)
+
+```
+Software\Policies\Mozilla\Firefox\EnableTrackingProtection\Value = 0x1 | 0x0
+Software\Policies\Mozilla\Firefox\EnableTrackingProtection\Locked = 0x1 | 0x0
+Software\Policies\Mozilla\Firefox\EnableTrackingProtection\Cryptomining = 0x1 | 0x0
+Software\Policies\Mozilla\Firefox\EnableTrackingProtection\Fingerprinting = 0x1 | 0x0
+Software\Policies\Mozilla\Firefox\EnableTrackingProtection\EmailTracking = 0x1 | 0x0
+Software\Policies\Mozilla\Firefox\EnableTrackingProtection\SuspectedFingerprinting = 0x1 | 0x0
+Software\Policies\Mozilla\Firefox\EnableTrackingProtection\Exceptions\1 = "https://example.com"
+Software\Policies\Mozilla\Firefox\EnableTrackingProtection\Category = "strict" | "standard"
+```
+
+## Windows (Intune)
+
+OMA-URI:
+
+```url
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox~TrackingProtection/A_TrackingProtection_Value
+```
+
+Value (string):
+
+```xml
+<enabled/> or <disabled/>
+```
+
+OMA-URI:
+
+```url
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox~TrackingProtection/B_TrackingProtection_Cryptomining
+```
+
+Value (string):
+
+```xml
+<enabled/> or <disabled/>
+```
+
+OMA-URI:
+
+```url
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox~TrackingProtection/C_TrackingProtection_Fingerprinting
+```
+
+Value (string):
+
+```xml
+<enabled/> or <disabled/>
+```
+
+OMA-URI:
+
+```url
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox~TrackingProtection/F_TrackingProtection_EmailTracking
+```
+
+Value (string):
+
+```xml
+<enabled/> or <disabled/>
+```
+
+OMA-URI:
+
+```url
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox~TrackingProtection/D_TrackingProtection_Exceptions
+```
+
+Value (string):
+
+```xml
+<enabled/>
+<data id="TrackingProtection_Exceptions" value="1&#xF000;https://example.com"/>
+```
+
+OMA-URI:
+
+```url
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox~TrackingProtection/E_TrackingProtection_Locked
+```
+
+Value (string):
+
+```xml
+<enabled/> or <disabled/>
+```
+
+OMA-URI:
+
+```url
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox~TrackingProtection/G_TrackingProtection_Category
+```
+
+Value (string):
+
+```
+<data id="TrackingProtection_Category" value="strict | standard"/>
+```
+
+OMA-URI:
+
+```url
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox~TrackingProtection/H_TrackingProtection_SuspectedFingerprinting
+```
+
+Value (string):
+
+```xml
+<enabled/> or <disabled/>
+```
+
+## macOS
+
+```xml
+<dict>
+  <key>EnableTrackingProtection</key>
+  <dict>
+    <key>Value</key>
+    <true/> | <false/>
+    <key>Locked</key>
+    <true/> | <false/>
+    <key>Cryptomining</key>
+    <true/> | <false/>
+    <key>Fingerprinting</key>
+    <true/> | <false/>
+    <key>EmailTracking</key>
+    <true/> | <false/>
+    <key>SuspectedFingerprinting</key>
+    <true/> | <false/>
+    <key>Exceptions</key>
+    <key>Category</key>
+    <string>strict | standard</string>
+    <array>
+      <string>https://example.com</string>
+    </array>
+  </dict>
+</dict>
+```
+
+## policies.json
+
+```json
+{
+  "policies": {
+    "EnableTrackingProtection": {
+      "Value": true | false,
+      "Locked": true | false,
+      "Cryptomining": true | false,
+      "Fingerprinting": true | false,
+      "EmailTracking": true | false,
+      "SuspectedFingerprinting": true | false,
+      "Category": "strict" | "standard",
+      "Exceptions": ["https://example.com"]
+    }
+  }
+}
+```

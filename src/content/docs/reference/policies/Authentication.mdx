@@ -1,0 +1,177 @@
+---
+title: "Authentication"
+description: "Configure sites that support integrated authentication."
+---
+
+Configure sites that support integrated authentication.
+
+See [Integrated authentication](https://htmlpreview.github.io/?https://github.com/mdn/archived-content/blob/main/files/en-us/mozilla/integrated_authentication/raw.html) for more information.
+
+`PrivateBrowsing` enables integrated authentication in private browsing.
+
+**Compatibility:** Firefox 60, Firefox ESR 60 (AllowNonFQDN added in 62/60.2, AllowProxies added in 70/68.2, Locked added in 71/68.3, PrivateBrowsing added in 77/68.9)\
+**CCK2 Equivalent:** N/A\
+**Preferences Affected:** `network.negotiate-auth.trusted-uris`,`network.negotiate-auth.delegation-uris`,`network.automatic-ntlm-auth.trusted-uris`,`network.automatic-ntlm-auth.allow-non-fqdn`,`network.negotiate-auth.allow-non-fqdn`,`network.automatic-ntlm-auth.allow-proxies`,`network.negotiate-auth.allow-proxies`,`network.auth.private-browsing-sso`
+
+## Windows (GPO)
+
+```
+Software\Policies\Mozilla\Firefox\Authentication\SPNEGO\1 = "mydomain.com"
+Software\Policies\Mozilla\Firefox\Authentication\SPNEGO\2 = "https://myotherdomain.com"
+Software\Policies\Mozilla\Firefox\Authentication\Delegated\1 = "mydomain.com"
+Software\Policies\Mozilla\Firefox\Authentication\Delegated\2 = "https://myotherdomain.com"
+Software\Policies\Mozilla\Firefox\Authentication\NTLM\1 = "mydomain.com"
+Software\Policies\Mozilla\Firefox\Authentication\NTLM\2 = "https://myotherdomain.com"
+Software\Policies\Mozilla\Firefox\Authentication\AllowNonFQDN\SPNEGO = 0x1 | 0x0
+Software\Policies\Mozilla\Firefox\Authentication\AllowNonFQDN\NTLM = 0x1 | 0x0
+Software\Policies\Mozilla\Firefox\Authentication\AllowProxies\SPNEGO = 0x1 | 0x0
+Software\Policies\Mozilla\Firefox\Authentication\AllowProxies\NTLM = 0x1 | 0x0
+Software\Policies\Mozilla\Firefox\Authentication\Locked = 0x1 | 0x0
+Software\Policies\Mozilla\Firefox\Authentication\PrivateBrowsing = 0x1 | 0x0
+```
+
+## Windows (Intune)
+
+OMA-URI:
+
+```url
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox~Authentication/Authentication_SPNEGO
+```
+
+Value (string):
+
+```xml
+<enabled/>
+<data id="Authentication" value="1&#xF000;mydomain&#xF000;2&#xF000;https://myotherdomain.com"/>
+```
+
+OMA-URI:
+
+```url
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox~Authentication/Authentication_Delegated
+```
+
+Value (string):
+
+```xml
+<enabled/>
+<data id="Authentication" value="1&#xF000;mydomain&#xF000;2&#xF000;https://myotherdomain.com"/>
+```
+
+OMA-URI:
+
+```url
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox~Authentication/Authentication_NTLM
+```
+
+Value (string):
+
+```xml
+<enabled/>
+<data id="Authentication" value="1&#xF000;mydomain&#xF000;2&#xF000;https://myotherdomain.com"/>
+```
+
+OMA-URI:
+
+```url
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox~Authentication/Authentication_AllowNonFQDN
+```
+
+Value (string):
+
+```xml
+<enabled/>
+<data id="Authentication_AllowNonFQDN_NTLM" value="true | false"/>
+<data id="Authentication_AllowNonFQDN_SPNEGO" value="true | false"/>
+```
+
+OMA-URI:
+
+```url
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox~Authentication/Authentication_Locked
+```
+
+Value (string):
+
+```xml
+<enabled/> or <disabled/>
+```
+
+OMA-URI:
+
+```url
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox~Authentication/Authentication_PrivateBrowsing
+```
+
+Value (string):
+
+```xml
+<enabled/> or <disabled/>
+```
+
+## macOS
+
+```xml
+<dict>
+  <key>Authentication</key>
+  <dict>
+    <key>SPNEGO</key>
+    <array>
+      <string>mydomain.com</string>
+      <string>https://myotherdomain.com</string>
+    </array>
+    <key>Delegated</key>
+    <array>
+      <string>mydomain.com</string>
+      <string>https://myotherdomain.com</string>
+    </array>
+    <key>NTLM</key>
+    <array>
+      <string>mydomain.com</string>
+      <string>https://myotherdomain.com</string>
+    </array>
+    <key>AllowNonFQDN</key>
+      <dict>
+      <key>SPNEGO</key>
+      <true/> | <false/>
+      <key>NTLM</key>
+      <true/> | <false/>
+    </dict>
+    <key>AllowProxies</key>
+      <dict>
+      <key>SPNEGO</key>
+      <true/> | <false/>
+      <key>NTLM</key>
+      <true/> | <false/>
+    </dict>
+    <key>Locked</key>
+    <true/> | <false/>
+    <key>PrivateBrowsing</key>
+    <true/> | <false/>
+  </dict>
+</dict>
+```
+
+## policies.json
+
+```json
+{
+  "policies": {
+    "Authentication": {
+      "SPNEGO": ["mydomain.com", "https://myotherdomain.com"],
+      "Delegated": ["mydomain.com", "https://myotherdomain.com"],
+      "NTLM": ["mydomain.com", "https://myotherdomain.com"],
+      "AllowNonFQDN": {
+        "SPNEGO": true | false,
+        "NTLM": true | false
+      },
+      "AllowProxies": {
+        "SPNEGO": true | false,
+        "NTLM": true | false
+      },
+      "Locked": true | false,
+      "PrivateBrowsing": true | false
+    }
+  }
+}
+```

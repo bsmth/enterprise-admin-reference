@@ -1,0 +1,102 @@
+---
+title: "FirefoxSuggest"
+description: "Customize Firefox Suggest (US only)."
+---
+
+Customize Firefox Suggest (US only).
+
+**Compatibility:** Firefox 118, Firefox ESR 115.3.
+**CCK2 Equivalent:** N/A\
+**Preferences Affected:** `browser.urlbar.suggest.quicksuggest.nonsponsored`, `browser.urlbar.suggest.quicksuggest.sponsored`, `browser.urlbar.quicksuggest.dataCollection.enabled`
+
+## Windows (GPO)
+
+```
+Software\Policies\Mozilla\Firefox\FirefoxSuggest\WebSuggestions = 0x1 | 0x0
+Software\Policies\Mozilla\Firefox\FirefoxSuggest\SponsoredSuggestions = 0x1 | 0x0
+Software\Policies\Mozilla\Firefox\FirefoxSuggest\ImproveSuggest = 0x1 | 0x0
+Software\Policies\Mozilla\Firefox\FirefoxSuggest\Locked = 0x1 | 0x0
+```
+
+## Windows (Intune)
+
+OMA-URI:
+
+```url
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox~FirefoxSuggest/FirefoxSuggest_WebSuggestions
+```
+
+Value (string):
+
+```xml
+<enabled/> or <disabled/>
+```
+
+OMA-URI:
+
+```url
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox~FirefoxSuggest/FirefoxSuggest_SponsoredSuggestions
+```
+
+Value (string):
+
+```xml
+<enabled/> or <disabled/>
+```
+
+OMA-URI:
+
+```url
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox~FirefoxSuggest/FirefoxSuggest_ImproveSuggest
+```
+
+Value (string):
+
+```xml
+<enabled/> or <disabled/>
+```
+
+OMA-URI:
+
+```url
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox~FirefoxSuggest/FirefoxSuggest_Locked
+```
+
+Value (string):
+
+```xml
+<enabled/> or <disabled/>
+```
+
+## macOS
+
+```xml
+<dict>
+  <key>FirefoxSuggest</key>
+  <dict>
+    <key>WebSuggestions</key>
+    <true/> | <false/>
+    <key>SponsoredSuggestions</key>
+    <true/> | <false/>
+    <key>ImproveSuggest</key>
+    <true/> | <false/>
+    <key>Locked</key>
+    <true/> | <false/>
+  </dict>
+</dict>
+```
+
+## policies.json
+
+```json
+{
+  "policies": {
+    "FirefoxSuggest": {
+      "WebSuggestions": true | false,
+      "SponsoredSuggestions": true | false,
+      "ImproveSuggest": true | false,
+      "Locked": true | false
+    }
+  }
+}
+```

@@ -1,0 +1,51 @@
+---
+title: "ShowHomeButton"
+description: "Show the home button on the toolbar."
+---
+
+Show the home button on the toolbar.
+
+Future versions of Firefox will not show the home button by default.
+
+**Compatibility:** Firefox 88, Firefox ESR 78.10\
+**CCK2 Equivalent:** N/A\
+**Preferences Affected:** N/A
+
+## Windows (GPO)
+
+```
+Software\Policies\Mozilla\Firefox\ShowHomeButton = 0x1 | 0x0
+```
+
+## Windows (Intune)
+
+OMA-URI:
+
+```url
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox~Homepage/Homepage_ShowHomeButton
+```
+
+Value (string):
+
+```xml
+<enabled/> or <disabled/>
+```
+
+## macOS
+
+```xml
+<dict>
+  <key>ShowHomeButton</key>
+  <true/> | <false/>
+</dict>
+```
+
+## policies.json
+
+```json
+{
+  "policies": {
+    "ShowHomeButton": true | false
+  }
+}
+```

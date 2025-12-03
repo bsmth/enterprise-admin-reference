@@ -1,0 +1,49 @@
+---
+title: "ExtensionUpdate"
+description: "Control extension updates."
+---
+
+Control extension updates.
+
+**Compatibility:** Firefox 67, Firefox ESR 60.7\
+**CCK2 Equivalent:** N/A\
+**Preferences Affected:** `extensions.update.enabled`
+
+## Windows (GPO)
+
+```
+Software\Policies\Mozilla\Firefox\ExtensionUpdate = 0x1 | 0x0
+```
+
+## Windows (Intune)
+
+OMA-URI:
+
+```url
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox~Extensions/ExtensionUpdate
+```
+
+Value (string):
+
+```xml
+<enabled/> or <disabled/>
+```
+
+## macOS
+
+```xml
+<dict>
+  <key>ExtensionUpdate</key>
+  <true/> | <false/>
+</dict>
+```
+
+## policies.json
+
+```json
+{
+  "policies": {
+    "ExtensionUpdate": true | false
+  }
+}
+```

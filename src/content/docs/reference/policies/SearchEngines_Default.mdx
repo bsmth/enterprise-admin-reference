@@ -1,0 +1,55 @@
+---
+title: "SearchEngines: Default"
+description: "Set the default search engine."
+---
+
+Set the default search engine.
+
+**Compatibility:** Firefox 139, Firefox ESR 60\
+**CCK2 Equivalent:** `defaultSearchEngine`\
+**Preferences Affected:** N/A
+
+## Windows (GPO)
+
+```
+Software\Policies\Mozilla\Firefox\SearchEngines\Default = NAME_OF_SEARCH_ENGINE
+```
+
+## Windows (Intune)
+
+OMA-URI:
+
+```url
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox~Search/SearchEngines_Default
+```
+
+Value (string):
+
+```xml
+<enabled/>
+<data id="SearchEngines_Default" value="NAME_OF_SEARCH_ENGINE"/>
+```
+
+## macOS
+
+```xml
+<dict>
+  <key>SearchEngines</key>
+  <dict>
+    <key>Default</key>
+    <string>NAME_OF_SEARCH_ENGINE</string>
+  </dict>
+</dict>
+```
+
+## policies.json
+
+```json
+{
+  "policies": {
+    "SearchEngines": {
+      "Default": "NAME_OF_SEARCH_ENGINE"
+    }
+  }
+}
+```

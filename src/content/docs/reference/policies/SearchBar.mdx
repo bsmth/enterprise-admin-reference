@@ -1,0 +1,52 @@
+---
+title: "SearchBar"
+description: "Set whether or not search bar is displayed."
+---
+
+Set whether or not search bar is displayed.
+
+**Compatibility:** Firefox 60, Firefox ESR 60\
+**CCK2 Equivalent:** `showSearchBar`\
+**Preferences Affected:** N/A
+
+## Windows (GPO)
+
+```
+Software\Policies\Mozilla\Firefox\SearchBar = "unified" | "separate"
+```
+
+## Windows (Intune)
+
+OMA-URI:
+
+```url
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox/SearchBar
+```
+
+Value (string):
+
+```xml
+<enabled/>
+<data id="SearchBar" value="unified | separate"/>
+```
+
+## macOS
+
+```xml
+<dict>
+  <key>SearchBar</key>
+  <string>unified | separate</string>
+</dict>
+```
+
+## policies.json
+
+```json
+{
+  "policies": {
+    "SearchBar": "unified" | "separate"
+  }
+}
+```
+
+<a name="SearchEngines"></a>

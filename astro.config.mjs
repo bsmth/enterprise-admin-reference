@@ -2,9 +2,8 @@
 import { defineConfig } from "astro/config";
 import starlight from "@astrojs/starlight";
 import starlightGitHubAlerts from "starlight-github-alerts";
-import starlightChangelogs, {
-  makeChangelogsSidebarLinks,
-} from "starlight-changelogs";
+import starlightChangelogs, { makeChangelogsSidebarLinks } from "starlight-changelogs";
+import starlightLinksValidator from "starlight-links-validator";
 
 export const locales = {
   root: { label: "English", lang: "en" },
@@ -28,6 +27,9 @@ export default defineConfig({
         "./src/styles/custom.css",
         "./src/fonts/font-face.css",
       ],
+      // editLink: {
+      //   baseUrl: "https://github.com/mozilla/enterprise-admin-reference/edit/main/",
+      // },
       expressiveCode: {
         styleOverrides: { borderRadius: "0.2rem" },
         shiki: {
@@ -38,12 +40,13 @@ export default defineConfig({
         },
       },
       favicon: "/favicon.png",
-      locales,
-      plugins: [starlightGitHubAlerts(), starlightChangelogs()],
+      lastUpdated: true,
+      plugins: [starlightGitHubAlerts(), starlightChangelogs(), starlightLinksValidator()],
       sidebar: [
         {
           label: "Reference",
           autogenerate: { directory: "reference" },
+          collapsed: true,
         },
         {
           label: "Guides",
@@ -52,6 +55,13 @@ export default defineConfig({
         {
           label: "Resources",
           items: [{ label: "Support", slug: "support" }],
+        },
+      ],
+      social: [
+        {
+          icon: "github",
+          label: "GitHub",
+          href: "https://github.com/mozilla/enterprise-admin-reference",
         },
       ],
       title: "Firefox administrator reference",

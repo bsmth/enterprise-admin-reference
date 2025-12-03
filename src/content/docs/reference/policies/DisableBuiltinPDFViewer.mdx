@@ -1,0 +1,53 @@
+---
+title: "DisableBuiltinPDFViewer"
+description: "Disable the built in PDF viewer."
+---
+
+Disable the built in PDF viewer. PDF files are downloaded and sent externally.
+
+> [!NOTE] As of Firefox 140, this policy no longer completely disables PDF.js; it changes the handler to send PDF files to the operating system.
+> Embedded PDF files are shown in the browser.
+> If you need to completely disable PDF.js, you can use the [`PDFjs`](/reference/policies/pdfjs) policy.
+
+**Compatibility:** Firefox 60, Firefox ESR 60\
+**CCK2 Equivalent:** `disablePDFjs`\
+**Preferences Affected:** N/A
+
+## Windows (GPO)
+
+```
+Software\Policies\Mozilla\Firefox\DisableBuiltinPDFViewer = 0x1 | 0x0
+```
+
+## Windows (Intune)
+
+OMA-URI:
+
+```url
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox/DisableBuiltinPDFViewer
+```
+
+Value (string):
+
+```xml
+<enabled/> or <disabled/>
+```
+
+## macOS
+
+```xml
+<dict>
+  <key>DisableBuiltinPDFViewer</key>
+  <true/> | <false/>
+</dict>
+```
+
+## policies.json
+
+```json
+{
+  "policies": {
+    "DisableBuiltinPDFViewer": true | false
+  }
+}
+```

@@ -1,0 +1,51 @@
+---
+title: "NoDefaultBookmarks"
+description: "Disable the creation of default bookmarks."
+---
+
+Disable the creation of default bookmarks.
+
+This policy is only effective if the user profile has not been created yet.
+
+**Compatibility:** Firefox 60, Firefox ESR 60\
+**CCK2 Equivalent:** `removeDefaultBookmarks`\
+**Preferences Affected:** N/A
+
+## Windows (GPO)
+
+```
+Software\Policies\Mozilla\Firefox\NoDefaultBookmarks = 0x1 | 0x0
+```
+
+## Windows (Intune)
+
+OMA-URI:
+
+```url
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox/NoDefaultBookmarks
+```
+
+Value (string):
+
+```xml
+<enabled/> or <disabled/>
+```
+
+## macOS
+
+```xml
+<dict>
+  <key>NoDefaultBookmarks</key>
+  <true/> | <false/>
+</dict>
+```
+
+## policies.json
+
+```json
+{
+  "policies": {
+    "NoDefaultBookmarks": true | false
+  }
+}
+```

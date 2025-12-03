@@ -1,0 +1,49 @@
+---
+title: "OfferToSaveLogins"
+description: "Control whether or not Firefox offers to save passwords."
+---
+
+Control whether or not Firefox offers to save passwords.
+
+**Compatibility:** Firefox 60, Firefox ESR 60\
+**CCK2 Equivalent:** `dontRememberPasswords`\
+**Preferences Affected:** `signon.rememberSignons`
+
+## Windows (GPO)
+
+```
+Software\Policies\Mozilla\Firefox\OfferToSaveLogins = 0x1 | 0x0
+```
+
+## Windows (Intune)
+
+OMA-URI:
+
+```url
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox/OfferToSaveLogins
+```
+
+Value (string):
+
+```xml
+<enabled/> or <disabled/>
+```
+
+## macOS
+
+```xml
+<dict>
+  <key>OfferToSaveLogins</key>
+  <true/> | <false/>
+</dict>
+```
+
+## policies.json
+
+```json
+{
+  "policies": {
+    "OfferToSaveLogins": true | false
+  }
+}
+```

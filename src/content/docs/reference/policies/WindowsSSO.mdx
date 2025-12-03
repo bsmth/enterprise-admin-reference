@@ -1,0 +1,46 @@
+---
+title: "WindowsSSO"
+description: "Allow Windows single sign-on for Microsoft, work, and school accounts."
+---
+
+Allow Windows single sign-on for Microsoft, work, and school accounts.
+
+If this policy is set to true, Firefox will use credentials stored in Windows to sign in to Microsoft, work, and school accounts.
+
+**Compatibility:** Firefox 91\
+**CCK2 Equivalent:** N/A\
+**Preferences Affected:** `network.http.windows-sso.enabled`
+
+## Windows (GPO)
+
+```
+Software\Policies\Mozilla\Firefox\WindowsSSO = 0x1 | 0x0
+```
+
+## Windows (Intune)
+
+OMA-URI:
+
+```url
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox/WindowsSSO
+```
+
+Value (string):
+
+```xml
+<enabled/> or <disabled/>
+```
+
+## policies.json
+
+```json
+{
+  "policies": {
+    "WindowsSSO": true | false
+  }
+}
+```
+
+## See also
+
+- [Configuring policies](/guides/policies-configuration/) guide

@@ -1,0 +1,49 @@
+---
+title: "SearchSuggestEnabled"
+description: "Enable search suggestions."
+---
+
+Enable search suggestions.
+
+**Compatibility:** Firefox 68, Firefox ESR 68\
+**CCK2 Equivalent:** N/A\
+**Preferences Affected:** `browser.urlbar.suggest.searches`, `browser.search.suggest.enabled`
+
+## Windows (GPO)
+
+```
+Software\Policies\Mozilla\Firefox\SearchSuggestEnabled = 0x1 | 0x0
+```
+
+## Windows (Intune)
+
+OMA-URI:
+
+```url
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox~Search/SearchSuggestEnabled
+```
+
+Value (string):
+
+```xml
+<enabled/> or <disabled/>
+```
+
+## macOS
+
+```xml
+<dict>
+  <key>SearchSuggestEnabled</key>
+  <true/> | <false/>
+</dict>
+```
+
+## policies.json
+
+```json
+{
+  "policies": {
+    "SearchSuggestEnabled": true | false
+  }
+}
+```

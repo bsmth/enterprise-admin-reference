@@ -1,0 +1,50 @@
+---
+title: "AppUpdateURL"
+description: "Change the URL for application update if you are providing Firefox updates from a custom update server."
+---
+
+Change the URL for application update if you are providing Firefox updates from a custom update server.
+
+**Compatibility:** Firefox 62, Firefox ESR 60.2\
+**CCK2 Equivalent:** N/A\
+**Preferences Affected:** `app.update.url`
+
+## Windows (GPO)
+
+```
+Software\Policies\Mozilla\Firefox\AppUpdateURL = "https://yoursite.com"
+```
+
+## Windows (Intune)
+
+OMA-URI:
+
+```url
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox/AppUpdateURL
+```
+
+Value (string):
+
+```xml
+<enabled/>
+<data id="AppUpdateURL" value="https://yoursite.com"/>
+```
+
+## macOS
+
+```xml
+<dict>
+  <key>AppUpdateURL</key>
+  <string>https://yoursite.com</string>
+</dict>
+```
+
+## policies.json
+
+```json
+{
+  "policies": {
+    "AppUpdateURL": "https://yoursite.com"
+  }
+}
+```

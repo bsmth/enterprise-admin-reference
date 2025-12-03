@@ -1,0 +1,51 @@
+---
+title: "DisablePrivateBrowsing"
+description: "Remove access to private browsing."
+---
+
+Remove access to private browsing.
+
+This policy is superseded by [`PrivateBrowsingModeAvailability`](/reference/policies/privatebrowsingmodeavailability)
+
+**Compatibility:** Firefox 60, Firefox ESR 60\
+**CCK2 Equivalent:** `disablePrivateBrowsing`\
+**Preferences Affected:** N/A
+
+## Windows (GPO)
+
+```
+Software\Policies\Mozilla\Firefox\DisablePrivateBrowsing = 0x1 | 0x0
+```
+
+## Windows (Intune)
+
+OMA-URI:
+
+```url
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox/DisablePrivateBrowsing
+```
+
+Value (string):
+
+```xml
+<enabled/> or <disabled/>
+```
+
+## macOS
+
+```xml
+<dict>
+  <key>DisablePrivateBrowsing</key>
+  <true/> | <false/>
+</dict>
+```
+
+## policies.json
+
+```json
+{
+  "policies": {
+    "DisablePrivateBrowsing": true | false
+  }
+}
+```

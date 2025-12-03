@@ -1,0 +1,51 @@
+---
+title: "AutofillCreditCardEnabled"
+description: "Enables or disables autofill for payment methods."
+---
+
+Enables or disables autofill for payment methods.
+
+This only applies when payment method autofill is enabled for a particular Firefox version or region. See [this page](https://support.mozilla.org/kb/credit-card-autofill) for more information.
+
+**Compatibility:** Firefox 125, Firefox ESR 115.10\
+**CCK2 Equivalent:** N/A\
+**Preferences Affected:** `extensions.formautofill.creditCards.enabled`
+
+## Windows (GPO)
+
+```
+Software\Policies\Mozilla\Firefox\AutofillCreditCardEnabled = 0x1 | 0x0
+```
+
+## Windows (Intune)
+
+OMA-URI:
+
+```url
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox/AutofillCreditCardEnabled
+```
+
+Value (string):
+
+```xml
+<enabled/> or <disabled/>
+```
+
+## macOS
+
+```xml
+<dict>
+  <key>AutofillCreditCardEnabled</key>
+  <true/> | <false/>
+</dict>
+```
+
+## policies.json
+
+```json
+{
+  "policies": {
+    "AutofillCreditCardEnabled": true | false
+  }
+}
+```

@@ -1,0 +1,49 @@
+---
+title: "DisableFormHistory"
+description: "Turn off saving information on web forms and the search bar."
+---
+
+Turn off saving information on web forms and the search bar.
+
+**Compatibility:** Firefox 60, Firefox ESR 60\
+**CCK2 Equivalent:** `disableFormFill`\
+**Preferences Affected:** `browser.formfill.enable`
+
+## Windows (GPO)
+
+```
+Software\Policies\Mozilla\Firefox\DisableFormHistory = 0x1 | 0x0
+```
+
+## Windows (Intune)
+
+OMA-URI:
+
+```url
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox/DisableFormHistory
+```
+
+Value (string):
+
+```xml
+<enabled/> or <disabled/>
+```
+
+## macOS
+
+```xml
+<dict>
+  <key>DisableFormHistory</key>
+  <true/> | <false/>
+</dict>
+```
+
+## policies.json
+
+```json
+{
+  "policies": {
+    "DisableFormHistory": true | false
+  }
+}
+```

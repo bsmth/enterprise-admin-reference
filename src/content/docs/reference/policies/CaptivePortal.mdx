@@ -1,0 +1,49 @@
+---
+title: "CaptivePortal"
+description: "Enable or disable the detection of captive portals."
+---
+
+Enable or disable the detection of captive portals.
+
+**Compatibility:** Firefox 67, Firefox ESR 60.7\
+**CCK2 Equivalent:** N/A\
+**Preferences Affected:** `network.captive-portal-service.enabled`
+
+## Windows (GPO)
+
+```
+Software\Policies\Mozilla\Firefox\CaptivePortal = 0x1 | 0x0
+```
+
+## Windows (Intune)
+
+OMA-URI:
+
+```url
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox/CaptivePortal
+```
+
+Value (string):
+
+```xml
+<enabled/> or <disabled/>
+```
+
+## macOS
+
+```xml
+<dict>
+  <key>CaptivePortal</key>
+  <true/> | <false/>
+</dict>
+```
+
+## policies.json
+
+```json
+{
+  "policies": {
+    "CaptivePortal": true | false
+  }
+}
+```

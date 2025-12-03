@@ -1,0 +1,56 @@
+---
+title: "LegacySameSiteCookieBehaviorEnabledForDomainList"
+description: "Revert to legacy SameSite behavior for cookies on specified sites."
+---
+
+Revert to legacy SameSite behavior for cookies on specified sites.
+
+If this policy is set to true, cookies set for domains in this list will revert to legacy SameSite behavior which means that cookies that don't explicitly specify a `SameSite` attribute are treated as if they were `SameSite=None`.
+
+**Compatibility:** Firefox 96\
+**CCK2 Equivalent:** N/A\
+**Preferences Affected:** `network.cookie.sameSite.laxByDefault.disabledHosts`
+
+## Windows (GPO)
+
+```
+Software\Policies\Mozilla\Firefox\LegacySameSiteCookieBehaviorEnabledForDomainList\1 = "example.org"
+Software\Policies\Mozilla\Firefox\LegacySameSiteCookieBehaviorEnabledForDomainList\2 = "example.edu"
+```
+
+## Windows (Intune)
+
+OMA-URI:
+
+```url
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox/LegacySameSiteCookieBehaviorEnabledForDomainList
+```
+
+Value (string):
+
+```xml
+<enabled/>
+<data id="LegacySameSiteCookieBehaviorEnabledForDomainList" value="1&#xF000;example.org&#xF000;2&#xF000;example.edu"/>
+```
+
+## macOS
+
+```xml
+<dict>
+  <key>LegacySameSiteCookieBehaviorEnabledForDomainList</key>
+  <array>
+    <string>example.org</string>
+    <string>example.edu</string>
+  </array>
+</dict>
+```
+
+## policies.json
+
+```json
+{
+  "policies": {
+    "LegacySameSiteCookieBehaviorEnabledForDomainList": ["example.org", "example.edu"]
+  }
+}
+```

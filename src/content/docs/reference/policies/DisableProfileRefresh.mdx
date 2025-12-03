@@ -1,0 +1,49 @@
+---
+title: "DisableProfileRefresh"
+description: "Disable the Refresh Firefox button on `about:support` and support.mozilla.org, as well as the prompt that displays offering to refresh Firefox when you haven't used it in a while."
+---
+
+Disable the Refresh Firefox button on `about:support` and support.mozilla.org, as well as the prompt that displays offering to refresh Firefox when you haven't used it in a while.
+
+**Compatibility:** Firefox 60, Firefox ESR 60\
+**CCK2 Equivalent:** `disableResetFirefox`\
+**Preferences Affected:** `browser.disableResetPrompt`
+
+## Windows (GPO)
+
+```
+Software\Policies\Mozilla\Firefox\DisableProfileRefresh = 0x1 | 0x0
+```
+
+## Windows (Intune)
+
+OMA-URI:
+
+```url
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox/DisableProfileRefresh
+```
+
+Value (string):
+
+```xml
+<enabled/> or <disabled/>
+```
+
+## macOS
+
+```xml
+<dict>
+  <key>DisableProfileRefresh</key>
+  <true/> | <false/>
+</dict>
+```
+
+## policies.json
+
+```json
+{
+  "policies": {
+    "DisableProfileRefresh": true | false
+  }
+}
+```

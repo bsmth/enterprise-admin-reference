@@ -1,0 +1,51 @@
+---
+title: "DisablePocket (Deprecated)"
+description: "Remove Pocket in the Firefox UI."
+banner:
+  content: Deprecated!
+---
+
+Remove Pocket in the Firefox UI. It does not remove it from the new tab page.
+
+**Compatibility:** Firefox 60, Firefox ESR 60\
+**CCK2 Equivalent:** `disablePocket`\
+**Preferences Affected:** `extensions.pocket.enabled`
+
+## Windows (GPO)
+
+```
+Software\Policies\Mozilla\Firefox\DisablePocket = 0x1 | 0x0
+```
+
+## Windows (Intune)
+
+OMA-URI:
+
+```url
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox/DisablePocket
+```
+
+Value (string):
+
+```xml
+<enabled/> or <disabled/>
+```
+
+## macOS
+
+```xml
+<dict>
+  <key>DisablePocket</key>
+  <true/> | <false/>
+</dict>
+```
+
+## policies.json
+
+```json
+{
+  "policies": {
+    "DisablePocket": true | false
+  }
+}
+```

@@ -1,0 +1,56 @@
+---
+title: "DisplayBookmarksToolbar"
+description: "Set the initial state of the bookmarks toolbar."
+---
+
+Set the initial state of the bookmarks toolbar. A user can still change how it is displayed.
+
+`always` means the bookmarks toolbar is always shown.
+
+`never` means the bookmarks toolbar is not shown.
+
+`newtab` means the bookmarks toolbar is only shown on the new tab page.
+
+**Compatibility:** Firefox 109, Firefox ESR 102.7\
+**CCK2 Equivalent:** N/A\
+**Preferences Affected:** N/A
+
+## Windows (GPO)
+
+```
+Software\Policies\Mozilla\Firefox\DisplayBookmarksToolbar = "always", "never", "newtab"
+```
+
+## Windows (Intune)
+
+OMA-URI:
+
+```url
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox/DisplayBookmarksToolbar_Enum
+```
+
+Value (string):
+
+```xml
+<enabled/>
+<data id="DisplayBookmarksToolbar" value="always | never | newtab"/>
+```
+
+## macOS
+
+```xml
+<dict>
+  <key>DisplayBookmarksToolbar</key>
+  <string>always | never | newtab</string>
+</dict>
+```
+
+## policies.json
+
+```json
+{
+  "policies": {
+    "DisplayBookmarksToolbar": "always" | "never" | "newtab"
+  }
+}
+```

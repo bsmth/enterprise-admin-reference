@@ -1,0 +1,49 @@
+---
+title: "BlockAboutProfiles"
+description: "Block access to About Profiles (`about:profiles`)."
+---
+
+Block access to About Profiles (`about:profiles`).
+
+**Compatibility:** Firefox 60, Firefox ESR 60\
+**CCK2 Equivalent:** `disableAboutProfiles`\
+**Preferences Affected:** N/A
+
+## Windows (GPO)
+
+```
+Software\Policies\Mozilla\Firefox\BlockAboutProfiles = 0x1 | 0x0
+```
+
+## Windows (Intune)
+
+OMA-URI:
+
+```url
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox/BlockAboutProfiles
+```
+
+Value (string):
+
+```xml
+<enabled/> or <disabled/>
+```
+
+## macOS
+
+```xml
+<dict>
+  <key>BlockAboutProfiles</key>
+  <true/> | <false/>
+</dict>
+```
+
+## policies.json
+
+```json
+{
+  "policies": {
+    "BlockAboutProfiles": true | false
+  }
+}
+```

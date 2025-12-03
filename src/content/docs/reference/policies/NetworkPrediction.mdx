@@ -1,0 +1,48 @@
+---
+title: "NetworkPrediction"
+description: "Enable or disable network prediction (DNS prefetching)."
+---
+
+Enable or disable network prediction (DNS prefetching).
+
+**Compatibility:** Firefox 67, Firefox ESR 60.7\
+**CCK2 Equivalent:** N/A\
+**Preferences Affected:** `network.dns.disablePrefetch`, `network.dns.disablePrefetchFromHTTPS`
+
+## Windows (GPO)
+
+```
+Software\Policies\Mozilla\Firefox\NetworkPrediction = 0x1 | 0x0
+```
+
+## Windows (Intune)
+
+OMA-URI:
+
+```url
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox/NetworkPrediction
+```
+
+Value (string):
+
+```xml
+<enabled/> or <disabled/>
+```
+
+## macOS
+
+```xml
+<dict>
+  <key>NetworkPrediction</key>
+  <true/> | <false/>
+</dict>
+```
+
+## policies.json
+
+```json
+{
+  "policies": {
+    "NetworkPrediction": true | false
+}
+```

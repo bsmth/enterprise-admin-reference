@@ -1,0 +1,56 @@
+---
+title: "HttpAllowlist"
+description: "Configure sites that will not be upgraded to HTTPS."
+---
+
+Configure sites that will not be upgraded to HTTPS.
+
+The sites are specified as a list of origins.
+
+**Compatibility:** Firefox 127\
+**CCK2 Equivalent:** N/A\
+**Preferences Affected:** N/A
+
+## Windows (GPO)
+
+```
+Software\Policies\Mozilla\Firefox\HttpAllowlist\1 = "http://example.org"
+Software\Policies\Mozilla\Firefox\HttpAllowlist\2 = "http://example.edu"
+```
+
+## Windows (Intune)
+
+OMA-URI:
+
+```url
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox/HttpAllowlist
+```
+
+Value (string):
+
+```xml
+<enabled/>
+<data id="List" value="1&#xF000;http://example.org&#xF000;2&#xF000;http://example.edu"/>
+```
+
+## macOS
+
+```xml
+<dict>
+  <key>HttpAllowlist</key>
+  <array>
+    <string>http://example.org</string>
+    <string>http://example.edu</string>
+  </array>
+</dict>
+```
+
+## policies.json
+
+```json
+{
+  "policies": {
+    "HttpAllowlist": ["http://example.org", "http://example.edu"]
+  }
+}
+```

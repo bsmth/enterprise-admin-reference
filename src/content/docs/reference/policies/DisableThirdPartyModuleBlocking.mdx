@@ -1,0 +1,32 @@
+---
+title: "DisableThirdPartyModuleBlocking"
+description: "Do not allow blocking third-party modules from the `about:third-party` page."
+---
+
+Do not allow blocking third-party modules from the `about:third-party` page.
+
+This policy only works on Windows through GPO (not policies.json).
+
+**Compatibility:** Firefox 110 (Windows only, GPO only)\
+**CCK2 Equivalent:** N/A\
+**Preferences Affected:** N/A
+
+## Windows (GPO)
+
+```
+Software\Policies\Mozilla\Firefox\DisableThirdPartyModuleBlocking = 0x1 | 0x0
+```
+
+## Windows (Intune)
+
+OMA-URI:
+
+```url
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox/DisableThirdPartyModuleBlocking
+```
+
+Value (string):
+
+```xml
+<enabled/> or <disabled/>
+```

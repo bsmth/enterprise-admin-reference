@@ -1,0 +1,49 @@
+---
+title: "DisableDeveloperTools"
+description: "Remove access to all developer tools."
+---
+
+Remove access to all developer tools.
+
+**Compatibility:** Firefox 60, Firefox ESR 60\
+**CCK2 Equivalent:** `removeDeveloperTools`\
+**Preferences Affected:** `devtools.policy.disabled`
+
+## Windows (GPO)
+
+```
+Software\Policies\Mozilla\Firefox\DisableDeveloperTools = 0x1 | 0x0`
+```
+
+## Windows (Intune)
+
+OMA-URI:
+
+```url
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox/DisableDeveloperTools
+```
+
+Value (string):
+
+```xml
+<enabled/> or <disabled/>
+```
+
+## macOS
+
+```xml
+<dict>
+  <key>DisableDeveloperTools</key>
+  <true/> | <false/>
+</dict>
+```
+
+## policies.json
+
+```json
+{
+  "policies": {
+    "DisableDeveloperTools": true | false
+  }
+}
+```

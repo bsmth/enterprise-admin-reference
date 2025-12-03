@@ -1,0 +1,51 @@
+---
+title: "AutofillAddressEnabled"
+description: "Enables or disables autofill for addresses."
+---
+
+Enables or disables autofill for addresses.
+
+This only applies when address autofill is enabled for a particular Firefox version or region. See [this page](https://support.mozilla.org/kb/automatically-fill-your-address-web-forms) for more information.
+
+**Compatibility:** Firefox 125, Firefox ESR 115.10\
+**CCK2 Equivalent:** N/A\
+**Preferences Affected:** `extensions.formautofill.addresses.enabled`
+
+## Windows (GPO)
+
+```
+Software\Policies\Mozilla\Firefox\AutofillAddressEnabled = 0x1 | 0x0
+```
+
+## Windows (Intune)
+
+OMA-URI:
+
+```url
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox/AutofillAddressEnabled
+```
+
+Value (string):
+
+```xml
+<enabled/> or <disabled/>
+```
+
+## macOS
+
+```xml
+<dict>
+  <key>AutofillAddressEnabled</key>
+  <true/> | <false/>
+</dict>
+```
+
+## policies.json
+
+```json
+{
+  "policies": {
+    "AutofillAddressEnabled": true | false
+  }
+}
+```

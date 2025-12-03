@@ -1,0 +1,80 @@
+---
+title: "InstallAddonsPermission"
+description: "Configure the default extension install policy as well as origins for extension installs are allowed."
+---
+
+Configure the default extension install policy as well as origins for extension installs are allowed. This policy does not override turning off all extension installs.
+
+`Allow` is a list of origins where extension installs are allowed.
+
+`Default` determines whether or not extension installs are allowed by default.
+
+**Compatibility:** Firefox 60, Firefox ESR 60\
+**CCK2 Equivalent:** `permissions.install`\
+**Preferences Affected:** `xpinstall.enabled`, `browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons`, `browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features`
+
+## Windows (GPO)
+
+```
+Software\Policies\Mozilla\Firefox\InstallAddonsPermission\Allow\1 = "https://example.org"
+Software\Policies\Mozilla\Firefox\InstallAddonsPermission\Allow\2 = "https://example.edu"
+Software\Policies\Mozilla\Firefox\InstallAddonsPermission\Default = 0x1 | 0x0
+```
+
+## Windows (Intune)
+
+OMA-URI:
+
+```url
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox~Addons/InstallAddonsPermission_Allow
+```
+
+Value (string):
+
+```xml
+<enabled/>
+<data id="Permissions" value="1&#xF000;https://example.org&#xF000;2&#xF000;https://example.edu"/>
+```
+
+OMA-URI:
+
+```url
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox~Addons/InstallAddonsPermission_Default
+```
+
+Value (string):
+
+```xml
+<enabled/>
+```
+
+## macOS
+
+```xml
+<dict>
+  <key>InstallAddonsPermission</key>
+  <dict>
+    <key>Allow</key>
+    <array>
+      <string>http://example.org</string>
+      <string>http://example.edu</string>
+    </array>
+    <key>Default</key>
+    <true/> | <false/>
+  </dict>
+</dict>
+```
+
+## policies.json
+
+```json
+{
+  "policies": {
+    "InstallAddonsPermission": {
+      "Allow": ["http://example.org/",
+                "http://example.edu/"],
+      "Default": true | false
+    }
+  }
+}
+```

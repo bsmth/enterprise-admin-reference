@@ -1,0 +1,49 @@
+---
+title: "BlockAboutSupport"
+description: "Block access to Troubleshooting Information (`about:support`)."
+---
+
+Block access to Troubleshooting Information (`about:support`).
+
+**Compatibility:** Firefox 60, Firefox ESR 60\
+**CCK2 Equivalent:** `disableAboutSupport`\
+**Preferences Affected:** N/A
+
+## Windows (GPO)
+
+```
+Software\Policies\Mozilla\Firefox\BlockAboutSupport = 0x1 | 0x0
+```
+
+## Windows (Intune)
+
+OMA-URI:
+
+```url
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox/BlockAboutSupport
+```
+
+Value (string):
+
+```xml
+<enabled/> or <disabled/>
+```
+
+## macOS
+
+```xml
+<dict>
+  <key>BlockAboutSupport</key>
+  <true/> | <false/>
+</dict>
+```
+
+## policies.json
+
+```json
+{
+  "policies": {
+    "BlockAboutSupport": true | false
+  }
+}
+```

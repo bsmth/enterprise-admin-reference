@@ -1,0 +1,122 @@
+---
+title: "AutoLaunchProtocolsFromOrigins"
+description: "Define a list of external protocols that can be used from listed origins without prompting the user."
+---
+
+Define a list of external protocols that can be used from listed origins without prompting the user. The origin is the scheme plus the hostname.
+
+The syntax of this policy is exactly the same as the [Chrome AutoLaunchProtocolsFromOrigins policy](https://cloud.google.com/docs/chrome-enterprise/policies/?policy=AutoLaunchProtocolsFromOrigins) except that you can only use valid origins (not just hostnames). This also means that you cannot specify an asterisk for all origins.
+
+The schema is:
+
+```json
+{
+  "items": {
+    "properties": {
+      "allowed_origins": {
+        "items": {
+          "type": "string"
+        },
+        "type": "array"
+      },
+      "protocol": {
+        "type": "string"
+      }
+    },
+    "required": ["protocol", "allowed_origins"],
+    "type": "object"
+  },
+  "type": "array"
+}
+```
+
+**Compatibility:** Firefox 90, Firefox ESR 78.12\
+**CCK2 Equivalent:** N/A\
+**Preferences Affected:** N/A
+
+## Windows (GPO)
+
+Software\Policies\Mozilla\Firefox\AutoLaunchProtocolsFromOrigins (REG_MULTI_SZ) =
+
+```
+[
+  {
+    "protocol": "zoommtg",
+    "allowed_origins": [
+      "https://somesite.zoom.us"
+    ]
+  }
+]
+```
+
+## Windows (Intune)
+
+OMA-URI:
+
+```url
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox/AutoLaunchProtocolsFromOrigins
+```
+
+Value (string):
+
+```xml
+<enabled/>
+<data id="JSON" value='
+[
+  {
+    "protocol": "zoommtg",
+    "allowed_origins": [
+      "https://somesite.zoom.us"
+    ]
+  }
+]'/>
+```
+
+If you are using custom ADMX and ADML administrative templates in Intune, you can use this OMA-URI instead
+to workaround the limit on the length of strings. Put all of your JSON on one line.
+
+OMA-URI:
+
+```url
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox/AutoLaunchProtocolsFromOriginsOneLine
+```
+
+Value (string):
+
+```xml
+<enabled/>
+<data id="JSONOneLine" value='[]'/>
+```
+
+## macOS
+
+```xml
+<dict>
+  <key>AutoLaunchProtocolsFromOrigins</key>
+  <array>
+    <dict>
+      <key>protocol</key>
+      <string>zoommtg</string>
+      <key>allowed_origins</key>
+      <array>
+        <string>https://somesite.zoom.us</string>
+      </array>
+    </dict>
+  </array>
+</dict>
+```
+
+## policies.json
+
+```json
+{
+  "policies": {
+    "AutoLaunchProtocolsFromOrigins": [
+      {
+        "protocol": "zoommtg",
+        "allowed_origins": ["https://somesite.zoom.us"]
+      }
+    ]
+  }
+}
+```
