@@ -1,10 +1,10 @@
 ---
 title: "WebsiteFilter"
-description: "Block websites from being visited."
+description: "Block websites, domains, or other URLs from being visited."
 category: "Browsing restrictions"
 ---
 
-Block websites from being visited.
+Block websites, domains, or other URLs from being visited.
 As of Firefox 83 and Firefox ESR 78.5, `file:` URLs are supported.
 
 **Compatibility:** Firefox 60, Firefox ESR 60\
@@ -16,9 +16,9 @@ As of Firefox 83 and Firefox ESR 78.5, `file:` URLs are supported.
 `WebsiteFilter` expects an array of Match Patterns, as described in https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Match_patterns.
 The arrays are limited to 1000 entries each.
 
-- If you want to block all URLs, you can use the value `<all_urls>` or the pattern `*://*/*` (matching `<scheme>://<host><path>`).
+- If you want to block all URLs, you can use the value `<all_urls>` or the pattern `*://*/*` (matching `<scheme>://<host>/<path>`).
   A single wildcard (`*`) as a value is not sufficient.
-- For specific protocols, use `https://*/*` or `http://*/*`.
+- You can specify protocols using `https://*/*` for HTTPS or `http://*/*` for HTTP, for example.
 
 ## Windows (GPO)
 
