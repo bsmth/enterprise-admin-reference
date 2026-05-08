@@ -7,7 +7,8 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "check:policies": "node scripts/check-policy-docs.mjs"
   },
   "dependencies": {
     "@astrojs/starlight": "^0.39.1",
