@@ -1,23 +1,15 @@
 #!/usr/bin/env node
-import { readdir } from "node:fs/promises";
+import { readdir, readFile } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
 import { dirname, resolve } from "node:path";
 
-const SCHEMA_URL =
-  "https://raw.githubusercontent.com/mozilla/enterprise-firefox/enterprise-main/browser/components/enterprisepolicies/schemas/policies-schema.json";
+const REPO_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..");
+const SCHEMA_PATH = resolve(REPO_ROOT, "schema/policies-schema.json");
+const POLICIES_DIR = resolve(REPO_ROOT, "src/content/docs/reference/policies");
 
-const POLICIES_DIR = resolve(
-  dirname(fileURLToPath(import.meta.url)),
-  "..",
-  "src/content/docs/reference/policies",
-);
-
-async function fetchSchema() {
-  const res = await fetch(SCHEMA_URL);
-  if (!res.ok) {
-    throw new Error(`Failed to fetch schema: ${res.status} ${res.statusText}`);
-  }
-  return res.json();
+async function loadSchema() {
+  const raw = await readFile(SCHEMA_PATH, "utf8");
+  return JSON.parse(raw);
 }
 
 async function listDocStems() {
@@ -36,7 +28,7 @@ function formatList(items) {
 }
 
 async function main() {
-  const schema = await fetchSchema();
+  const schema = await loadSchema();
   const policies = Object.keys(schema.properties ?? {});
   const policySet = new Set(policies);
 
