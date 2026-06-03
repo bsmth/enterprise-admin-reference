@@ -28,7 +28,7 @@ Configure cookie preferences.
 - `Default`: determines whether cookies are accepted at all. (_Deprecated_. Use `Behavior` instead)
 - `AcceptThirdParty` determines how third-party cookies are handled. (_Deprecated_. Use `Behavior` instead)
 - `RejectTracker` only rejects cookies for trackers. (_Deprecated_. Use `Behavior` instead)
-- `ExpireAtSessionEnd` determines when cookies expire. (_Deprecated_. Use [`SanitizeOnShutdown`](/reference/policies/sanitizeonshutdown-selective/) instead)
+- `ExpireAtSessionEnd` determines when cookies expire. (_Deprecated_. Use [`SanitizeOnShutdown`](/reference/policies/sanitizeonshutdown/) instead)
 
 ## Windows (GPO)
 
@@ -159,7 +159,7 @@ Value (string):
       "Block": ["http://example.edu/"],
       "Locked": true | false,
       "Behavior": "accept" | "reject-foreign" | "reject" | "limit-foreign" | "reject-tracker" | "reject-tracker-and-partition-foreign",
-      "BehaviorPrivateBrowsing": "accept" | "reject-foreign" | "reject" | "limit-foreign" | "reject-tracker" | "reject-tracker-and-partition-foreign",
+      "BehaviorPrivateBrowsing": "accept" | "reject-foreign" | "reject" | "limit-foreign" | "reject-tracker" | "reject-tracker-and-partition-foreign"
     }
   }
 }

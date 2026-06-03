@@ -14,6 +14,17 @@ export const locales = {
 export default defineConfig({
   output: "static",
   trailingSlash: "always",
+  redirects: {
+    "/reference/policies/certificates--install/": "/reference/policies/certificates/",
+    "/reference/policies/certificates--importenterpriseroots/": "/reference/policies/certificates/",
+    "/reference/policies/sanitizeonshutdown-all/": "/reference/policies/sanitizeonshutdown/",
+    "/reference/policies/sanitizeonshutdown-selective/": "/reference/policies/sanitizeonshutdown/",
+    "/reference/policies/searchengines--add/": "/reference/policies/searchengines/",
+    "/reference/policies/searchengines--default/": "/reference/policies/searchengines/",
+    "/reference/policies/searchengines--preventinstalls/": "/reference/policies/searchengines/",
+    "/reference/policies/searchengines--remove/": "/reference/policies/searchengines/",
+    "/reference/policies/securitydevices--deprecated/": "/reference/policies/securitydevices/",
+  },
   devToolbar: {
     enabled: false,
   },
@@ -49,12 +60,12 @@ export default defineConfig({
       sidebar: [
         {
           label: "Reference",
-          autogenerate: { directory: "reference" },
+          items: [{ autogenerate: { directory: "reference" } }],
           collapsed: true,
         },
         {
           label: "Guides",
-          autogenerate: { directory: "guides" },
+          items: [{ autogenerate: { directory: "guides" } }],
         },
         {
           label: "Resources",
