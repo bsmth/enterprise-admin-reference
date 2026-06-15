@@ -10,6 +10,16 @@ Turn off saving information on web forms and the search bar.
 **CCK2 Equivalent:** `disableFormFill`\
 **Preferences Affected:** `browser.formfill.enable`
 
+## policies.json
+
+```json title="policies.json"
+{
+  "policies": {
+    "DisableFormHistory": true | false
+  }
+}
+```
+
 ## Windows (GPO)
 
 ```
@@ -37,14 +47,4 @@ Value (string):
   <key>DisableFormHistory</key>
   <true/> | <false/>
 </dict>
-```
-
-## policies.json
-
-```json
-{
-  "policies": {
-    "DisableFormHistory": true | false
-  }
-}
 ```

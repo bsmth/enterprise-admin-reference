@@ -42,6 +42,37 @@ The schema is:
 **CCK2 Equivalent:** N/A\
 **Preferences Affected:** N/A
 
+## policies.json
+
+```json title="policies.json"
+{
+  "policies": {
+    "ManagedBookmarks": [
+      {
+        "toplevel_name": "My managed bookmarks folder"
+      },
+      {
+        "url": "example.com",
+        "name": "Example"
+      },
+      {
+        "name": "Mozilla links",
+        "children": [
+          {
+            "url": "https://mozilla.org",
+            "name": "Mozilla.org"
+          },
+          {
+            "url": "https://support.mozilla.org/",
+            "name": "SUMO"
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
 ## Windows (GPO)
 
 Software\Policies\Mozilla\Firefox\ManagedBookmarks (REG_MULTI_SZ) =
@@ -160,35 +191,4 @@ Value (string):
     </dict>
   </array>
 </dict>
-```
-
-## policies.json
-
-```json
-{
-  "policies": {
-    "ManagedBookmarks": [
-      {
-        "toplevel_name": "My managed bookmarks folder"
-      },
-      {
-        "url": "example.com",
-        "name": "Example"
-      },
-      {
-        "name": "Mozilla links",
-        "children": [
-          {
-            "url": "https://mozilla.org",
-            "name": "Mozilla.org"
-          },
-          {
-            "url": "https://support.mozilla.org/",
-            "name": "SUMO"
-          }
-        ]
-      }
-    ]
-  }
-}
 ```

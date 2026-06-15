@@ -17,6 +17,19 @@ These policies only affect what happens when an error is shown, they do not affe
 - `InvalidCertificate`: Prevents adding an exception when an invalid certificate is shown.
 - `SafeBrowsing`: Prevents selecting "ignore the risk" and visiting a harmful site anyway.
 
+## policies.json
+
+```json title="policies.json"
+{
+  "policies": {
+    "DisableSecurityBypass": {
+      "InvalidCertificate": true | false,
+      "SafeBrowsing": true | false
+    }
+  }
+}
+```
+
 ## Windows (GPO)
 
 ```
@@ -62,17 +75,4 @@ Value (string):
     <true/> | <false/>
   </dict>
 </dict>
-```
-
-## policies.json
-
-```json
-{
-  "policies": {
-    "DisableSecurityBypass": {
-      "InvalidCertificate": true | false,
-      "SafeBrowsing": true | false
-    }
-  }
-}
 ```

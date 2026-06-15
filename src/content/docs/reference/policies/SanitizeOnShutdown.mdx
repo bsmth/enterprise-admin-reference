@@ -35,6 +35,36 @@ Accepts one or more of the following members to clear specific data types:
 - `OfflineApps`: Offline Website Data (_Deprecated - use `Cookies` instead_)
 - `Locked`: Prevents the user from changing these preferences.
 
+## policies.json
+
+Clear all data:
+
+```json
+{
+  "policies": {
+    "SanitizeOnShutdown": true | false
+  }
+}
+```
+
+Clear specific data types:
+
+```json
+{
+  "policies": {
+    "SanitizeOnShutdown": {
+      "Cache": true | false,
+      "Cookies": true | false,
+      "FormData": true | false,
+      "History": true | false,
+      "Sessions": true | false,
+      "SiteSettings": true | false,
+      "Locked": true | false
+    }
+  }
+}
+```
+
 ## Windows (GPO)
 
 Clear all data:
@@ -186,34 +216,4 @@ Clear specific data types:
     <true/> | <false/>
   </dict>
 </dict>
-```
-
-## policies.json
-
-Clear all data:
-
-```json
-{
-  "policies": {
-    "SanitizeOnShutdown": true | false
-  }
-}
-```
-
-Clear specific data types:
-
-```json
-{
-  "policies": {
-    "SanitizeOnShutdown": {
-      "Cache": true | false,
-      "Cookies": true | false,
-      "FormData": true | false,
-      "History": true | false,
-      "Sessions": true | false,
-      "SiteSettings": true | false,
-      "Locked": true | false
-    }
-  }
-}
 ```

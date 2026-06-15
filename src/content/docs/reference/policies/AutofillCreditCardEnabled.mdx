@@ -12,6 +12,16 @@ This only applies when payment method autofill is enabled for a particular Firef
 **CCK2 Equivalent:** N/A\
 **Preferences Affected:** `extensions.formautofill.creditCards.enabled`
 
+## policies.json
+
+```json title="policies.json"
+{
+  "policies": {
+    "AutofillCreditCardEnabled": true | false
+  }
+}
+```
+
 ## Windows (GPO)
 
 ```
@@ -39,14 +49,4 @@ Value (string):
   <key>AutofillCreditCardEnabled</key>
   <true/> | <false/>
 </dict>
-```
-
-## policies.json
-
-```json
-{
-  "policies": {
-    "AutofillCreditCardEnabled": true | false
-  }
-}
 ```

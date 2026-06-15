@@ -29,6 +29,32 @@ Configure search engines in Firefox. As of Firefox 139, these policies are avail
 - `PreventInstalls` (boolean): prevent installing search engines from webpages.
 - `Remove` (array of strings): hide built-in search engines by name.
 
+## policies.json
+
+```json title="policies.json"
+{
+  "policies": {
+    "SearchEngines": {
+      "Add": [
+        {
+          "Name": "Example1",
+          "URLTemplate": "https://www.example.org/q={searchTerms}",
+          "Method": "GET" | "POST",
+          "IconURL": "https://www.example.org/favicon.ico",
+          "Alias": "example",
+          "Description": "Description",
+          "PostData": "name=value&q={searchTerms}",
+          "SuggestURLTemplate": "https://www.example.org/suggestions/q={searchTerms}"
+        }
+      ],
+      "Default": "NAME_OF_SEARCH_ENGINE",
+      "PreventInstalls": true | false,
+      "Remove": ["NAME_OF_SEARCH_ENGINE"]
+    }
+  }
+}
+```
+
 ## Windows (GPO)
 
 ```
@@ -142,30 +168,4 @@ Value (string):
     </array>
   </dict>
 </dict>
-```
-
-## policies.json
-
-```json
-{
-  "policies": {
-    "SearchEngines": {
-      "Add": [
-        {
-          "Name": "Example1",
-          "URLTemplate": "https://www.example.org/q={searchTerms}",
-          "Method": "GET" | "POST",
-          "IconURL": "https://www.example.org/favicon.ico",
-          "Alias": "example",
-          "Description": "Description",
-          "PostData": "name=value&q={searchTerms}",
-          "SuggestURLTemplate": "https://www.example.org/suggestions/q={searchTerms}"
-        }
-      ],
-      "Default": "NAME_OF_SEARCH_ENGINE",
-      "PreventInstalls": true | false,
-      "Remove": ["NAME_OF_SEARCH_ENGINE"]
-    }
-  }
-}
 ```

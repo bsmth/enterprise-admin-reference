@@ -10,6 +10,15 @@ Enable or disable the New Tab page.
 **CCK2 Equivalent:** N/A\
 **Preferences Affected:** `browser.newtabpage.enabled`
 
+## policies.json
+
+```json title="policies.json"
+{
+  "policies": {
+    "NewTabPage": true | false
+}
+```
+
 ## Windows (GPO)
 
 ```
@@ -37,13 +46,4 @@ Value (string):
   <key>NewTabPage</key>
   <true/> | <false/>
 </dict>
-```
-
-## policies.json
-
-```json
-{
-  "policies": {
-    "NewTabPage": true | false
-}
 ```

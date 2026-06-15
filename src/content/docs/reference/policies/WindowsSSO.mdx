@@ -12,6 +12,16 @@ If this policy is set to `true`, Firefox will use credentials stored in Windows 
 **CCK2 Equivalent:** N/A\
 **Preferences Affected:** `network.http.windows-sso.enabled`
 
+## policies.json
+
+```json title="policies.json"
+{
+  "policies": {
+    "WindowsSSO": true | false
+  }
+}
+```
+
 ## Windows (GPO)
 
 ```
@@ -30,16 +40,6 @@ Value (string):
 
 ```xml
 <enabled/> or <disabled/>
-```
-
-## policies.json
-
-```json
-{
-  "policies": {
-    "WindowsSSO": true | false
-  }
-}
 ```
 
 ## See also

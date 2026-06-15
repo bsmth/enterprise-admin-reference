@@ -28,6 +28,29 @@ Unless you lock this policy, changes the user already has in place will take eff
 - `AutoLogin` means do not prompt for authentication if password is saved.
 - `UseProxyForDNS` to use proxy DNS when using SOCKS v5.
 
+## policies.json
+
+```json title="policies.json"
+{
+  "policies": {
+    "Proxy": {
+      "Mode": "none" | "system" | "manual" | "autoDetect" | "autoConfig",
+      "Locked": true | false,
+      "HTTPProxy": "hostname",
+      "UseHTTPProxyForAllProtocols": true | false,
+      "SSLProxy": "hostname",
+      "FTPProxy": "hostname",
+      "SOCKSProxy": "hostname",
+      "SOCKSVersion": 4 | 5,
+      "Passthrough": "<local>",
+      "AutoConfigURL": "URL_TO_AUTOCONFIG",
+      "AutoLogin": true | false,
+      "UseProxyForDNS": true | false
+    }
+  }
+}
+```
+
 ## Windows (GPO)
 
 ```
@@ -233,27 +256,4 @@ Value (string):
     <true> | </false>
   </dict>
 </dict>
-```
-
-## policies.json
-
-```json
-{
-  "policies": {
-    "Proxy": {
-      "Mode": "none" | "system" | "manual" | "autoDetect" | "autoConfig",
-      "Locked": true | false,
-      "HTTPProxy": "hostname",
-      "UseHTTPProxyForAllProtocols": true | false,
-      "SSLProxy": "hostname",
-      "FTPProxy": "hostname",
-      "SOCKSProxy": "hostname",
-      "SOCKSVersion": 4 | 5,
-      "Passthrough": "<local>",
-      "AutoConfigURL": "URL_TO_AUTOCONFIG",
-      "AutoLogin": true | false,
-      "UseProxyForDNS": true | false
-    }
-  }
-}
 ```

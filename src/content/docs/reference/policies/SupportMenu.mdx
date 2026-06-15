@@ -10,6 +10,20 @@ Add a menuitem to the help menu for specifying support information.
 **CCK2 Equivalent:** helpMenu\
 **Preferences Affected:** N/A
 
+## policies.json
+
+```json title="policies.json"
+{
+  "policies": {
+    "SupportMenu": {
+      "Title": "Support Menu",
+      "URL": "http://example.com/support",
+      "AccessKey": "S"
+    }
+  }
+}
+```
+
 ## Windows (GPO)
 
 ```
@@ -49,18 +63,4 @@ Value (string):
     <string>S</string>
   </dict>
 </dict>
-```
-
-## policies.json
-
-```json
-{
-  "policies": {
-    "SupportMenu": {
-      "Title": "Support Menu",
-      "URL": "http://example.com/support",
-      "AccessKey": "S"
-    }
-  }
-}
 ```

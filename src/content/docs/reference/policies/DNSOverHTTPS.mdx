@@ -18,6 +18,22 @@ Configure DNS over HTTPS.
 - `ExcludedDomains` excludes domains from DNS over HTTPS.
 - `Fallback` determines whether or not Firefox will use your default DNS resolver if there is a problem with the secure DNS provider.
 
+## policies.json
+
+```json title="policies.json"
+{
+  "policies": {
+    "DNSOverHTTPS": {
+      "Enabled":  true | false,
+      "ProviderURL": "URL_TO_ALTERNATE_PROVIDER",
+      "Locked": true | false,
+      "ExcludedDomains": ["example.com"],
+      "Fallback": true | false
+    }
+  }
+}
+```
+
 ## Windows (GPO)
 
 ```
@@ -112,20 +128,4 @@ Value (string):
     <true/> | <false/>
   </dict>
 </dict>
-```
-
-## policies.json
-
-```json
-{
-  "policies": {
-    "DNSOverHTTPS": {
-      "Enabled":  true | false,
-      "ProviderURL": "URL_TO_ALTERNATE_PROVIDER",
-      "Locked": true | false,
-      "ExcludedDomains": ["example.com"],
-      "Fallback": true | false
-    }
-  }
-}
 ```

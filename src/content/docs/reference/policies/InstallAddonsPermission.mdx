@@ -15,6 +15,20 @@ Configure the default extension install policy as well as origins for extension 
 - `Allow` is a list of origins where extension installs are allowed.
 - `Default` determines whether or not extension installs are allowed by default.
 
+## policies.json
+
+```json title="policies.json"
+{
+  "policies": {
+    "InstallAddonsPermission": {
+      "Allow": ["http://example.org/",
+                "http://example.edu/"],
+      "Default": true | false
+    }
+  }
+}
+```
+
 ## Windows (GPO)
 
 ```
@@ -65,18 +79,4 @@ Value (string):
     <true/> | <false/>
   </dict>
 </dict>
-```
-
-## policies.json
-
-```json
-{
-  "policies": {
-    "InstallAddonsPermission": {
-      "Allow": ["http://example.org/",
-                "http://example.edu/"],
-      "Default": true | false
-    }
-  }
-}
 ```

@@ -43,6 +43,19 @@ Install and manage certificates in Firefox.
 
   Binary (DER) and ASCII (PEM) certificates are both supported.
 
+## policies.json
+
+```json title="policies.json"
+{
+  "policies": {
+    "Certificates": {
+      "ImportEnterpriseRoots": true | false,
+      "Install": ["cert1.der", "/home/username/cert2.pem"]
+    }
+  }
+}
+```
+
 ## Windows (GPO)
 
 ```
@@ -93,19 +106,6 @@ Value (string):
     </array>
   </dict>
 </dict>
-```
-
-## policies.json
-
-```json
-{
-  "policies": {
-    "Certificates": {
-      "ImportEnterpriseRoots": true | false,
-      "Install": ["cert1.der", "/home/username/cert2.pem"]
-    }
-  }
-}
 ```
 
 ## See also

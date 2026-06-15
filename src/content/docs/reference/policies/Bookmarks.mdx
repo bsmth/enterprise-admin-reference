@@ -16,6 +16,24 @@ If you want to clear all bookmarks set with this policy, you can set the value t
 **CCK2 Equivalent:** `bookmarks.toolbar`,`bookmarks.menu`\
 **Preferences Affected:** N/A
 
+## policies.json
+
+```json title="policies.json"
+{
+  "policies": {
+    "Bookmarks": [
+      {
+        "Title": "Example",
+        "URL": "https://example.com",
+        "Favicon": "https://example.com/favicon.ico",
+        "Placement": "toolbar" | "menu",
+        "Folder": "FolderName"
+      }
+    ]
+  }
+}
+```
+
 ## Windows (GPO)
 
 ```
@@ -97,22 +115,4 @@ Value (string):
     </dict>
   </array>
 </dict>
-```
-
-## policies.json
-
-```json
-{
-  "policies": {
-    "Bookmarks": [
-      {
-        "Title": "Example",
-        "URL": "https://example.com",
-        "Favicon": "https://example.com/favicon.ico",
-        "Placement": "toolbar" | "menu",
-        "Folder": "FolderName"
-      }
-    ]
-  }
-}
 ```

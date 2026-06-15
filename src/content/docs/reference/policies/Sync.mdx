@@ -26,6 +26,27 @@ Controls whether [sync](https://www.firefox.com/en-US/features/sync/) should be 
 - `PaymentMethods`: A Boolean. Controls whether syncing payment methods should be enabled.
 - `Settings`: A Boolean. Controls whether syncing settings should be enabled.
 
+## policies.json
+
+```json title="policies.json"
+{
+  "policies": {
+    "Sync": {
+      "Addons": true | false,
+      "Addresses": true | false,
+      "Bookmarks": true | false,
+      "Enabled": true | false,
+      "History": true | false,
+      "Locked": true | false,
+      "OpenTabs": true | false,
+      "Passwords": true | false,
+      "PaymentMethods": true | false,
+      "Settings": true | false
+    }
+  }
+}
+```
+
 ## Windows (GPO)
 
 ```
@@ -93,25 +114,4 @@ Value (string):
     <true/> | <false/>
   </dict>
 </dict>
-```
-
-## policies.json
-
-```json
-{
-  "policies": {
-    "Sync": {
-      "Addons": true | false,
-      "Addresses": true | false,
-      "Bookmarks": true | false,
-      "Enabled": true | false,
-      "History": true | false,
-      "Locked": true | false,
-      "OpenTabs": true | false,
-      "Passwords": true | false,
-      "PaymentMethods": true | false,
-      "Settings": true | false
-    }
-  }
-}
 ```

@@ -23,6 +23,22 @@ Configure generative AI features.
   If false, AI is not used to suggest names or tabs for tab groups.
 - `Locked` Prevents the user from changing generative AI preferences.
 
+## policies.json
+
+```json title="policies.json"
+{
+  "policies": {
+    "GenerativeAI": {
+      "Enabled": true | false,
+      "Chatbot": true | false,
+      "LinkPreviews": true | false,
+      "TabGroups": true | false,
+      "Locked": true | false
+    }
+  }
+}
+```
+
 ## Windows (GPO)
 
 ```url
@@ -69,20 +85,4 @@ Value (string):
     <true/> | <false/>
   </dict>
 </dict>
-```
-
-## policies.json
-
-```json
-{
-  "policies": {
-    "GenerativeAI": {
-      "Enabled": true | false,
-      "Chatbot": true | false,
-      "LinkPreviews": true | false,
-      "TabGroups": true | false,
-      "Locked": true | false
-    }
-  }
-}
 ```

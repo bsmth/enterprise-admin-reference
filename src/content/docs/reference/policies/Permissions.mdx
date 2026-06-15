@@ -20,6 +20,59 @@ This explicitly means that it is not possible to add wildcards. See examples bel
 - `Locked` prevents the user from changing preferences for the feature.
 - `Default` specifies the default value for Autoplay. block-audio-video is not supported on Firefox ESR 68.
 
+## policies.json
+
+```json title="policies.json"
+{
+  "policies": {
+    "Permissions": {
+      "Camera": {
+        "Allow": ["https://example.org","https://example.org:1234"],
+        "Block": ["https://example.edu"],
+        "BlockNewRequests": true | false,
+        "Locked": true | false
+      },
+      "Microphone": {
+        "Allow": ["https://example.org"],
+        "Block": ["https://example.edu"],
+        "BlockNewRequests": true | false,
+        "Locked": true | false
+      },
+      "Location": {
+        "Allow": ["https://example.org"],
+        "Block": ["https://example.edu"],
+        "BlockNewRequests": true | false,
+        "Locked": true | false
+      },
+      "Notifications": {
+        "Allow": ["https://example.org"],
+        "Block": ["https://example.edu"],
+        "BlockNewRequests": true | false,
+        "Locked": true | false
+      },
+      "Autoplay": {
+        "Allow": ["https://example.org"],
+        "Block": ["https://example.edu"],
+        "Default": "allow-audio-video" | "block-audio" | "block-audio-video",
+        "Locked": true | false
+      },
+      "VirtualReality": {
+        "Allow": ["https://example.org"],
+        "Block": ["https://example.edu"],
+        "BlockNewRequests": true | false,
+        "Locked": true | false
+      },
+      "ScreenShare": {
+        "Allow": ["https://example.org"],
+        "Block": ["https://example.edu"],
+        "BlockNewRequests": true | false,
+        "Locked": true | false
+      }
+    }
+  }
+}
+```
+
 ## Windows (GPO)
 
 ```
@@ -514,57 +567,4 @@ Value (string):
     </dict>
   </dict>
 </dict>
-```
-
-## policies.json
-
-```json
-{
-  "policies": {
-    "Permissions": {
-      "Camera": {
-        "Allow": ["https://example.org","https://example.org:1234"],
-        "Block": ["https://example.edu"],
-        "BlockNewRequests": true | false,
-        "Locked": true | false
-      },
-      "Microphone": {
-        "Allow": ["https://example.org"],
-        "Block": ["https://example.edu"],
-        "BlockNewRequests": true | false,
-        "Locked": true | false
-      },
-      "Location": {
-        "Allow": ["https://example.org"],
-        "Block": ["https://example.edu"],
-        "BlockNewRequests": true | false,
-        "Locked": true | false
-      },
-      "Notifications": {
-        "Allow": ["https://example.org"],
-        "Block": ["https://example.edu"],
-        "BlockNewRequests": true | false,
-        "Locked": true | false
-      },
-      "Autoplay": {
-        "Allow": ["https://example.org"],
-        "Block": ["https://example.edu"],
-        "Default": "allow-audio-video" | "block-audio" | "block-audio-video",
-        "Locked": true | false
-      },
-      "VirtualReality": {
-        "Allow": ["https://example.org"],
-        "Block": ["https://example.edu"],
-        "BlockNewRequests": true | false,
-        "Locked": true | false
-      },
-      "ScreenShare": {
-        "Allow": ["https://example.org"],
-        "Block": ["https://example.edu"],
-        "BlockNewRequests": true | false,
-        "Locked": true | false
-      }
-    }
-  }
-}
 ```

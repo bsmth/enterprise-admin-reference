@@ -10,6 +10,15 @@ Force downloads to start off in a local, temporary location rather than the defa
 **CCK2 Equivalent:** N/A\
 **Preferences Affected:** `browser.download.start_downloads_in_tmp_dir`
 
+## policies.json
+
+```json title="policies.json"
+{
+  "policies": {
+    "StartDownloadsInTempDirectory": true | false
+}
+```
+
 ## Windows (GPO)
 
 ```
@@ -37,13 +46,4 @@ Value (string):
   <key>StartDownloadsInTempDirectory</key>
   <true/> | <false/>
 </dict>
-```
-
-## policies.json
-
-```json
-{
-  "policies": {
-    "StartDownloadsInTempDirectory": true | false
-}
 ```

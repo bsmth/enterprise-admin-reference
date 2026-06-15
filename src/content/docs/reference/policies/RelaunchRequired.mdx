@@ -19,6 +19,22 @@ This policy takes effect when an update has been downloaded or staged and is rea
   - `Hour`: The hour in 24-hour format (between `0` and `23`).
   - `Minute`: The minute (between `0` and `59`).
 
+## policies.json
+
+```json title="policies.json"
+{
+  "policies": {
+    "RelaunchRequired": {
+      "NotificationPeriodHours": 0 | 1 | 2,
+      "RestartTimeOfDay": {
+        "Hour": 0 | 1 | 2,
+        "Minute": 0 | 1 | 2
+      }
+    }
+  }
+}
+```
+
 ## Windows (GPO)
 
 ```
@@ -85,20 +101,4 @@ Value (string):
     </dict>
   </dict>
 </dict>
-```
-
-## policies.json
-
-```json
-{
-  "policies": {
-    "RelaunchRequired": {
-      "NotificationPeriodHours": 0 | 1 | 2,
-      "RestartTimeOfDay": {
-        "Hour": 0 | 1 | 2,
-        "Minute": 0 | 1 | 2
-      }
-    }
-  }
-}
 ```

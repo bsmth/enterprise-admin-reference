@@ -22,6 +22,21 @@ When this policy is set, Firefox traffic matching the specified URL patterns is 
   See [Match patterns](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Match_patterns) for syntax.
 - `Locked`: Prevents the user from changing Access Connector settings.
 
+## policies.json
+
+```json title="policies.json"
+{
+  "policies": {
+    "AccessConnector": {
+      "Host": "proxy.example.com",
+      "Port": 443,
+      "MatchPatterns": ["https://*.example.com"],
+      "Locked": true | false
+    }
+  }
+}
+```
+
 ## Windows (GPO)
 
 ```
@@ -49,19 +64,4 @@ Software\Policies\Mozilla\Firefox\AccessConnector\Locked = 0x1 | 0x0
     <true/> | <false/>
   </dict>
 </dict>
-```
-
-## policies.json
-
-```json
-{
-  "policies": {
-    "AccessConnector": {
-      "Host": "proxy.example.com",
-      "Port": 443,
-      "MatchPatterns": ["https://*.example.com"],
-      "Locked": true | false
-    }
-  }
-}
 ```

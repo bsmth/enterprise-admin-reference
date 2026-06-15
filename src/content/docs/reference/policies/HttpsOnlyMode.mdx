@@ -19,6 +19,16 @@ Configure HTTPS-Only Mode.
 | enabled       | HTTPS-Only Mode is on by default, but the user can turn it off. |
 | force_enabled | HTTPS-Only Mode is on and the user can't turn it off.           |
 
+## policies.json
+
+```json title="policies.json"
+{
+  "policies": {
+    "HttpsOnlyMode": "allowed" | "disallowed" | "enabled" | "force_enabled"
+  }
+}
+```
+
 ## Windows (GPO)
 
 ```
@@ -47,14 +57,4 @@ Value (string):
   <key>HttpsOnlyMode</key>
   <string>allowed | disallowed | enabled | force_enabled</string>
 </dict>
-```
-
-## policies.json
-
-```json
-{
-  "policies": {
-    "HttpsOnlyMode": "allowed" | "disallowed" | "enabled" | "force_enabled"
-  }
-}
 ```

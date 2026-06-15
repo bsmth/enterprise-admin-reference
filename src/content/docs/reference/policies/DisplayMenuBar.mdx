@@ -17,6 +17,16 @@ Set the state of the menubar.
 - `default-on` means the menubar is on by default but can be hidden.
 - `default-off` means the menubar is off by default but can be shown.
 
+## policies.json
+
+```json title="policies.json"
+{
+  "policies": {
+    "DisplayMenuBar": "always", "never", "default-on", "default-off"
+  }
+}
+```
+
 ## Windows (GPO)
 
 ```
@@ -45,14 +55,4 @@ Value (string):
   <key>DisplayMenuBar</key>
   <string>always | never | default-on | default-off</string>
 </dict>
-```
-
-## policies.json
-
-```json
-{
-  "policies": {
-    "DisplayMenuBar": "always", "never", "default-on", "default-off"
-  }
-}
 ```

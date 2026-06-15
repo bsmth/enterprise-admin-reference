@@ -20,6 +20,19 @@ The arrays are limited to 1000 entries each.
   A single wildcard (`*`) as a value is not sufficient.
 - For specific protocols, use `https://*/*` or `http://*/*`.
 
+## policies.json
+
+```json title="policies.json"
+{
+  "policies": {
+    "WebsiteFilter": {
+      "Block": ["<all_urls>"],
+      "Exceptions": ["http://example.org/*"]
+    }
+  }
+}
+```
+
 ## Windows (GPO)
 
 ```
@@ -86,19 +99,6 @@ Value (string):
     </array>
   </dict>
 </dict>
-```
-
-## policies.json
-
-```json
-{
-  "policies": {
-    "WebsiteFilter": {
-      "Block": ["<all_urls>"],
-      "Exceptions": ["http://example.org/*"]
-    }
-  }
-}
 ```
 
 ## See also

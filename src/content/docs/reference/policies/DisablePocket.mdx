@@ -10,6 +10,16 @@ Remove Pocket in the Firefox UI. It does not remove it from the new tab page.
 **CCK2 Equivalent:** `disablePocket`\
 **Preferences Affected:** `extensions.pocket.enabled`
 
+## policies.json
+
+```json title="policies.json"
+{
+  "policies": {
+    "DisablePocket": true | false
+  }
+}
+```
+
 ## Windows (GPO)
 
 ```
@@ -37,14 +47,4 @@ Value (string):
   <key>DisablePocket</key>
   <true/> | <false/>
 </dict>
-```
-
-## policies.json
-
-```json
-{
-  "policies": {
-    "DisablePocket": true | false
-  }
-}
 ```

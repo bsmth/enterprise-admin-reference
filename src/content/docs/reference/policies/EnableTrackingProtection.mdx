@@ -30,6 +30,27 @@ If this policy is not configured, tracking protection is not enabled by default 
 > [!NOTE]
 > Users can change `BaselineExceptions` and `ConvenienceExceptions` even when `Category` is set to `strict` unless `Locked` is set to true. If `Locked` is set to `true`, `BaselineExceptions` and `ConvenienceExceptions` use their initial values (based on the tracking protection `Category`) unless policy explicitly sets them.
 
+## policies.json
+
+```json title="policies.json"
+{
+  "policies": {
+    "EnableTrackingProtection": {
+      "Value": true | false,
+      "Locked": true | false,
+      "Cryptomining": true | false,
+      "Fingerprinting": true | false,
+      "EmailTracking": true | false,
+      "SuspectedFingerprinting": true | false,
+      "Category": "strict" | "standard",
+      "Exceptions": ["https://example.com"],
+      "BaselineExceptions": true | false,
+      "ConvenienceExceptions": true | false
+    }
+  }
+}
+```
+
 ## Windows (GPO)
 
 ```
@@ -198,25 +219,4 @@ Value (string):
     <true/> | <false/>
   </dict>
 </dict>
-```
-
-## policies.json
-
-```json
-{
-  "policies": {
-    "EnableTrackingProtection": {
-      "Value": true | false,
-      "Locked": true | false,
-      "Cryptomining": true | false,
-      "Fingerprinting": true | false,
-      "EmailTracking": true | false,
-      "SuspectedFingerprinting": true | false,
-      "Category": "strict" | "standard",
-      "Exceptions": ["https://example.com"],
-      "BaselineExceptions": true | false,
-      "ConvenienceExceptions": true | false
-    }
-  }
-}
 ```

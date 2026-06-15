@@ -10,6 +10,16 @@ Disable Firefox studies (Shield).
 **CCK2 Equivalent:** N/A\
 **Preferences Affected:** `browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons`, `browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features`
 
+## policies.json
+
+```json title="policies.json"
+{
+  "policies": {
+    "DisableFirefoxStudies": true | false
+  }
+}
+```
+
 ## Windows (GPO)
 
 ```
@@ -37,14 +47,4 @@ Value (string):
   <key>DisableFirefoxStudies</key>
   <true/> | <false/>
 </dict>
-```
-
-## policies.json
-
-```json
-{
-  "policies": {
-    "DisableFirefoxStudies": true | false
-  }
-}
 ```

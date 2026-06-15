@@ -16,6 +16,21 @@ Allow certain websites to display popups and be redirected by third-party frames
 - `Default` determines whether or not pop-up windows and third-party redirects are allowed by default.
 - `Locked` prevents the user from changing pop-up windows and third-party redirects preferences.
 
+## policies.json
+
+```json title="policies.json"
+{
+  "policies": {
+    "PopupBlocking": {
+      "Allow": ["http://example.org/",
+                "http://example.edu/"],
+      "Default": true | false,
+      "Locked": true | false
+    }
+  }
+}
+```
+
 ## Windows (GPO)
 
 ```
@@ -81,21 +96,6 @@ Value (string):
     <true/> | <false/>
   </dict>
 </dict>
-```
-
-## policies.json
-
-```json
-{
-  "policies": {
-    "PopupBlocking": {
-      "Allow": ["http://example.org/",
-                "http://example.edu/"],
-      "Default": true | false,
-      "Locked": true | false
-    }
-  }
-}
 ```
 
 ## See also

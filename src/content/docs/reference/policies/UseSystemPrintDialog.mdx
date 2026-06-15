@@ -10,6 +10,16 @@ Use the system print dialog instead of the print preview window.
 **CCK2 Equivalent:** N/A\
 **Preferences Affected:** `print.prefer_system_dialog`
 
+## policies.json
+
+```json title="policies.json"
+{
+  "policies": {
+    "UseSystemPrintDialog": true | false
+  }
+}
+```
+
 ## Windows (GPO)
 
 ```
@@ -37,14 +47,4 @@ Value (string):
   <key>UseSystemPrintDialog</key>
   <true/> | <false/>
 </dict>
-```
-
-## policies.json
-
-```json
-{
-  "policies": {
-    "UseSystemPrintDialog": true | false
-  }
-}
 ```

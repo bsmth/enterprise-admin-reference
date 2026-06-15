@@ -10,6 +10,16 @@ Disable Firefox Accounts integration (Sync).
 **CCK2 Equivalent:** `disableSync`\
 **Preferences Affected:** `identity.fxaccounts.enabled`
 
+## policies.json
+
+```json title="policies.json"
+{
+  "policies": {
+    "DisableFirefoxAccounts": true | false
+  }
+}
+```
+
 ## Windows (GPO)
 
 ```
@@ -37,14 +47,4 @@ Value (string):
   <key>DisableFirefoxAccounts</key>
   <true/> | <false/>
 </dict>
-```
-
-## policies.json
-
-```json
-{
-  "policies": {
-    "DisableFirefoxAccounts": true | false
-  }
-}
 ```

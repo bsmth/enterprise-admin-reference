@@ -10,6 +10,18 @@ Set whether or not search bar is displayed.
 **CCK2 Equivalent:** `showSearchBar`\
 **Preferences Affected:** N/A
 
+## policies.json
+
+```json title="policies.json"
+{
+  "policies": {
+    "SearchBar": "unified" | "separate"
+  }
+}
+```
+
+<a name="SearchEngines"></a>
+
 ## Windows (GPO)
 
 ```
@@ -39,15 +51,3 @@ Value (string):
   <string>unified | separate</string>
 </dict>
 ```
-
-## policies.json
-
-```json
-{
-  "policies": {
-    "SearchBar": "unified" | "separate"
-  }
-}
-```
-
-<a name="SearchEngines"></a>

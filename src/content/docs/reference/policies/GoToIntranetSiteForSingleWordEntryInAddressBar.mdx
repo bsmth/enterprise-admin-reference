@@ -24,6 +24,16 @@ You can also whitelist a domain suffix that is not part of the [Public Suffix Li
 
 Additionally, if you want users to see a "Did you mean to go to 'YOUR_DOMAIN'" prompt below the URL bar if they land on a search results page instead of an intranet domain that provides a response, set the pref `browser.urlbar.dnsResolveSingleWordsAfterSearch` to `1`. Enabling this will cause the browser to commit a DNS check after every single word search. If the browser receives a response from the intranet, a prompt will ask the user if they'd like to instead navigate to `YOUR_DOMAIN`. If the user presses the **yes** button, `browser.fixup.domainwhitelist.YOUR_DOMAIN` will be set to `true`.
 
+## policies.json
+
+```json title="policies.json"
+{
+  "policies": {
+    "GoToIntranetSiteForSingleWordEntryInAddressBar": true | false
+  }
+}
+```
+
 ## Windows (GPO)
 
 ```
@@ -51,14 +61,4 @@ Value (string):
   <key>GoToIntranetSiteForSingleWordEntryInAddressBar</key>
   <true/> | <false/>
 </dict>
-```
-
-## policies.json
-
-```json
-{
-  "policies": {
-    "GoToIntranetSiteForSingleWordEntryInAddressBar": true | false
-  }
-}
 ```

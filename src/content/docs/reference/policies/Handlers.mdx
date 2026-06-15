@@ -25,6 +25,43 @@ Within each handler type, you specify the given mimeType/extension/scheme as a k
 | &nbsp;`path`        | The native path to the executable to be used.                                                                                                                                          |
 | &nbsp;`uriTemplate` | A url to a web based application handler. The URL must be https and contain a %s to be used for substitution.                                                                          |
 
+## policies.json
+
+```json title="policies.json"
+{
+  "policies": {
+    "Handlers": {
+      "mimeTypes": {
+        "application/msword": {
+          "action": "useSystemDefault",
+          "ask": false
+        }
+      },
+      "schemes": {
+        "mailto": {
+          "action": "useHelperApp",
+          "ask": true | false,
+          "handlers": [{
+            "name": "Gmail",
+            "uriTemplate": "https://mail.google.com/mail/?extsrc=mailto&url=%s"
+          }]
+        }
+      },
+      "extensions": {
+        "pdf": {
+          "action": "useHelperApp",
+          "ask": true | false,
+          "handlers": [{
+            "name": "Adobe Acrobat",
+            "path": "/usr/bin/acroread"
+          }]
+        }
+      }
+    }
+  }
+}
+```
+
 ## Windows (GPO)
 
 Software\Policies\Mozilla\Firefox\Handlers (REG_MULTI_SZ) =
@@ -176,41 +213,4 @@ Value (string):
     </dict>
   </dict>
 </dict>
-```
-
-## policies.json
-
-```json
-{
-  "policies": {
-    "Handlers": {
-      "mimeTypes": {
-        "application/msword": {
-          "action": "useSystemDefault",
-          "ask": false
-        }
-      },
-      "schemes": {
-        "mailto": {
-          "action": "useHelperApp",
-          "ask": true | false,
-          "handlers": [{
-            "name": "Gmail",
-            "uriTemplate": "https://mail.google.com/mail/?extsrc=mailto&url=%s"
-          }]
-        }
-      },
-      "extensions": {
-        "pdf": {
-          "action": "useHelperApp",
-          "ask": true | false,
-          "handlers": [{
-            "name": "Adobe Acrobat",
-            "path": "/usr/bin/acroread"
-          }]
-        }
-      }
-    }
-  }
-}
 ```

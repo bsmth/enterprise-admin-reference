@@ -22,6 +22,20 @@ Control the installation, uninstallation and locking of extensions.
 - `Uninstall` is a list of extension IDs that should be uninstalled if found.
 - `Locked` is a list of extension IDs that the user cannot disable or uninstall.
 
+## policies.json
+
+```json title="policies.json"
+{
+  "policies": {
+    "Extensions": {
+      "Install": ["https://addons.mozilla.org/firefox/downloads/somefile.xpi", "//path/to/xpi"],
+      "Uninstall": ["bad_addon_id@mozilla.org"],
+      "Locked": ["addon_id@mozilla.org"]
+    }
+  }
+}
+```
+
 ## Windows (GPO)
 
 ```
@@ -93,18 +107,4 @@ Value (string):
     </array>
   </dict>
 </dict>
-```
-
-## policies.json
-
-```json
-{
-  "policies": {
-    "Extensions": {
-      "Install": ["https://addons.mozilla.org/firefox/downloads/somefile.xpi", "//path/to/xpi"],
-      "Uninstall": ["bad_addon_id@mozilla.org"],
-      "Locked": ["addon_id@mozilla.org"]
-    }
-  }
-}
 ```

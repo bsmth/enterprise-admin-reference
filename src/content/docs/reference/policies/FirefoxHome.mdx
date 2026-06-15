@@ -10,6 +10,27 @@ Customize the Firefox Home page.
 **CCK2 Equivalent:** N/A\
 **Preferences Affected:** `browser.newtabpage.activity-stream.showSearch`, `browser.newtabpage.activity-stream.feeds.topsites`, `browser.newtabpage.activity-stream.feeds.section.highlights`, `browser.newtabpage.activity-stream.feeds.section.topstories`, `browser.newtabpage.activity-stream.feeds.snippets`, `browser.newtabpage.activity-stream.showSponsoredTopSites`, `browser.newtabpage.activity-stream.showSponsored`
 
+## policies.json
+
+```json title="policies.json"
+{
+  "policies": {
+    "FirefoxHome": {
+      "Search": true | false,
+      "TopSites": true | false,
+      "SponsoredTopSites": true | false,
+      "Highlights": true | false,
+      "Pocket": true | false,
+      "Stories": true | false,
+      "SponsoredPocket": true | false,
+      "SponsoredStories": true | false,
+      "Snippets": true | false,
+      "Locked": true | false
+    }
+  }
+}
+```
+
 ## Windows (GPO)
 
 ```
@@ -73,25 +94,4 @@ Value (string):
     <true/> | <false/>
   </dict>
 </dict>
-```
-
-## policies.json
-
-```json
-{
-  "policies": {
-    "FirefoxHome": {
-      "Search": true | false,
-      "TopSites": true | false,
-      "SponsoredTopSites": true | false,
-      "Highlights": true | false,
-      "Pocket": true | false,
-      "Stories": true | false,
-      "SponsoredPocket": true | false,
-      "SponsoredStories": true | false,
-      "Snippets": true | false,
-      "Locked": true | false
-    }
-  }
-}
 ```

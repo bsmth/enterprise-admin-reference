@@ -10,6 +10,15 @@ Enable or disable network prediction ([DNS prefetching](https://developer.mozill
 **CCK2 Equivalent:** N/A\
 **Preferences Affected:** `network.dns.disablePrefetch`, `network.dns.disablePrefetchFromHTTPS`
 
+## policies.json
+
+```json title="policies.json"
+{
+  "policies": {
+    "NetworkPrediction": true | false
+}
+```
+
 ## Windows (GPO)
 
 ```
@@ -37,13 +46,4 @@ Value (string):
   <key>NetworkPrediction</key>
   <true/> | <false/>
 </dict>
-```
-
-## policies.json
-
-```json
-{
-  "policies": {
-    "NetworkPrediction": true | false
-}
 ```

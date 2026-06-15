@@ -40,6 +40,18 @@ The following cryptographic cyphers are configurable as `CIPHER_NAME`:
 - `TLS_AES_128_GCM_SHA256` (Firefox 138, Firefox ESR 128.10)
 - `TLS_AES_256_GCM_SHA384` (Firefox 138, Firefox ESR 128.10)
 
+## policies.json
+
+```json title="policies.json"
+{
+  "policies": {
+    "DisabledCiphers": {
+      "CIPHER_NAME": true | false
+    }
+  }
+}
+```
+
 ## Windows (GPO)
 
 ```
@@ -71,16 +83,4 @@ Value (string):
       <true/> | <false/>
     </dict>
 </dict>
-```
-
-## policies.json
-
-```json
-{
-  "policies": {
-    "DisabledCiphers": {
-      "CIPHER_NAME": true | false
-    }
-  }
-}
 ```

@@ -12,6 +12,16 @@ Future versions of Firefox will not show the home button by default.
 **CCK2 Equivalent:** N/A\
 **Preferences Affected:** N/A
 
+## policies.json
+
+```json title="policies.json"
+{
+  "policies": {
+    "ShowHomeButton": true | false
+  }
+}
+```
+
 ## Windows (GPO)
 
 ```
@@ -39,14 +49,4 @@ Value (string):
   <key>ShowHomeButton</key>
   <true/> | <false/>
 </dict>
-```
-
-## policies.json
-
-```json
-{
-  "policies": {
-    "ShowHomeButton": true | false
-  }
-}
 ```

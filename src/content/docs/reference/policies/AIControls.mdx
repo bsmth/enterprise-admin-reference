@@ -32,6 +32,45 @@ All keys accept the following sub-keys:
     For on-device AI, any models already downloaded are removed.
 - `Locked`: if `true`, the user cannot change the setting.
 
+## policies.json
+
+```json title="policies.json"
+{
+  "policies": {
+    "AIControls": {
+      "Default": {
+        "Value": "available" | "blocked",
+        "Locked": true | false
+      },
+      "Translations": {
+        "Value": "available" | "blocked",
+        "Locked": true | false
+      },
+      "PDFAltText": {
+        "Value": "available" | "blocked",
+        "Locked": true | false
+      },
+      "SmartTabGroups": {
+        "Value": "available" | "blocked",
+        "Locked": true | false
+      },
+      "LinkPreviewKeyPoints": {
+        "Value": "available" | "blocked",
+        "Locked": true | false
+      },
+      "SidebarChatbot": {
+        "Value": "available" | "blocked",
+        "Locked": true | false
+      },
+      "SmartWindow": {
+        "Value": "available" | "blocked",
+        "Locked": true | false
+      }
+    }
+  }
+}
+```
+
 ## Windows (GPO)
 
 ```
@@ -108,43 +147,4 @@ Software\Policies\Mozilla\Firefox\AIControls\SmartWindow\Locked = 0x1 | 0x0
     </dict>
   </dict>
 </dict>
-```
-
-## policies.json
-
-```json
-{
-  "policies": {
-    "AIControls": {
-      "Default": {
-        "Value": "available" | "blocked",
-        "Locked": true | false
-      },
-      "Translations": {
-        "Value": "available" | "blocked",
-        "Locked": true | false
-      },
-      "PDFAltText": {
-        "Value": "available" | "blocked",
-        "Locked": true | false
-      },
-      "SmartTabGroups": {
-        "Value": "available" | "blocked",
-        "Locked": true | false
-      },
-      "LinkPreviewKeyPoints": {
-        "Value": "available" | "blocked",
-        "Locked": true | false
-      },
-      "SidebarChatbot": {
-        "Value": "available" | "blocked",
-        "Locked": true | false
-      },
-      "SmartWindow": {
-        "Value": "available" | "blocked",
-        "Locked": true | false
-      }
-    }
-  }
-}
 ```

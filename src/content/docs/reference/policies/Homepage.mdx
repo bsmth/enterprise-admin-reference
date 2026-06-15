@@ -24,6 +24,22 @@ The following members are configurable:
   - `previous-session`: Restore the previous session (all tabs and windows reopen).
   - `homepage-locked`: Always force the homepage at startup, users cannot choose session restore. (Firefox 78)
 
+## policies.json
+
+```json title="policies.json"
+{
+  "policies": {
+    "Homepage": {
+      "URL": "http://example.com/",
+      "Locked": true | false,
+      "Additional": ["http://example.org/",
+                     "http://example.edu/"],
+      "StartPage": "none" | "homepage" | "previous-session" | "homepage-locked"
+    }
+  }
+}
+```
+
 ## Windows (GPO)
 
 ```
@@ -98,20 +114,4 @@ Value (string):
     <string>none | homepage | previous-session | homepage-locked</string>
   </dict>
 </dict>
-```
-
-## policies.json
-
-```json
-{
-  "policies": {
-    "Homepage": {
-      "URL": "http://example.com/",
-      "Locked": true | false,
-      "Additional": ["http://example.org/",
-                     "http://example.edu/"],
-      "StartPage": "none" | "homepage" | "previous-session" | "homepage-locked"
-    }
-  }
-}
 ```

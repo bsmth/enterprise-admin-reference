@@ -30,6 +30,23 @@ Configure cookie preferences.
 - `RejectTracker` only rejects cookies for trackers. (_Deprecated_. Use `Behavior` instead)
 - `ExpireAtSessionEnd` determines when cookies expire. (_Deprecated_. Use [`SanitizeOnShutdown`](/reference/policies/sanitizeonshutdown/) instead)
 
+## policies.json
+
+```json title="policies.json"
+{
+  "policies": {
+    "Cookies": {
+      "Allow": ["http://example.org/"],
+      "AllowSession": ["http://example.edu/"],
+      "Block": ["http://example.edu/"],
+      "Locked": true | false,
+      "Behavior": "accept" | "reject-foreign" | "reject" | "limit-foreign" | "reject-tracker" | "reject-tracker-and-partition-foreign",
+      "BehaviorPrivateBrowsing": "accept" | "reject-foreign" | "reject" | "limit-foreign" | "reject-tracker" | "reject-tracker-and-partition-foreign"
+    }
+  }
+}
+```
+
 ## Windows (GPO)
 
 ```
@@ -146,21 +163,4 @@ Value (string):
     <string>accept | reject-foreign | reject | limit-foreign | reject-tracker | reject-tracker-and-partition-foreign</string>
   </dict>
 </dict>
-```
-
-## policies.json
-
-```json
-{
-  "policies": {
-    "Cookies": {
-      "Allow": ["http://example.org/"],
-      "AllowSession": ["http://example.edu/"],
-      "Block": ["http://example.edu/"],
-      "Locked": true | false,
-      "Behavior": "accept" | "reject-foreign" | "reject" | "limit-foreign" | "reject-tracker" | "reject-tracker-and-partition-foreign",
-      "BehaviorPrivateBrowsing": "accept" | "reject-foreign" | "reject" | "limit-foreign" | "reject-tracker" | "reject-tracker-and-partition-foreign"
-    }
-  }
-}
 ```

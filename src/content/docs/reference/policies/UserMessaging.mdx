@@ -21,6 +21,24 @@ Prevent Firefox from messaging the user in certain situations.
 - `FirefoxLabs`: If `false`, don't show the "Firefox Labs" section in Preferences. (Firefox 130.0.1)
 - `Locked`: Prevents the user from changing user messaging preferences.
 
+## policies.json
+
+```json title="policies.json"
+{
+  "policies": {
+    "UserMessaging": {
+      "ExtensionRecommendations": true | false,
+      "FeatureRecommendations": true | false,
+      "UrlbarInterventions": true | false,
+      "SkipOnboarding": true | false,
+      "MoreFromMozilla": true | false,
+      "FirefoxLabs": true | false,
+      "Locked": true | false
+    }
+  }
+}
+```
+
 ## Windows (GPO)
 
 ```
@@ -75,22 +93,4 @@ Value (string):
     <true/> | <false/>
   </dict>
 </dict>
-```
-
-## policies.json
-
-```json
-{
-  "policies": {
-    "UserMessaging": {
-      "ExtensionRecommendations": true | false,
-      "FeatureRecommendations": true | false,
-      "UrlbarInterventions": true | false,
-      "SkipOnboarding": true | false,
-      "MoreFromMozilla": true | false,
-      "FirefoxLabs": true | false,
-      "Locked": true | false
-    }
-  }
-}
 ```

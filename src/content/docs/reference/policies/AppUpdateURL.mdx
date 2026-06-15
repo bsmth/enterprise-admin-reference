@@ -10,6 +10,16 @@ Change the URL for application update if you are providing Firefox updates from 
 **CCK2 Equivalent:** N/A\
 **Preferences Affected:** `app.update.url`
 
+## policies.json
+
+```json title="policies.json"
+{
+  "policies": {
+    "AppUpdateURL": "https://yoursite.com"
+  }
+}
+```
+
 ## Windows (GPO)
 
 ```
@@ -38,14 +48,4 @@ Value (string):
   <key>AppUpdateURL</key>
   <string>https://yoursite.com</string>
 </dict>
-```
-
-## policies.json
-
-```json
-{
-  "policies": {
-    "AppUpdateURL": "https://yoursite.com"
-  }
-}
 ```

@@ -119,6 +119,30 @@ See the examples below for more detail.
 > [!WARNING]
 > Make sure you're only setting a particular preference using this mechanism and not some other way.
 
+## policies.json
+
+```json title="policies.json"
+{
+  "policies": {
+    "Preferences": {
+      "accessibility.force_disabled": {
+        "Value": 1,
+        "Status": "default"
+        "Type": "number"
+      },
+      "browser.cache.disk.parent_directory": {
+        "Value": "SOME_NATIVE_PATH",
+        "Status": "user"
+      },
+      "browser.tabs.warnOnClose": {
+        "Value": false,
+        "Status": "locked"
+      }
+    }
+  }
+}
+```
+
 ## Windows (GPO)
 
 Software\Policies\Mozilla\Firefox\Preferences (REG_MULTI_SZ) =
@@ -218,30 +242,6 @@ Value (string):
     </dict>
   </dict>
 </dict>
-```
-
-## policies.json
-
-```json
-{
-  "policies": {
-    "Preferences": {
-      "accessibility.force_disabled": {
-        "Value": 1,
-        "Status": "default"
-        "Type": "number"
-      },
-      "browser.cache.disk.parent_directory": {
-        "Value": "SOME_NATIVE_PATH",
-        "Status": "user"
-      },
-      "browser.tabs.warnOnClose": {
-        "Value": false,
-        "Status": "locked"
-      }
-    }
-  }
-}
 ```
 
 ## See also
