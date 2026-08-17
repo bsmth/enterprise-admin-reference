@@ -4,7 +4,15 @@ description: "Enable or disable visual search."
 category: "Search"
 ---
 
-**Compatibility:** Firefox 144\
+Enable or disable visual search.
+
+Visual search lets users search the web using an image on the page instead of typing a query, through [Google Lens](https://support.mozilla.org/en-US/kb/search-web-images-firefox-google-lens) in the context menu.
+It is only offered when Google is the default search engine, so removing Google with the [`SearchEngines`](/reference/policies/searchengines/) policy also takes the feature away.
+
+## Compatibility
+
+<PolicyCompat policy="VisualSearchEnabled" />
+
 **CCK2 Equivalent:** N/A\
 **Preferences Affected:** `browser.search.visualSearch.featureGate`
 
@@ -36,7 +44,7 @@ Value (string):
 
 ```xml
 <dict>
-    <key>VisualSearchEnabled</key>
+  <key>VisualSearchEnabled</key>
   <true/> | <false/>
 </dict>
 ```

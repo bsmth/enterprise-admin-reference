@@ -4,29 +4,23 @@ description: "Fine grained control over policies for specific sites."
 category: "Browsing restrictions"
 ---
 
-Defines policies scoped to specific sites.
+Fine grained control over policies for specific sites.
 
-**Compatibility:** Firefox 150, Firefox ESR 153\
+Use this to harden or restrict individual sites rather than the whole browser, for example turning the JIT engine off on untrusted sites or requiring HTTPS for a set of internal hosts.
+Each rule applies only to the sites it matches, so you can tighten the browser where it matters without changing behavior everywhere else.
+
+## Compatibility
+
+<PolicyCompat policy="SitePolicies" />
+
+**CCK2 Equivalent:** N/A\
 **Preferences Affected:** N/A
 
-The policy is made up of a list of rules that are evaluated in order.
-Each can contain:
+## Examples
 
-- `Match` is a list of sites.
-  An empty list or missing property means to match all sites.
-- `Exceptions` is also a list of sites which when matched bypasses this set of rules.
-- `Policies` is an object defining the policies.
+<PolicyExample policy="SitePolicies" />
 
-Currently the only supported policies are:
-
-- `DisableJit` disables the JIT engine for the site when `true`.
-
-  > [!WARNING]
-  > When the JIT engine is disabled, some sites may be slow, experience breakages, and WebAssembly won't be executed.
-  > Be sure to scope `DisableJit` as narrowly as possible using `Match` patterns, or via exemptions using `Exceptions`.
-
-It is important to note that a site here refers to a registerable domain so `*.example.com` is a valid site but `*.com` is not. `*` can also be used to refer to all sites.
-
+A wildcard `*` can be used to refer to all sites.
 For example this setting would disable the JIT for only `*.example.com`:
 
 ```json
@@ -53,9 +47,29 @@ While this setting would disable the JIT on every site except `*.example.org`:
 ]
 ```
 
-## Examples
+## Values
 
-<PolicyExample policy="SitePolicies" />
+The policy is made up of a list of rules that are evaluated in order.
+Each rule can contain:
+
+- `Match`: a list of sites.
+  An empty list or missing property means to match all sites.
+- `Exceptions`: a list of sites which when matched bypasses this set of rules.
+- `Policies`: an object defining the site policies.
+
+> [!NOTE]
+> A "site" refers to a registerable domain, so `*.example.com` is a valid site but `*.com` is not.
+
+Currently the supported site policies are:
+
+- `DisableJit` disables the JIT engine for the site when `true`.
+
+  > [!WARNING]
+  > When the JIT engine is disabled, some sites may be slow, experience breakages, and WebAssembly won't be executed.
+  > Be sure to scope `DisableJit` as narrowly as possible using `Match` patterns, or via exemptions using `Exceptions`.
+
+- `HttpsOnly` stops the site from being loaded over plain HTTP when `true`.
+  When it is `false`, HTTP is explicitly allowed for the site, which is how you carve a site out of a broader rule.
 
 ## Windows (GPO)
 
@@ -66,7 +80,7 @@ Software\Policies\Mozilla\Firefox\SitePolicies (REG_MULTI_SZ) =
     "Exceptions": ["*.example.com"],
     "Policies": {
       "DisableJit": true
-    },
+    }
   }
 ]
 ```
@@ -88,7 +102,7 @@ Value (string):
     "Exceptions": ["*.example.com"],
     "Policies": {
       "DisableJit": true
-    },
+    }
   }
 ]'/>
 ```
@@ -113,3 +127,7 @@ Value (string):
   </array>
 </dict>
 ```
+
+## See also
+
+- [`HttpsOnlyMode`](/reference/policies/httpsonlymode/) policy covers all browsing and can be configured to let the user turn it off.
