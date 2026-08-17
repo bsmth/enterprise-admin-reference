@@ -6,13 +6,18 @@ category: "Startup"
 
 Prevent Firefox from launching automatically when the user logs in, and prevent the user from enabling this setting.
 
-> [!NOTE]
-> This policy is only available on Windows.
-
 When the policy is set to `true`, Firefox removes any existing launch-on-login entry and hides the **Open Firefox automatically when your computer starts up** checkbox under **Settings > General > Startup**.
 Setting the policy to `false` has no effect.
 
-**Compatibility:** Firefox 155 (Windows only)\
+> [!NOTE]
+> This policy is currently only available on Windows.
+
+## Compatibility
+
+<PolicyCompat policy="DisableLaunchOnLogin" />
+
+Windows only.
+
 **CCK2 Equivalent:** N/A\
 **Preferences Affected:** `browser.startup.windowsLaunchOnLogin.enabled`
 
