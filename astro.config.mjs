@@ -28,6 +28,7 @@ export default defineConfig({
     "/reference/policies/searchengines--remove/": "/reference/policies/searchengines/",
     "/reference/policies/securitydevices--deprecated/": "/reference/policies/securitydevices/",
     "/reference/policies/disablepocket_deprecated_/": "/reference/policies/disablepocket/",
+    "/changelog/": "/release-notes/",
   },
   devToolbar: {
     enabled: false,
@@ -85,6 +86,8 @@ gtag('config', 'G-LMXJXH34WG');`,
         : [],
       lastUpdated: true,
       plugins: [starlightGitHubAlerts(), starlightChangelogs(), starlightLinksValidator()],
+      // Gives each generated release note page its own title.
+      routeMiddleware: "./src/starlightRouteData.ts",
       sidebar: [
         {
           label: "Reference",
@@ -99,13 +102,18 @@ gtag('config', 'G-LMXJXH34WG');`,
           items: [{ label: "Support", slug: "support" }],
         },
         {
-          label: "Changelog",
+          label: "Release notes",
           items: [
             ...makeChangelogsSidebarLinks([
               {
+                type: "all",
+                base: "release-notes",
+                label: "All releases",
+              },
+              {
                 type: "recent",
-                base: "changelog",
-                count: 10,
+                base: "release-notes",
+                count: 6,
               },
             ]),
           ],
