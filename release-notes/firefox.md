@@ -31,6 +31,14 @@ Firefox ESR 153 is the current ESR.
 - Locking legacy preferences such as `pref.general.disable_button.default_browser` didn't disable the corresponding controls in Firefox Settings, following the Settings rewrite. ([bug 2056928](https://bugzil.la/2056928), [bug 2055887](https://bugzil.la/2055887))
 - Firefox reported that it could pin itself to the taskbar when Windows Group Policy blocked pinning. Firefox 155 only. ([bug 2059920](https://bugzil.la/2059920))
 
+### Known issues
+
+- Some sites may load slowly or fail to load on networks that block UDP.
+  This can affect corporate networks where a proxy or firewall blocks QUIC as part of TLS inspection.
+  To work around it, set `network.http.happy_eyeballs_enabled` to `false` with the [`Preferences`](/reference/policies/preferences/) policy.
+  A fix is planned for the next dot release.
+  Does not apply to the ESR. ([bug 2063452](https://bugzil.la/2063452))
+
 ## 154
 
 _Released 18 August 2026._
