@@ -1,0 +1,41 @@
+---
+title: "EnterpriseStorageEncryption"
+description: "Enable an enterprise-managed primary password so that stored credentials and other sensitive profile data are encrypted at rest."
+category: "Password manager"
+---
+
+Enable an enterprise-managed primary password to encrypt stored credentials and other sensitive profile data at rest.
+
+When enabled, Firefox retrieves a primary secret at startup and uses it to unlock its internal security token.
+The secret is managed for the profile rather than chosen or entered by the user.
+Data protected by that token is encrypted at rest using the secret, including:
+
+- **Saved logins.** Both the username and the password of each entry in `logins.json`.
+- **Private keys in `key4.db`.** Client certificate keys and any other key material held in the software security device.
+- **Saved payment methods on some platforms.** Card data is encrypted with the operating system keystore, which is [Keychain](https://developer.apple.com/documentation/security/keychain-services) on macOS and [Credential Manager](https://support.microsoft.com/en-US/Windows/Security/credential-manager-in-windows) on Windows.
+  Neither is affected by this policy.
+  On Linux without `libsecret`, and on platforms with no OS keystore, Firefox falls back to the internal security token, so this policy covers card data there.
+
+:::caution[Limitation]
+If the primary secret cannot be retrieved, or the security token cannot be unlocked with it, Firefox quits during startup rather than running against a profile it cannot decrypt.
+:::
+
+This policy does not affect **browsing data** such as history, cookies, or form history.
+That data lives in the profile's SQLite databases, which have their own encryption controlled by `security.storage.encryption.sqlite.enabled`.
+The `security.storage.encryption.sqlite.enabled` preference is enabled by default in Firefox Enterprise and is not configurable by policy.
+Setting `security.storage.encryption.sqlite.enabled` manually to `false` on a profile whose databases are already encrypted will corrupt them.
+
+## Compatibility
+
+<PolicyCompat policy="EnterpriseStorageEncryption" />
+
+**CCK2 Equivalent:** N/A\
+**Preferences Affected:** `security.storage.encryption.enabled`
+
+## Examples
+
+<PolicyExample policy="EnterpriseStorageEncryption" />
+
+## See also
+
+- [`PrimaryPassword`](/reference/policies/primarypassword/) policy requires a primary password that the user sets themselves.

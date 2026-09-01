@@ -37,6 +37,7 @@ Jamf
 jnlp
 knowledgebase
 ksecdd
+libsecret
 localfilelinks
 managedfirefox
 mathml
