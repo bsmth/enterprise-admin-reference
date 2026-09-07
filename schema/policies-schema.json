@@ -1171,7 +1171,7 @@
           "type": "boolean",
           "x-compatibility": {
             "firefox": { "version_added": "63" },
-            "firefox_esr": { "version_added": "unknown" },
+            "firefox_esr": { "version_added": "68" },
             "firefox_enterprise": { "version_added": "149" }
           }
         },
@@ -2011,7 +2011,7 @@
           "type": "boolean",
           "x-compatibility": {
             "firefox": { "version_added": "124" },
-            "firefox_esr": { "version_added": "unknown" },
+            "firefox_esr": { "version_added": "128" },
             "firefox_enterprise": { "version_added": "149" }
           }
         },
@@ -2098,7 +2098,7 @@
           "type": "boolean",
           "x-compatibility": {
             "firefox": { "version_added": "112" },
-            "firefox_esr": { "version_added": "unknown" },
+            "firefox_esr": { "version_added": "115" },
             "firefox_enterprise": { "version_added": "149" }
           }
         },
@@ -2142,16 +2142,16 @@
         "BaselineExceptions": {
           "type": "boolean",
           "x-compatibility": {
-            "firefox": { "version_added": "145" },
-            "firefox_esr": { "version_added": "unknown" },
+            "firefox": { "version_added": "143" },
+            "firefox_esr": { "version_added": "153" },
             "firefox_enterprise": { "version_added": "149" }
           }
         },
         "ConvenienceExceptions": {
           "type": "boolean",
           "x-compatibility": {
-            "firefox": { "version_added": "145" },
-            "firefox_esr": { "version_added": "unknown" },
+            "firefox": { "version_added": "143" },
+            "firefox_esr": { "version_added": "153" },
             "firefox_enterprise": { "version_added": "149" }
           }
         }
@@ -2542,7 +2542,7 @@
           "x-compatibility": {
             "firefox": { "version_added": "152" },
             "firefox_esr": { "version_added": "140.12.0" },
-            "firefox_enterprise": { "version_added": "unknown" }
+            "firefox_enterprise": { "version_added": "152" }
           }
         },
         "TopSites": {
@@ -2566,7 +2566,7 @@
           "type": "boolean",
           "x-compatibility": {
             "firefox": { "version_added": "141" },
-            "firefox_esr": { "version_added": "unknown" },
+            "firefox_esr": { "version_added": "140.1.0" },
             "firefox_enterprise": { "version_added": "149" },
             "notes": "Replaces `Pocket`."
           }
@@ -2584,16 +2584,16 @@
           "type": "boolean",
           "x-compatibility": {
             "firefox": { "version_added": "141" },
-            "firefox_esr": { "version_added": "unknown" },
+            "firefox_esr": { "version_added": "140.1.0" },
             "firefox_enterprise": { "version_added": "149" },
-            "notes": "Obsoletes `SponsoredPocket` in Firefox 141.."
+            "notes": "Obsoletes `SponsoredPocket` in Firefox 141."
           }
         },
         "Snippets": {
           "type": "boolean",
           "x-compatibility": {
-            "firefox": { "version_added": "unknown", "version_removed": "122" },
-            "firefox_esr": { "version_added": "unknown" },
+            "firefox": { "version_added": "68", "version_removed": "122" },
+            "firefox_esr": { "version_added": "68", "version_removed": "128" },
             "firefox_enterprise": { "version_added": false },
             "notes": "Deprecated in Firefox 122."
           }
@@ -2602,8 +2602,8 @@
           "type": "object",
           "x-compatibility": {
             "firefox": { "version_added": "156" },
-            "firefox_esr": { "version_added": "unknown" },
-            "firefox_enterprise": { "version_added": "unknown" }
+            "firefox_esr": { "version_added": false },
+            "firefox_enterprise": { "version_added": "156" }
           },
           "properties": {
             "Enabled": {
@@ -2880,7 +2880,7 @@
               "const": "homepage-locked",
               "x-compatibility": {
                 "firefox": { "version_added": "78" },
-                "firefox_esr": { "version_added": "unknown" },
+                "firefox_esr": { "version_added": "78" },
                 "firefox_enterprise": { "version_added": "149" },
                 "notes": "Enum value, not a property."
               },
@@ -2894,7 +2894,7 @@
           "x-compatibility": {
             "firefox": { "version_added": "153" },
             "firefox_esr": { "version_added": "153" },
-            "firefox_enterprise": { "version_added": "unknown" }
+            "firefox_enterprise": { "version_added": "153" }
           }
         }
       }
@@ -3130,8 +3130,8 @@
                   "$ref": "#/definitions/url",
                   "x-compatibility": {
                     "firefox": { "version_added": "152" },
-                    "firefox_esr": { "version_added": "unknown" },
-                    "firefox_enterprise": { "version_added": "unknown" }
+                    "firefox_esr": { "version_added": "153" },
+                    "firefox_enterprise": { "version_added": "152" }
                   }
                 },
                 "name": {
@@ -3159,8 +3159,8 @@
             "$ref": "#/definitions/url",
             "x-compatibility": {
               "firefox": { "version_added": "152" },
-              "firefox_esr": { "version_added": "unknown" },
-              "firefox_enterprise": { "version_added": "unknown" }
+              "firefox_esr": { "version_added": "153" },
+              "firefox_enterprise": { "version_added": "152" }
             }
           },
           "name": {
@@ -4026,12 +4026,7 @@
           "type": "boolean"
         },
         "History": {
-          "type": "boolean",
-          "x-compatibility": {
-            "firefox": { "version_added": "128" },
-            "firefox_esr": { "version_added": "unknown" },
-            "firefox_enterprise": { "version_added": "149" }
-          }
+          "type": "boolean"
         },
         "Sessions": {
           "type": "boolean"
@@ -4054,8 +4049,8 @@
           "type": "array",
           "x-compatibility": {
             "firefox": { "version_added": "154" },
-            "firefox_esr": { "version_added": "unknown" },
-            "firefox_enterprise": { "version_added": "unknown" }
+            "firefox_esr": { "version_added": "153.1.0" },
+            "firefox_enterprise": { "version_added": "154" }
           },
           "items": { "$ref": "#/definitions/origin" }
         }
@@ -4138,15 +4133,15 @@
               "Encoding": {
                 "type": "string",
                 "x-compatibility": {
-                  "firefox": { "version_added": "91" },
-                  "firefox_esr": { "version_added": "unknown" },
+                  "firefox": { "version_added": "139" },
+                  "firefox_esr": { "version_added": "91" },
                   "firefox_enterprise": { "version_added": "149" }
                 }
               },
               "Method": {
                 "type": "string",
                 "x-compatibility": {
-                  "firefox": { "version_added": "unknown" },
+                  "firefox": { "version_added": "139" },
                   "firefox_esr": { "version_added": "68" },
                   "firefox_enterprise": { "version_added": "149" },
                   "notes": "`POST` support."
@@ -4170,7 +4165,7 @@
               "PostData": {
                 "type": "string",
                 "x-compatibility": {
-                  "firefox": { "version_added": "unknown" },
+                  "firefox": { "version_added": "139" },
                   "firefox_esr": { "version_added": "68" },
                   "firefox_enterprise": { "version_added": "149" },
                   "notes": "`POST` support."
@@ -4226,7 +4221,7 @@
         "Remove": {
           "type": "array",
           "x-compatibility": {
-            "firefox": { "version_added": "unknown" },
+            "firefox": { "version_added": "139" },
             "firefox_esr": { "version_added": "60.2.0" },
             "firefox_enterprise": { "version_added": "149" }
           },
