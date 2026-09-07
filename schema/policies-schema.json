@@ -39,7 +39,7 @@
       "type": "object",
       "x-category": "Security",
       "x-compatibility": {
-        "firefox": { "version_added": "68" },
+        "firefox": { "version_added": "67" },
         "firefox_esr": { "version_added": "68" },
         "firefox_enterprise": { "version_added": "149" }
       },
@@ -666,7 +666,7 @@
       "type": "boolean",
       "x-category": "Device update settings",
       "x-compatibility": {
-        "firefox": { "version_added": "90" },
+        "firefox": { "version_added": "88" },
         "firefox_esr": { "version_added": "91" },
         "firefox_enterprise": { "version_added": "149" }
       },
@@ -783,7 +783,7 @@
       "type": ["boolean", "object"],
       "x-category": "Security",
       "x-compatibility": {
-        "firefox": { "version_added": "146" },
+        "firefox": { "version_added": "145" },
         "firefox_esr": { "version_added": "153" },
         "firefox_enterprise": { "version_added": "149" }
       },
@@ -845,7 +845,7 @@
           "type": "array",
           "x-compatibility": {
             "firefox": { "version_added": "64" },
-            "firefox_esr": { "version_added": "64" },
+            "firefox_esr": { "version_added": "60.4.0" },
             "firefox_enterprise": { "version_added": "149" }
           },
           "items": {
@@ -1552,7 +1552,7 @@
       "x-category": "Miscellaneous",
       "x-compatibility": {
         "firefox": { "version_added": "75" },
-        "firefox_esr": { "version_added": "68.7.0" },
+        "firefox_esr": { "version_added": "78" },
         "firefox_enterprise": { "version_added": "149" }
       },
       "x-restart-required": true,
@@ -2106,7 +2106,7 @@
           "type": "boolean",
           "x-compatibility": {
             "firefox": { "version_added": "142" },
-            "firefox_esr": { "version_added": "140.2.0" },
+            "firefox_esr": { "version_added": "140.1.0" },
             "firefox_enterprise": { "version_added": "149" }
           }
         },
@@ -2122,8 +2122,8 @@
         "Category": {
           "type": "string",
           "x-compatibility": {
-            "firefox": { "version_added": "142" },
-            "firefox_esr": { "version_added": "140.2.0" },
+            "firefox": { "version_added": "141" },
+            "firefox_esr": { "version_added": "140.1.0" },
             "firefox_enterprise": { "version_added": "149" }
           },
           "oneOf": [
@@ -2277,8 +2277,8 @@
       "type": "object",
       "x-category": "Extensions",
       "x-compatibility": {
-        "firefox": { "version_added": "69" },
-        "firefox_esr": { "version_added": "68.1.0" },
+        "firefox": { "version_added": "68" },
+        "firefox_esr": { "version_added": "68" },
         "firefox_enterprise": { "version_added": "149" },
         "notes": "Since Firefox 85 and Firefox ESR 78.7, installing a theme makes it the default."
       },
@@ -2817,8 +2817,8 @@
       "type": "boolean",
       "x-category": "Miscellaneous",
       "x-compatibility": {
-        "firefox": { "version_added": "60" },
-        "firefox_esr": { "version_added": "60" },
+        "firefox": { "version_added": "62" },
+        "firefox_esr": { "version_added": "60.2.0" },
         "firefox_enterprise": { "version_added": "149" }
       },
       "x-restart-required": true,
@@ -2856,7 +2856,7 @@
         "StartPage": {
           "type": "string",
           "x-compatibility": {
-            "firefox": { "version_added": "60" },
+            "firefox": { "version_added": "64" },
             "firefox_esr": { "version_added": "60.4.0" },
             "firefox_enterprise": { "version_added": "149" }
           },
@@ -2980,9 +2980,9 @@
       "type": "boolean",
       "x-category": "Network security",
       "x-compatibility": {
-        "firefox": { "version_added": "149" },
+        "firefox": { "version_added": "150" },
         "firefox_esr": { "version_added": "153" },
-        "firefox_enterprise": { "version_added": "149" }
+        "firefox_enterprise": { "version_added": "150" }
       },
       "x-restart-required": true,
       "description": "Control whether Firefox's built-in IP Protection (VPN) is available to users. When disabled, the feature is turned off and cannot be used.",
@@ -3091,7 +3091,7 @@
     "ManagedBookmarks": {
       "x-category": "Bookmarks",
       "x-compatibility": {
-        "firefox": { "version_added": "83" },
+        "firefox": { "version_added": "82" },
         "firefox_esr": { "version_added": "78.5.0" },
         "firefox_enterprise": { "version_added": "149" }
       },
@@ -3332,7 +3332,7 @@
       "x-category": "Printing",
       "x-compatibility": {
         "firefox": { "version_added": "77" },
-        "firefox_esr": { "version_added": "68.9.0" },
+        "firefox_esr": { "version_added": "78" },
         "firefox_enterprise": { "version_added": "149" }
       },
       "x-restart-required": true,
@@ -3425,12 +3425,7 @@
               "type": "boolean"
             },
             "Locked": {
-              "type": "boolean",
-              "x-compatibility": {
-                "firefox": { "version_added": "76" },
-                "firefox_esr": { "version_added": "68.8.0" },
-                "firefox_enterprise": { "version_added": "149" }
-              }
+              "type": "boolean"
             }
           }
         },
@@ -3449,12 +3444,7 @@
               "type": "boolean"
             },
             "Locked": {
-              "type": "boolean",
-              "x-compatibility": {
-                "firefox": { "version_added": "76" },
-                "firefox_esr": { "version_added": "68.8.0" },
-                "firefox_enterprise": { "version_added": "149" }
-              }
+              "type": "boolean"
             }
           }
         },
@@ -3524,12 +3514,7 @@
               "type": "boolean"
             },
             "Locked": {
-              "type": "boolean",
-              "x-compatibility": {
-                "firefox": { "version_added": "76" },
-                "firefox_esr": { "version_added": "68.8.0" },
-                "firefox_enterprise": { "version_added": "149" }
-              }
+              "type": "boolean"
             }
           }
         },
@@ -3548,12 +3533,7 @@
               "type": "boolean"
             },
             "Locked": {
-              "type": "boolean",
-              "x-compatibility": {
-                "firefox": { "version_added": "76" },
-                "firefox_esr": { "version_added": "68.8.0" },
-                "firefox_enterprise": { "version_added": "149" }
-              }
+              "type": "boolean"
             }
           }
         },
@@ -3939,9 +3919,9 @@
       "type": "object",
       "x-category": "Miscellaneous",
       "x-compatibility": {
-        "firefox": { "version_added": "150" },
+        "firefox": { "version_added": "151" },
         "firefox_esr": { "version_added": "153" },
-        "firefox_enterprise": { "version_added": "150" }
+        "firefox_enterprise": { "version_added": "151" }
       },
       "x-restart-required": true,
       "description": "Control relaunch behavior.",
