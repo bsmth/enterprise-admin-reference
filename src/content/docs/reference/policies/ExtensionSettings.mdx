@@ -57,7 +57,7 @@ For each extension, you can provide the following fields:
     `https://releases.mozilla.org/pub/firefox/releases/VERSION/PLATFORM/xpi/LANGUAGE.xpi`
     (for example, `https://releases.mozilla.org/pub/firefox/releases/111.0.1/win64/xpi/en-US.xpi`).
     These URLs can be used as `install_url` values for managing language pack installation.
-- `blocked_install_message`: A string specifying the error message to display to users if they're blocked from installing an extension. Use this to direct users to help desk or to explain directly why an extension is blocked.
+- `blocked_install_message`: A string that Firefox appends to its standard error message when a user is blocked from installing an extension. Use this to direct users to your help desk or explain why an extension is blocked.
 - `runtime_blocked_hosts`: (Firefox 153) An array of hosts, specified as [match patterns](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Match_patterns), on which the extension is not allowed to run.
   This blocks the extension from injecting [content scripts](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Content_scripts) into, or sending requests to, matching hosts. Match patterns must not contain a path component (for example, `*://*.example.com` is valid, but `*://*.example.com/*` is not).
 - `runtime_allowed_hosts`: (Firefox 153) An array of hosts (as match patterns) on which the extension is allowed to run, overriding any matching entries in `runtime_blocked_hosts`. The same path restriction applies.
@@ -86,7 +86,7 @@ The following exceptions apply to every extension, even if it has its own entry:
 - `runtime_blocked_hosts` and `runtime_allowed_hosts`, unless the extension's own entry sets either one.
   If it does, the extension's own host lists replace the `*` lists entirely.
 
-These settings work as described in [Extensions by ID](#extensions-by-id) above, and apply to every extension that doesn't have its own entry:
+These fields are also supported in `*`, and work as described in [Extensions by ID](#extensions-by-id) above:
 
 - `installation_mode`: May be only `allowed` or `blocked` as described above. The `force_installed` and `normal_installed` values aren't supported as they don't make sense to apply as defaults without an extension ID.
 - `blocked_install_message`
@@ -132,7 +132,7 @@ The `install_url` is optional for extensions hosted on `addons.mozilla.org`, so 
 
 ### Default extension settings and overriding
 
-If an extension has its own entry, the default extension settings aren't applied.
+A per-extension entry replaces the default `blocked_permissions` setting.
 For example, with this configuration the `geolocation` permission is blocked for all extensions except uBlock Origin, because uBlock Origin has its own entry without `blocked_permissions`:
 
 ```json
@@ -150,7 +150,7 @@ For example, with this configuration the `geolocation` permission is blocked for
 }
 ```
 
-To block the `geolocation` permission for uBlock Origin too, repeat `blocked_permissions` in its entry:
+To retain those restrictions for uBlock Origin, repeat `blocked_permissions` in its entry:
 
 ```json
 {
@@ -193,7 +193,7 @@ With this configuration, uBlock Origin is force-installed, users can choose to i
 ```
 
 Only per-ID entries override a blocked `*`.
-Any entry for an extension ID allows that extension, even one that doesn't set `installation_mode`.
+A per-extension entry without `installation_mode` defaults to `allowed`, overriding a blocked `*` configuration.
 Adding `install_sources` or `allowed_types` to `*` doesn't allow any other extensions to be installed.
 
 ### Allowing only themes, dictionaries, and language packs
