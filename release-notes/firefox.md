@@ -5,20 +5,16 @@
 
 ## 158 - 2026-10-13
 
-_Upcoming, not yet released._
-
 These changes apply to Firefox 158 and Firefox ESR 153.5.0 unless explicitly stated.
 Firefox ESR 153 is the current ESR.
 
 ### New in Firefox 158
 
-- [`ClearOnShutdown`](/reference/policies/clearonshutdown/): Clear browsing data when the browser closes.
-  Supersedes `SanitizeOnShutdown`, which is ignored when both are set. ([bug 2040977](https://bugzil.la/2040977))
+- [`RelaunchRequired`](/reference/policies/relaunchrequired/): Require Firefox to be relaunched within a given period and notify the user of the upcoming relaunch.
 
 ### New in Firefox ESR 153.5.0
 
-- [`ClearOnShutdown`](/reference/policies/clearonshutdown/): Clear browsing data when the browser closes.
-  Supersedes `SanitizeOnShutdown`, which is ignored when both are set. ([bug 2040977](https://bugzil.la/2040977))
+- [`RelaunchRequired`](/reference/policies/relaunchrequired/): Require Firefox to be relaunched within a given period and notify the user of the upcoming relaunch.
 
 ### Changes
 
@@ -37,7 +33,6 @@ Firefox ESR 153 is the current ESR.
 ### Fixes
 
 - Policy URL fields rejected some valid URLs, such as internationalized domain names, non-ASCII paths and URLs containing spaces. ([bug 2067819](https://bugzil.la/2067819))
-- [`SanitizeOnShutdown`](/reference/policies/sanitizeonshutdown/): When the policy turned clearing on, Manage Exceptions and the category settings in Firefox Settings were disabled too, even for categories the policy left unset.
   Firefox 158 only. ([bug 2065295](https://bugzil.la/2065295))
 - [`DisableFirefoxAccounts`](/reference/policies/disablefirefoxaccounts/): The toolbar could report a signed-in account when accounts were disabled.
   Firefox 158 only. ([bug 2066062](https://bugzil.la/2066062))
